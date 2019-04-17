@@ -98,3 +98,17 @@ Uwaga z tym XD usuwanie folderu z githuba jak coś wpakujesz przez przypadek:
 git rm -r --cached FolderName
 git commit -m "Removed folder from repository"
 git push origin master
+
+
+Lista komend:
+start:
+	git init
+	git remote add origin 'https://github.com/JeLLek1/simulation.git'
+Przy każdym siąściu sobie:
+	git pull - pobieranie zdanego repo 
+	git merge origin/master - łączenie mastera lokalnego z tym zdalnym
+Wysyłanie zmian:
+	git status-sprawdza jeszcze co zmieniłeś
+	git add . -dodaje wszystko do poczekalni
+	git commit -dodaje wszystko do repo lokalnego
+	git push - i wysłanie do zdalnego repo
