@@ -92,3 +92,9 @@ Repozytorium zdalne:
 		--allow-unrelated-histories - takie tam XD żeby pozwoliło mi połączyć bez czepiania się
 	git pull - pobranie zmian na obecnej gałęzi?
 .gitignore - plik z ignorowanymi plikami
+
+
+Uwaga z tym XD usuwanie folderu z githuba jak coś wpakujesz przez przypadek:
+git rm -r --cached FolderName
+git commit -m "Removed folder from repository"
+git push origin master
