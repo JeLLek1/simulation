@@ -85,7 +85,7 @@ Repozytorium zdalne:
 	np inny komputer albo katalog albo github
 	
 	git remote add origin 'link' - to zostanie podane już po linku
-	git pusch - wysłanie zmian z lokalnego do zdalnego repo
+	git push - wysłanie zmian z lokalnego do zdalnego repo
 		-u origin master - obecna gałąź zostanie połączona z tą na którą chcemy wysłać czyli tu master
 	git fetch - pobranie zmian z zdalnego do lokalnego repo
 
