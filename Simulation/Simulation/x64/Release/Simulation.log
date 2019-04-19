@@ -1,6 +1,8 @@
 ﻿  pch.cpp
   Simulation.cpp
   Trwa generowanie kodu
-  All 33 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  33 of 33 functions (100.0%) were compiled.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
-  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Release\Simulation.exe
+  Simulation.vcxproj -> C:\Project\Simulation\x64\Release\Simulation.exe

@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-﻿  Simulation.cpp
+﻿  LINK : nie znaleziono elementu C:\Project\Simulation\x64\Debug\Simulation.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
   Simulation.vcxproj -> C:\Project\Simulation\x64\Debug\Simulation.exe
-=======
-﻿  pch.cpp
-  Simulation.cpp
-  LINK : nie znaleziono elementu C:\Users\JeLLek\Desktop\programowanie\testgit\Simulation\x64\Debug\Simulation.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
-  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\testgit\Simulation\x64\Debug\Simulation.exe
->>>>>>> origin/master
