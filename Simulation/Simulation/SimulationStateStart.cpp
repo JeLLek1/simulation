@@ -2,12 +2,12 @@
 
 #include "pch.h"
 #include "SimulationState.h"
-#include "SimulationStateMenu.h"
 #include "SimulationStateStart.h"
+#include "SimulationStateEditor.h"
 
-void SimulationStateStart::loadMenu()
+void SimulationStateStart::loadSimulation()
 {
-	this->simulation->pushState(new SimulationStateMenu(this->simulation));
+	this->simulation->pushState(new SimulationStateEditor(this->simulation));
 
 	return;
 }
@@ -55,7 +55,7 @@ void SimulationStateStart::handleInput()
 				if (event.key.code == sf::Keyboard::Escape)
 					this->simulation->window.close();
 				else if (event.key.code == sf::Keyboard::Space)
-					this->loadMenu();
+					this->loadSimulation();
 				break;
 			}
 			default: 

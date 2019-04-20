@@ -161,7 +161,6 @@
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationState.h" />
     <ClInclude Include="SimulationStateEditor.h" />
-    <ClInclude Include="SimulationStateMenu.h" />
     <ClInclude Include="SimulationStateStart.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
@@ -176,7 +175,6 @@
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="SimulationState.cpp" />
     <ClCompile Include="SimulationStateEditor.cpp" />
-    <ClCompile Include="SimulationStateMenu.cpp" />
     <ClCompile Include="SimulationStateStart.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>

@@ -11,7 +11,7 @@ private:
 	
 	sf::View view;
 
-	void loadMenu();
+	void loadSimulation();
 
 public:
 	

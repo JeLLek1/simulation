@@ -13,7 +13,6 @@
 
 void Simulation::loadTextures()
 {
-	texmgr.loadTexture("background", "background.png"); 
 	texmgr.loadTexture("menuBackground", "menuBackground.png");
 }
 
@@ -85,7 +84,7 @@ Simulation::Simulation()
 	this->window.create(sf::VideoMode(800, 600), "Simple Simulation");
 	this->window.setFramerateLimit(60);
 
-	this->background.setTexture(this->texmgr.getRef("background"));
+	this->background.setTexture(this->texmgr.getRef("menuBackground"));
 }
 
 
