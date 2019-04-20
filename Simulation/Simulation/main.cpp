@@ -8,5 +8,6 @@ int main()
 
 	simulation.pushState(new SimulationStateStart(&simulation));
 	simulation.simulationLoop();
+
 	return 0;
 }

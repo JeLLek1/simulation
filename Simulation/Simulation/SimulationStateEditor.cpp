@@ -18,6 +18,8 @@ void SimulationStateEditor::update(const float dt)
 	return;
 }
 
+/* Pobieranie i obs³ugiwanie poleceñ */
+
 void SimulationStateEditor::handleInput()
 {
 	sf::Event event;
@@ -33,10 +35,10 @@ void SimulationStateEditor::handleInput()
 			}
 			case sf::Event::Resized:
 			{
-				gameView.setSize(event.size.width, event.size.height);
-				guiView.setSize(event.size.width, event.size.height);
+				this->gameView.setSize(event.size.width, event.size.height);
+				this->guiView.setSize(event.size.width, event.size.height);
 				this->simulation->background.setPosition(this->simulation->window.mapPixelToCoords(sf::Vector2i(0, 0), this->guiView));
-				this->simulation->background.setScale(float(event.size.width) / float(this->simulation->background.getTexture()->getSize().x), float(event.size.height) / float(this->simulation->background.getTexture()->getSize().y));
+				this->simulation->background.setScale(static_cast<float>(event.size.width) / static_cast<float>(this->simulation->background.getTexture()->getSize().x), static_cast<float>(event.size.height) / static_cast<float>(this->simulation->background.getTexture()->getSize().y));
 				break;
 			}
 			

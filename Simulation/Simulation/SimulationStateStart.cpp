@@ -2,12 +2,12 @@
 
 #include "pch.h"
 #include "SimulationState.h"
-#include "SimulationStateEditor.h"
+#include "SimulationStateMenu.h"
 #include "SimulationStateStart.h"
 
-void SimulationStateStart::loadsimulation()
+void SimulationStateStart::loadMenu()
 {
-	this->simulation->pushState(new SimulationStateEditor(this->simulation));
+	this->simulation->pushState(new SimulationStateMenu(this->simulation));
 
 	return;
 }
@@ -25,6 +25,8 @@ void SimulationStateStart::update(const float dt)
 {
 	return;
 }
+
+/* Pobieranie i obs³ugiwanie poleceñ */
 
 void SimulationStateStart::handleInput()
 {
@@ -44,7 +46,7 @@ void SimulationStateStart::handleInput()
 			{
 				this->view.setSize(event.size.width, event.size.height);
 				this->simulation->background.setPosition(this->simulation->window.mapPixelToCoords(sf::Vector2i(0, 0)));
-				this->simulation->background.setScale(float(event.size.width) / float(this->simulation->background.getTexture()->getSize().x), float(event.size.height) / float(this->simulation->background.getTexture()->getSize().y));
+				this->simulation->background.setScale(static_cast<float>(event.size.width) / static_cast<float>(this->simulation->background.getTexture()->getSize().x), static_cast<float>(event.size.height) / static_cast<float>(this->simulation->background.getTexture()->getSize().y));
 				break;
 			}
 
@@ -53,7 +55,7 @@ void SimulationStateStart::handleInput()
 				if (event.key.code == sf::Keyboard::Escape)
 					this->simulation->window.close();
 				else if (event.key.code == sf::Keyboard::Space)
-					this->loadsimulation();
+					this->loadMenu();
 				break;
 			}
 			default: 

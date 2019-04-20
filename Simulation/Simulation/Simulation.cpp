@@ -9,10 +9,15 @@
 #include "TextureManager.h"
 
 
+/* Pobieranie tekstury t³a */
+
 void Simulation::loadTextures()
 {
-	texmgr.loadTexture("background", "background.png"); //Do zmiany!
+	texmgr.loadTexture("background", "background.png"); 
+	texmgr.loadTexture("menuBackground", "menuBackground.png");
 }
+
+/*  Pobieranie wskaŸnika do danego stanu i uk³adanie go na stosie  */
 
 void Simulation::pushState(SimulationState* state)
 {
@@ -21,6 +26,8 @@ void Simulation::pushState(SimulationState* state)
 	return;
 }
 
+ /* Usuwanie topowego stanu ze stosu */
+
 void Simulation::popState()
 {
 	delete this->states.top();
@@ -28,6 +35,8 @@ void Simulation::popState()
 
 	return;
 }
+
+ /* Usuwanie poprzedniego stan ze stosu o ile istnieje i dodawanie nowego, czyli zmiana stanu */
 
 void Simulation::changeState(SimulationState* state)
 {
@@ -38,11 +47,16 @@ void Simulation::changeState(SimulationState* state)
 	return;
 }
 
+ /* Zwracanie wskaznika do stanu znajduj¹cego siê na szczycie stosu */
+
 SimulationState* Simulation::peekState()
 {
 	if (this->states.empty()) return nullptr;
 	return this->states.top();
 }
+
+/* Obliczanie okresu trwania jednej klatki i wysy³anie go do wymagaj¹cych ró¿nicy czasu metod
+   Wywo³ywanie stanu na szczycie stosu, oraz wyswietlanie */
 
 void Simulation::simulationLoop()
 {
@@ -57,7 +71,7 @@ void Simulation::simulationLoop()
 		if (peekState() == nullptr) continue;
 		peekState()->handleInput();
 		peekState()->update(dt);
-		this->window.clear(sf::Color::Blue);
+		this->window.clear(sf::Color::Black);
 		peekState()->draw(dt);
 		this->window.display();
 	}

@@ -1,8 +1,18 @@
 ﻿  pch.cpp
+  main.cpp
   Simulation.cpp
+  SimulationState.cpp
+  SimulationStateEditor.cpp
+c:\project\simulation\simulation\simulationstateeditor.cpp(38): warning C4244: "argument": konwersja z "unsigned int" do "float", możliwa utrata danych
+c:\project\simulation\simulation\simulationstateeditor.cpp(39): warning C4244: "argument": konwersja z "unsigned int" do "float", możliwa utrata danych
+  SimulationStateMenu.cpp
+c:\project\simulation\simulation\simulationstatemenu.cpp(44): warning C4244: "argument": konwersja z "unsigned int" do "float", możliwa utrata danych
+  SimulationStateStart.cpp
+c:\project\simulation\simulation\simulationstatestart.cpp(47): warning C4244: "argument": konwersja z "unsigned int" do "float", możliwa utrata danych
+  TextureManager.cpp
   Trwa generowanie kodu
-  33 of 33 functions (100.0%) were compiled.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  68 of 358 functions (19.0%) were compiled, the rest were copied from previous compilation.
+    7 functions were new in current compilation
+    22 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   Simulation.vcxproj -> C:\Project\Simulation\x64\Release\Simulation.exe
