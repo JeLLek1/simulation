@@ -1,26 +1,81 @@
-﻿#include "pch.h"
-#include <iostream>
-#include <SFML/Graphics.hpp>
+#include<stack>
 
-int main()
+#include<SFML/Graphics.hpp>
+#include<SFML/System.hpp>
+
+#include "pch.h"
+#include "Simulation.h"
+#include "SimulationState.h"
+#include "TextureManager.h"
+
+
+void Simulation::loadTextures()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML doesn't work!!11oneone");
-	sf::CircleShape shape(100.f, 3);
-	shape.setFillColor(sf::Color::Green);
+	texmgr.loadTexture("background", "background.png"); //Do zmiany!
+}
 
-	while (window.isOpen())
+void Simulation::pushState(SimulationState* state)
+{
+	this->states.push(state);
+
+	return;
+}
+
+void Simulation::popState()
+{
+	delete this->states.top();
+	this->states.pop();
+
+	return;
+}
+
+void Simulation::changeState(SimulationState* state)
+{
+	if (!this->states.empty())
+		popState();
+	pushState(state);
+
+	return;
+}
+
+SimulationState* Simulation::peekState()
+{
+	if (this->states.empty()) return nullptr;
+	return this->states.top();
+}
+
+void Simulation::simulationLoop()
+{
+
+	sf::Clock clock;
+
+	while (this->window.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+		sf::Time elapsed = clock.restart();
+		float dt = elapsed.asSeconds();
 
-		window.clear();
-		window.draw(shape);
-		window.display();
+		if (peekState() == nullptr) continue;
+		peekState()->handleInput();
+		peekState()->update(dt);
+		this->window.clear(sf::Color::Blue);
+		peekState()->draw(dt);
+		this->window.display();
 	}
+}
 
-	return 0;
+
+Simulation::Simulation()
+{
+	this->loadTextures();
+
+	this->window.create(sf::VideoMode(800, 600), "Simple Simulation");
+	this->window.setFramerateLimit(60);
+
+	this->background.setTexture(this->texmgr.getRef("background"));
+}
+
+
+Simulation::~Simulation()
+{
+	while (!this->states.empty()) popState();
 }
