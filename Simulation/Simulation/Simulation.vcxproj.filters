@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\menu">
+      <UniqueIdentifier>{b7be1eca-42f0-413e-b42f-00e7fa0b86db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\menu">
+      <UniqueIdentifier>{fccfe321-1d56-42b1-8358-fbd59adfa473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\simulation">
+      <UniqueIdentifier>{389d0c87-4175-45b8-b2c2-3fd921217493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\simulation">
+      <UniqueIdentifier>{70a7107e-1b30-47f9-a622-4f6878ac0436}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -24,14 +36,14 @@
     <ClInclude Include="Simulation.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="SimulationStateStart.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="SimulationStateEditor.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateStart.h">
+      <Filter>Pliki nagłówkowe\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateEditor.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -47,14 +59,14 @@
     <ClCompile Include="SimulationState.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="SimulationStateStart.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="SimulationStateEditor.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="TextureManager.cpp">
       <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateStart.cpp">
+      <Filter>Pliki źródłowe\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateEditor.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@
 
 void Simulation::loadTextures()
 {
-	texmgr.loadTexture("menuBackground", "menuBackground.png");
+	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
 }
 
 /*  Pobieranie wskaŸnika do danego stanu i uk³adanie go na stosie  */
@@ -81,10 +81,10 @@ Simulation::Simulation()
 {
 	this->loadTextures();
 
-	this->window.create(sf::VideoMode(800, 600), "Simple Simulation");
+	this->window.create(sf::VideoMode(1920, 1080), "Simple Simulation");
 	this->window.setFramerateLimit(60);
 
-	this->background.setTexture(this->texmgr.getRef("menuBackground"));
+	this->background.setTexture(*this->texmgr.getRef(TextureNames::BACKGROUND));
 }
 
 

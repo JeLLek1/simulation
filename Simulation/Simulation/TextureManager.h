@@ -5,18 +5,22 @@
 #include <string>
 #include <map>
 
+enum class TextureNames : char {
+	BACKGROUND = 0,
+};
+
 class TextureManager
 {
 
 private:
 
-	std::map<std::string, sf::Texture> textures;
+	std::map<TextureNames, sf::Texture*> textures;
 
 public:
 
-	void loadTexture(const std::string& name, const std::string& filename);
+	void loadTexture(const TextureNames& texture, const std::string& filename);
 
-	sf::Texture& getRef(const std::string& texture);
+	sf::Texture* getRef(const TextureNames& texture);
 
 
 	TextureManager();
