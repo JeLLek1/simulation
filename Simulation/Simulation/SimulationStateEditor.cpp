@@ -7,8 +7,8 @@
 void SimulationStateEditor::draw(const float dt)
 {
 
-	this->simulation->window.clear(sf::Color::Black);
-	this->simulation->window.setView(gameView);
+	this->simulation->window->clear(sf::Color::Black);
+	this->simulation->window->setView(gameView);
 	std::cout << this->gameView.getCenter().x << " " << this->gameView.getCenter().y << std::endl;
 	this->map->draw(this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->camPos.x), static_cast<int>(this->camPos.y)), this->simulation->sprDivMgr);
 
@@ -26,13 +26,13 @@ void SimulationStateEditor::handleInput()
 {
 	sf::Event event;
 
-	while (this->simulation->window.pollEvent(event))
+	while (this->simulation->window->pollEvent(event))
 	{
 		switch (event.type)
 		{
 			case sf::Event::Closed:
 			{
-				this->simulation->window.close();
+				this->simulation->window->close();
 				break;
 			}
 			
@@ -49,7 +49,7 @@ void SimulationStateEditor::handleInput()
 SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 {
 	this->simulation = simulation;
-	sf::Vector2f pos = sf::Vector2f(this->simulation->window.getSize());
+	sf::Vector2f pos = sf::Vector2f(this->simulation->window->getSize());
 	this->guiView.setSize(pos);
 	this->gameView.setSize(pos);
 	pos *= 0.5f;

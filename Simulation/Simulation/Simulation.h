@@ -20,7 +20,7 @@ public:
 
 	std::stack<SimulationState*> states;
 
-	SimWindow window;
+	SimWindow *window;
 	TextureManager texmgr;
 	SpriteDividedMenager sprDivMgr;
 

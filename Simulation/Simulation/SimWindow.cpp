@@ -1,17 +1,10 @@
 #include "pch.h"
 #include "SimWindow.h"
 
-
-void SimWindow::create(sf::VideoMode mode, const sf::String& title, sf::Uint32 style, const sf::ContextSettings settings)
+SimWindow::SimWindow() : sf::RenderWindow(sf::VideoMode(1920, 1080), "Simple Simulation")
 {
-	this->windowSize.x = mode.width;
-	this->windowSize.y = mode.height;
-	this->windowName = title;
-	sf::RenderWindow::create(mode, title, style, settings);
-}
-
-SimWindow::SimWindow() : sf::RenderWindow()
-{
+	this->windowSize.x = 1920;
+	this->windowSize.y = 1080;
 }
 
 SimWindow::~SimWindow()

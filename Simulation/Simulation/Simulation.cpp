@@ -65,7 +65,7 @@ void Simulation::simulationLoop()
 
 	sf::Clock clock;
 
-	while (this->window.isOpen())
+	while (this->window->isOpen())
 	{
 		sf::Time elapsed = clock.restart();
 		float dt = elapsed.asSeconds();
@@ -73,9 +73,9 @@ void Simulation::simulationLoop()
 		if (peekState() == nullptr) continue;
 		peekState()->handleInput();
 		peekState()->update(dt);
-		this->window.clear(sf::Color::Black);
+		this->window->clear(sf::Color::Black);
 		peekState()->draw(dt);
-		this->window.display();
+		this->window->display();
 	}
 }
 
@@ -83,8 +83,8 @@ Simulation::Simulation()
 {
 	this->loadTextures();
 
-	this->window.create(sf::VideoMode(1920, 1080), "Simple Simulation");
-	this->window.setFramerateLimit(60);
+	this->window = new SimWindow();
+	this->window->setFramerateLimit(60);
 
 	this->background.setTexture(*this->texmgr.getRef(TextureNames::BACKGROUND));
 }

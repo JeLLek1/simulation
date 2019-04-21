@@ -11,9 +11,6 @@ public:
 	sf::Vector2i windowSize;
 	sf::String windowName;
 
-
-	void create(sf::VideoMode mode, const sf::String& title, sf::Uint32 style = sf::Style::Default, const sf::ContextSettings settings = sf::ContextSettings());
-
 	SimWindow();
 	~SimWindow();
 };

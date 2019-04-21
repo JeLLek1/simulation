@@ -9,7 +9,7 @@ void Map::load()
 	}
 }
 
-void Map::draw(sf::RenderWindow& window, float dt, sf::Vector2i camPos, SpriteDividedMenager& spriteMgr)
+void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2i camPos, SpriteDividedMenager& spriteMgr)
 {
 	for (unsigned int y = camPos.y - 10; y < camPos.y + 10; y++) {
 		for (unsigned int x = camPos.x - 10; x < camPos.x + 10; x++) {
