@@ -60,6 +60,12 @@
     <ClInclude Include="SpriteDividedMenager.h">
       <Filter>Pliki nagłówkowe\textures</Filter>
     </ClInclude>
+    <ClInclude Include="SimWindow.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -91,6 +97,12 @@
     </ClCompile>
     <ClCompile Include="SpriteDividedMenager.cpp">
       <Filter>Pliki źródłowe\textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SimWindow.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

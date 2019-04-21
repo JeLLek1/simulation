@@ -5,6 +5,7 @@
 #include<SFML/Graphics.hpp>
 #include "TextureManager.h"
 #include "SpriteDividedMenager.h"
+#include "SimWindow.h"
 
 class SimulationState;
 
@@ -19,7 +20,7 @@ public:
 
 	std::stack<SimulationState*> states;
 
-	sf::RenderWindow window;
+	SimWindow window;
 	TextureManager texmgr;
 	SpriteDividedMenager sprDivMgr;
 

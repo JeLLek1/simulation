@@ -1,12 +1,12 @@
-﻿  Simulation.cpp
-  SimulationStateEditor.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimulationStateEditor.cpp(62): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-  Tile.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Tile.cpp(22): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Tile.cpp(22): warning C4244: "argument": konwersja z "unsigned int" do "float", możliwa utrata danych
-  Generowanie kodu...
-  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe
+﻿  Button.cpp
+C:\Project\Simulation\Simulation\Button.h(11): error C2065: "Button": niezadeklarowany identyfikator
+C:\Project\Simulation\Simulation\Button.h(11): error C2923: "std::list": "Button" nie jest prawidłowy argument typu szablon dla parametru "_Ty"
+C:\Project\Simulation\Simulation\Button.h(11): error C2903: "allocator": symbol nie jest klasą szablon ani funkcją szablon
+C:\Project\Simulation\Simulation\Button.h(11): error C3203: „allocator”: klasy niespecjalizowanej klasa szablon nie można użyć jako argumentu szablon dla parametru szablon „_Alloc”, oczekiwano typu rzeczywistego
+C:\Project\Simulation\Simulation\Button.h(11): error C2133: "distance": nieznany rozmiar
+C:\Project\Simulation\Simulation\Button.h(11): error C2512: "std::list": niedostępny odpowiedni konstruktor domyślny
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\list(501): note: zobacz deklarację „std::list”
+C:\Project\Simulation\Simulation\Button.cpp(17): error C2662: "bool std::list<_Ty,_Alloc>::empty(void) noexcept const": nie można konwertować wskaźnika "this" z "std::list" do "const std::list<_Ty,_Alloc> &"
+  C:\Project\Simulation\Simulation\Button.cpp(17): note: Przyczyna: nie można skonwertować z "std::list" na "const std::list<_Ty,_Alloc>"
+  C:\Project\Simulation\Simulation\Button.cpp(17): note: Konwersja wymaga drugiego operatora konwersji zdefiniowanego przez użytkownika lub konstruktora
+C:\Project\Simulation\Simulation\Button.cpp(20): error C2663: "std::list<_Ty,_Alloc>::back": przeciążenia 2 nie posiadają dozwolonej konwersji dla wskaźnika "this"

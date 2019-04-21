@@ -5,9 +5,11 @@
 #include <string>
 #include <map>
 
-enum class TextureNames : char {
+enum class TextureNames : char
+{
 	BACKGROUND = 0,
 	GRASS = 1,
+	BUTTON = 2,
 };
 
 class TextureManager

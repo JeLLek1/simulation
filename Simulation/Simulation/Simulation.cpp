@@ -79,7 +79,6 @@ void Simulation::simulationLoop()
 	}
 }
 
-
 Simulation::Simulation()
 {
 	this->loadTextures();
