@@ -8,7 +8,9 @@ void SimulationStateEditor::draw(const float dt)
 {
 
 	this->simulation->window.clear(sf::Color::Black);
-	this->simulation->window.draw(this->simulation->background);
+	this->simulation->window.setView(gameView);
+	std::cout << this->gameView.getCenter().x << " " << this->gameView.getCenter().y << std::endl;
+	this->map->draw(this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->camPos.x), static_cast<int>(this->camPos.y)), this->simulation->sprDivMgr);
 
 	return;
 }
@@ -33,14 +35,6 @@ void SimulationStateEditor::handleInput()
 				this->simulation->window.close();
 				break;
 			}
-			case sf::Event::Resized:
-			{
-				this->gameView.setSize(event.size.width, event.size.height);
-				this->guiView.setSize(event.size.width, event.size.height);
-				this->simulation->background.setPosition(this->simulation->window.mapPixelToCoords(sf::Vector2i(0, 0), this->guiView));
-				this->simulation->background.setScale(static_cast<float>(event.size.width) / static_cast<float>(this->simulation->background.getTexture()->getSize().x), static_cast<float>(event.size.height) / static_cast<float>(this->simulation->background.getTexture()->getSize().y));
-				break;
-			}
 			
 			default:
 				break;
@@ -61,6 +55,12 @@ SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 	pos *= 0.5f;
 	this->guiView.setCenter(pos);
 	this->gameView.setCenter(pos);
+
+	this->map = new Map(100, 100);
+	//Uwaga tutaj 50 potem zmienie na wartoœæ z jakiejœ klasy, po prostu chce sprawdziæ czy dzia³a jak coœ to jest y
+	this->camPos = sf::Vector2f(50, 50);
+	sf::Vector2f temp = sf::Vector2f((camPos.x - camPos.y) * 26 + this->map->mapSize.x * 26, (camPos.x + camPos.y) * 26 * 0.5);
+	this->gameView.setCenter(temp);
 }
 
 

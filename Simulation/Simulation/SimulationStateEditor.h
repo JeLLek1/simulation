@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "SimulationState.h"
+#include "Map.h"
 
 
 class SimulationStateEditor : public SimulationState
@@ -12,6 +13,9 @@ private:
 
 	sf::View gameView;
 	sf::View guiView;
+
+	Map* map;
+	sf::Vector2f camPos;
 
 public:
 

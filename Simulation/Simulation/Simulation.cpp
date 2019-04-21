@@ -14,6 +14,9 @@
 void Simulation::loadTextures()
 {
 	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
+
+	texmgr.loadTexture(TextureNames::GRASS, "resouces/grass.png");
+	sprDivMgr.loadSprite(TextureNames::GRASS, texmgr.getRef(TextureNames::GRASS), sf::Vector2u(52, 26), 1);
 }
 
 /*  Pobieranie wskaünika do danego stanu i uk≥adanie go na stosie  */

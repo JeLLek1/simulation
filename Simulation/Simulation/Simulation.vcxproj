@@ -157,15 +157,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationState.h" />
     <ClInclude Include="SimulationStateEditor.h" />
     <ClInclude Include="SimulationStateStart.h" />
+    <ClInclude Include="SpriteDividedMenager.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -176,7 +180,9 @@
     <ClCompile Include="SimulationState.cpp" />
     <ClCompile Include="SimulationStateEditor.cpp" />
     <ClCompile Include="SimulationStateStart.cpp" />
+    <ClCompile Include="SpriteDividedMenager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

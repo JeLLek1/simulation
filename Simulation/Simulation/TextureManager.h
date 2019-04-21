@@ -7,6 +7,7 @@
 
 enum class TextureNames : char {
 	BACKGROUND = 0,
+	GRASS = 1,
 };
 
 class TextureManager

@@ -25,6 +25,12 @@
     <Filter Include="Pliki źródłowe\simulation">
       <UniqueIdentifier>{70a7107e-1b30-47f9-a622-4f6878ac0436}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\textures">
+      <UniqueIdentifier>{b8de5422-37aa-41f5-805a-78e5f2db70ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\textures">
+      <UniqueIdentifier>{07a6cbd9-72ef-4524-9ad3-690e95e1bea2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -36,14 +42,23 @@
     <ClInclude Include="Simulation.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="SimulationStateStart.h">
       <Filter>Pliki nagłówkowe\menu</Filter>
     </ClInclude>
     <ClInclude Include="SimulationStateEditor.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteDividedMenager.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,14 +74,23 @@
     <ClCompile Include="SimulationState.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="SimulationStateStart.cpp">
       <Filter>Pliki źródłowe\menu</Filter>
     </ClCompile>
     <ClCompile Include="SimulationStateEditor.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Pliki źródłowe\textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteDividedMenager.cpp">
+      <Filter>Pliki źródłowe\textures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
