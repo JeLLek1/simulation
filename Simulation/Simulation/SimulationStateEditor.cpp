@@ -9,7 +9,6 @@ void SimulationStateEditor::draw(const float dt)
 
 	this->simulation->window->clear(sf::Color::Black);
 	this->simulation->window->setView(gameView);
-	std::cout << this->gameView.getCenter().x << " " << this->gameView.getCenter().y << std::endl;
 	this->map->draw(this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->camPos.x), static_cast<int>(this->camPos.y)), this->simulation->sprDivMgr);
 
 	return;
@@ -17,6 +16,7 @@ void SimulationStateEditor::draw(const float dt)
 
 void SimulationStateEditor::update(const float dt)
 {
+	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()));
 	return;
 }
 

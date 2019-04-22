@@ -164,6 +164,7 @@
     <ClInclude Include="SimulationState.h" />
     <ClInclude Include="SimulationStateEditor.h" />
     <ClInclude Include="SimulationStateStart.h" />
+    <ClInclude Include="SimView.h" />
     <ClInclude Include="SimWindow.h" />
     <ClInclude Include="SpriteDividedMenager.h" />
     <ClInclude Include="TextureManager.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="SimulationState.cpp" />
     <ClCompile Include="SimulationStateEditor.cpp" />
     <ClCompile Include="SimulationStateStart.cpp" />
+    <ClCompile Include="SimView.cpp" />
     <ClCompile Include="SimWindow.cpp" />
     <ClCompile Include="SpriteDividedMenager.cpp" />
     <ClCompile Include="TextureManager.cpp" />

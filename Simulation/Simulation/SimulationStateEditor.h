@@ -5,13 +5,14 @@
 
 #include "SimulationState.h"
 #include "Map.h"
+#include "SimView.h"
 
 
 class SimulationStateEditor : public SimulationState
 {
 private:
 
-	sf::View gameView;
+	SimView gameView;
 	sf::View guiView;
 
 	Map* map;

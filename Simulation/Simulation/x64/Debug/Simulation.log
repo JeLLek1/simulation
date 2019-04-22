@@ -1,2 +1,38 @@
-﻿  SimulationStateStart.cpp
+﻿  SimView.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(9): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(11): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(20): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(22): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe

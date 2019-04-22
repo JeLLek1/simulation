@@ -66,6 +66,9 @@
     <ClInclude Include="Button.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="SimView.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimView.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "SimWindow.h"
 
-SimWindow::SimWindow() : sf::RenderWindow(sf::VideoMode(1920, 1080), "Simple Simulation")
+SimWindow::SimWindow()
 {
-	this->windowSize.x = 1920;
-	this->windowSize.y = 1080;
+	this->windowSize.x = 1080;
+	this->windowSize.y = 720;
+
+	this->create(sf::VideoMode(this->windowSize.x, this->windowSize.y), "Simple Simulation");
 }
 
 SimWindow::~SimWindow()
