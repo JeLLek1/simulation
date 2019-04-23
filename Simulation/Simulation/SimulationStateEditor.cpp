@@ -4,19 +4,25 @@
 #include "SimulationStateEditor.h"
 #include "SimulationState.h"
 
+#include <iostream>
+
 void SimulationStateEditor::draw(const float dt)
 {
 
 	this->simulation->window->clear(sf::Color::Black);
 	this->simulation->window->setView(gameView);
-	this->map->draw(this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->camPos.x), static_cast<int>(this->camPos.y)), this->simulation->sprDivMgr);
+	this->map->draw(
+		this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->gameView.camPos.x),
+		static_cast<int>(this->gameView.camPos.y)),
+		this->simulation->sprDivMgr
+	);
 
 	return;
 }
 
 void SimulationStateEditor::update(const float dt)
 {
-	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()));
+	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()), this->map->mapSize.x);
 	return;
 }
 
@@ -46,6 +52,22 @@ void SimulationStateEditor::handleInput()
 }
 
 
+sf::Vector2f SimulationStateEditor::cartToIso(sf::Vector2f cart, int map_size_x)
+{
+	return sf::Vector2f(
+		(cart.x - cart.y) * SimulationStateEditor::TILE_SIZE_Y + map_size_x * SimulationStateEditor::TILE_SIZE_Y,
+		(cart.x + cart.y) * SimulationStateEditor::TILE_SIZE_Y * 0.5
+	);
+}
+
+sf::Vector2f SimulationStateEditor::isoToCart(sf::Vector2f iso, int map_size_x)
+{
+	return sf::Vector2f(
+		iso.y / SimulationStateEditor::TILE_SIZE_Y + iso.x / (2 * SimulationStateEditor::TILE_SIZE_Y) - map_size_x * 0.5f + 0.5f,
+		iso.y / SimulationStateEditor::TILE_SIZE_Y - iso.x / (2 * SimulationStateEditor::TILE_SIZE_Y) + map_size_x * 0.5f + 0.5f
+	);
+}
+
 SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 {
 	this->simulation = simulation;
@@ -57,9 +79,7 @@ SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 	this->gameView.setCenter(pos);
 
 	this->map = new Map(100, 100);
-	//Uwaga tutaj 50 potem zmienie na wartoœæ z jakiejœ klasy, po prostu chce sprawdziæ czy dzia³a jak coœ to jest y
-	this->camPos = sf::Vector2f(50, 50);
-	sf::Vector2f temp = sf::Vector2f((camPos.x - camPos.y) * 26 + this->map->mapSize.x * 26, (camPos.x + camPos.y) * 26 * 0.5);
+	sf::Vector2f temp = SimulationStateEditor::cartToIso(this->gameView.camPos, this->map->mapSize.x);
 	this->gameView.setCenter(temp);
 }
 

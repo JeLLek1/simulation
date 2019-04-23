@@ -1,5 +1,5 @@
 ﻿  SimView.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(9): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(14): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
           with
           [
               T=int
@@ -8,7 +8,7 @@ C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cp
           [
               T=float
           ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(11): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(16): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
           with
           [
               T=int
@@ -17,7 +17,7 @@ C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cp
           [
               T=float
           ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(20): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(27): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
           with
           [
               T=int
@@ -26,7 +26,7 @@ C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cp
           [
               T=float
           ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(22): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(29): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
           with
           [
               T=int
@@ -35,4 +35,18 @@ C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cp
           [
               T=float
           ]
+  SimulationStateEditor.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimulationStateEditor.cpp(59): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  SimulationStateStart.cpp
+  Tile.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Tile.cpp(23): warning C4244: "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Generowanie kodu...
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe

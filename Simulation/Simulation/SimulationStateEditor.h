@@ -16,7 +16,10 @@ private:
 	sf::View guiView;
 
 	Map* map;
-	sf::Vector2f camPos;
+
+	static const int
+		TILE_SIZE_X = 52,
+		TILE_SIZE_Y = 26;
 
 public:
 
@@ -24,6 +27,8 @@ public:
 	virtual void update(const float dt);
 	virtual void handleInput();
 
+	static sf::Vector2f cartToIso(sf::Vector2f cart, int map_size_x);
+	static sf::Vector2f isoToCart(sf::Vector2f iso, int map_size_x);
 
 	SimulationStateEditor(Simulation* simulation);
 	~SimulationStateEditor();
