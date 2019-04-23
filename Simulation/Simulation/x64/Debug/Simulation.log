@@ -1,52 +1,7 @@
-﻿  SimView.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(14): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(16): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(27): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(29): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-  SimulationStateEditor.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimulationStateEditor.cpp(59): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
+﻿  Button.cpp
+C:\Project\Simulation\Simulation\Button.cpp(30): warning C4244: "+=": konwersja z "float" do "int", możliwa utrata danych
+C:\Project\Simulation\Simulation\Button.cpp(39): warning C4244: "-=": konwersja z "float" do "int", możliwa utrata danych
   SimulationStateStart.cpp
-  Tile.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Tile.cpp(23): warning C4244: "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
+  main.cpp
   Generowanie kodu...
-  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe
+  Simulation.vcxproj -> C:\Project\Simulation\x64\Debug\Simulation.exe

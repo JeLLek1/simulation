@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Window/Mouse.hpp>
 
 #include "pch.h"
 #include "SimulationState.h"
@@ -17,12 +18,19 @@ void SimulationStateStart::draw(const float dt)
 	this->simulation->window->setView(this->view);
 	this->simulation->window->clear(sf::Color::Black);
 	this->simulation->window->draw(this->simulation->background);
-
+	for (auto const& i : buttons) 
+	{
+		i->draw(simulation->window);
+	}
 	return;
 }
 
 void SimulationStateStart::update(const float dt)
 {
+	for (auto const& i : buttons)
+	{
+		i->update(dt, simulation);
+	}
 	return;
 }
 
@@ -50,6 +58,14 @@ void SimulationStateStart::handleInput()
 					this->loadSimulation();
 				break;
 			}
+			case sf::Event::MouseButtonPressed:
+			{
+				if ((event.mouseButton.button==sf::Mouse::Left) && buttons.back()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
+				this->simulation->window->close();
+				if ((event.mouseButton.button == sf::Mouse::Left) && buttons.front()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
+					this->loadSimulation();
+				break;
+			}
 			default: 
 				break;
 		}
@@ -65,6 +81,9 @@ SimulationStateStart::SimulationStateStart(Simulation* simulation)
 	this->view.setSize(pos);
 	pos *= 0.5f;
 	this->view.setCenter(pos);
+
+	buttons.push_back(new Button("START", simulation->font, 40));
+	buttons.push_back(new Button("EXIT", simulation->font, buttons.back(), 40));
 }
 
 

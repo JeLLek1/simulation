@@ -2,14 +2,17 @@
 #define SIMULATION_STATE_START_HPP
 
 #include <SFML/Graphics.hpp>
+#include <list>
 
 #include "SimulationState.h"
+#include "Button.h"
 
 class SimulationStateStart : public SimulationState
 {
 private:
 	
 	sf::View view;
+	std::list<Button*> buttons;
 
 	void loadSimulation();
 

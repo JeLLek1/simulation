@@ -17,6 +17,8 @@ void Simulation::loadTextures()
 
 	texmgr.loadTexture(TextureNames::GRASS, "resouces/grass.png");
 	sprDivMgr.loadSprite(TextureNames::GRASS, texmgr.getRef(TextureNames::GRASS), sf::Vector2u(52, 26), 1);
+
+	font->loadFromFile("resouces/font.ttf");
 }
 
 /*  Pobieranie wskaŸnika do danego stanu i uk³adanie go na stosie  */
@@ -81,6 +83,8 @@ void Simulation::simulationLoop()
 
 Simulation::Simulation()
 {
+	this->font = new sf::Font();
+
 	this->loadTextures();
 
 	this->window = new SimWindow();

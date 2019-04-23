@@ -3,6 +3,7 @@
 
 #include<stack>
 #include<SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
 #include "TextureManager.h"
 #include "SpriteDividedMenager.h"
 #include "SimWindow.h"
@@ -25,6 +26,7 @@ public:
 	SpriteDividedMenager sprDivMgr;
 
 	sf::Sprite background;
+	sf::Font* font;
 
 	void pushState(SimulationState* state);
 	void popState();
