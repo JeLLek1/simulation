@@ -9,11 +9,12 @@
 void SimulationStateEditor::draw(const float dt)
 {
 
-	this->simulation->window->clear(sf::Color::Black);
+	this->simulation->window->clear(sf::Color::Color(123, 152, 181));
 	this->simulation->window->setView(gameView);
 	this->map->draw(
-		this->simulation->window, dt, sf::Vector2i(static_cast<int>(this->gameView.camPos.x),
-		static_cast<int>(this->gameView.camPos.y)),
+		this->simulation->window, dt, 
+		gameView.getCenter(),
+		gameView.getSize(),
 		this->simulation->sprDivMgr
 	);
 
@@ -39,6 +40,12 @@ void SimulationStateEditor::handleInput()
 			case sf::Event::Closed:
 			{
 				this->simulation->window->close();
+				break;
+			}
+			case sf::Event::KeyPressed:
+			{
+				if (event.key.code == sf::Keyboard::Escape)
+					this->simulation->window->close();
 				break;
 			}
 			
@@ -78,7 +85,7 @@ SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 	this->guiView.setCenter(pos);
 	this->gameView.setCenter(pos);
 
-	this->map = new Map(100, 100);
+	this->map = new Map(50, 50);
 	sf::Vector2f temp = SimulationStateEditor::cartToIso(this->gameView.camPos, this->map->mapSize.x);
 	this->gameView.setCenter(temp);
 }

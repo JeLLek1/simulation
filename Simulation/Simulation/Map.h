@@ -12,7 +12,7 @@ public:
 	std::vector<Tile*> titles;
 	sf::Vector2u mapSize;
 	void load();
-	void draw(sf::RenderWindow* window, float dt, sf::Vector2i playerPos, SpriteDividedMenager& spriteMgr);
+	void draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::Vector2f camSize, SpriteDividedMenager& spriteMgr);
 	Map();
 	Map(unsigned int sizex, unsigned int sizey);
 };
