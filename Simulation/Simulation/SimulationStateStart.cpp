@@ -61,7 +61,7 @@ void SimulationStateStart::handleInput()
 			case sf::Event::MouseButtonPressed:
 			{
 				if ((event.mouseButton.button==sf::Mouse::Left) && buttons.back()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
-				this->simulation->window->close();
+					this->simulation->window->close();
 				if ((event.mouseButton.button == sf::Mouse::Left) && buttons.front()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
 					this->loadSimulation();
 				break;

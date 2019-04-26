@@ -8,7 +8,7 @@
 
 bool Button::coverage(sf::Vector2i mousePosition)
 {
-	if (mousePosition.y <= (this->text.getPosition().y + this->text.getLocalBounds().height) && mousePosition.y >= this->text.getPosition().y &&
+	if (mousePosition.y <= (this->text.getPosition().y + this->text.getCharacterSize()) && mousePosition.y >= this->text.getPosition().y &&
 		mousePosition.x <= (this->text.getPosition().x + this->text.getLocalBounds().width ) && mousePosition.x >= this->text.getPosition().x )
 	{
 		this->text.setFillColor(sf::Color::Black);
@@ -29,6 +29,7 @@ void Button::update(const float dt, Simulation* simulation)
 		{
 			this->currentSize += dt * Button::SPEED;
 			this->text.setCharacterSize(this->currentSize);
+			this->text.setPosition(this->text.getPosition().x - (dt * Button::SPEED) / 2, this->text.getPosition().y - (dt * Button::SPEED) / 2);
 		}
 			
 	}
@@ -38,6 +39,7 @@ void Button::update(const float dt, Simulation* simulation)
 		{
 			this->currentSize -= dt * Button::SPEED;
 			this->text.setCharacterSize(this->currentSize);
+			this->text.setPosition(this->text.getPosition().x + (dt * Button::SPEED), this->text.getPosition().y + (dt * Button::SPEED));
 		}
 	}
 }
@@ -95,7 +97,6 @@ Button::Button(const std::string& name, sf::Font* font, Button* button, unsigned
 
 	this->text.setPosition(position);
 }
-
 
 
 Button::~Button()
