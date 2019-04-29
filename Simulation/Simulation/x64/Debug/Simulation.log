@@ -1,7 +1,2 @@
-﻿  SimulationStateEditor.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimulationStateEditor.cpp(66): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
+﻿  SimWindow.cpp
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe
