@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\menu">
+      <UniqueIdentifier>{b7be1eca-42f0-413e-b42f-00e7fa0b86db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\menu">
+      <UniqueIdentifier>{fccfe321-1d56-42b1-8358-fbd59adfa473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\simulation">
+      <UniqueIdentifier>{389d0c87-4175-45b8-b2c2-3fd921217493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\simulation">
+      <UniqueIdentifier>{70a7107e-1b30-47f9-a622-4f6878ac0436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\textures">
+      <UniqueIdentifier>{b8de5422-37aa-41f5-805a-78e5f2db70ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\textures">
+      <UniqueIdentifier>{07a6cbd9-72ef-4524-9ad3-690e95e1bea2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationState.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulation.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateStart.h">
+      <Filter>Pliki nagłówkowe\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateEditor.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteDividedMenager.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SimWindow.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SimView.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObject.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObjectResouces.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationState.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateStart.cpp">
+      <Filter>Pliki źródłowe\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateEditor.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Pliki źródłowe\textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteDividedMenager.cpp">
+      <Filter>Pliki źródłowe\textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SimWindow.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimView.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObject.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="staticObjectResouces.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
