@@ -2,7 +2,7 @@
 
 #include<SFML/Graphics.hpp>
 #include<string>
-#include "../../SFML-2.5.1/include/SFML/System/String.hpp"
+#include <SFML/System/String.hpp>
 
 class SimWindow : public sf::RenderWindow
 {
