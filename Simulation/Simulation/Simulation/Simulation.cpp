@@ -15,8 +15,13 @@ void Simulation::loadTextures()
 {
 	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
 
+<<<<<<< HEAD:Simulation/Simulation/Simulation/Simulation.cpp
 	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
 	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50);
+=======
+	texmgr.loadTexture(TextureNames::GRASS, "resouces/grass.png");
+	sprDivMgr.loadSprite(TextureNames::GRASS, texmgr.getRef(TextureNames::GRASS), sf::Vector2u(52, 26), 6);
+>>>>>>> db9b1e18f599c35187746cb27f04180f1b9bf0c4:Simulation/Simulation/Simulation.cpp
 
 	font->loadFromFile("resouces/font.ttf");
 }
