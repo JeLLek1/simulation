@@ -1,4 +1,10 @@
-﻿  Map.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Simulation\Map.cpp(24): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Simulation\Map.cpp(29): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+﻿  Simulation.cpp
+  SimulationStateEditor.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Simulation\SimulationStateEditor.cpp(129): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Generowanie kodu...
+  LINK : nie znaleziono elementu C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\x64\Debug\Simulation.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\x64\Debug\Simulation.exe

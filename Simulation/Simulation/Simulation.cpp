@@ -15,8 +15,8 @@ void Simulation::loadTextures()
 {
 	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
 
-	texmgr.loadTexture(TextureNames::GRASS, "resouces/grass.png");
-	sprDivMgr.loadSprite(TextureNames::GRASS, texmgr.getRef(TextureNames::GRASS), sf::Vector2u(52, 26), 6);
+	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
+	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50);
 
 	font->loadFromFile("resouces/font.ttf");
 }

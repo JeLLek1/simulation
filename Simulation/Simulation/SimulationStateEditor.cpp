@@ -48,7 +48,70 @@ void SimulationStateEditor::handleInput()
 					this->simulation->window->close();
 				break;
 			}
-			
+
+
+			//Uwaga potem usun¹æ. Od tej chwili zaczyna siê edytor mapy
+			case sf::Event::MouseButtonPressed:
+				if (event.mouseButton.button == sf::Mouse::Left)
+				{
+					sf::Vector2f mousePos = this->simulation->window->mapPixelToCoords(sf::Mouse::getPosition(*this->simulation->window), this->gameView);
+					sf::Vector2i cart = sf::Vector2i(SimulationStateEditor::isoToCart(mousePos, this->map->mapSize.x));
+					switch (this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber)
+					{
+					case 1:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 2;
+						break;
+					case 2:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 3;
+						break;
+					case 3:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 4;
+						break;
+					default:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 1;
+						break;
+					}
+				}
+				if (event.mouseButton.button == sf::Mouse::Right)
+				{
+					sf::Vector2f mousePos = this->simulation->window->mapPixelToCoords(sf::Mouse::getPosition(*this->simulation->window), this->gameView);
+					sf::Vector2i cart = sf::Vector2i(SimulationStateEditor::isoToCart(mousePos, this->map->mapSize.x));
+					switch (this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber)
+					{
+					case 5:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 10;
+						break;
+					case 10:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 15;
+						break;
+					case 15:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 20;
+						break;
+					case 20:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 25;
+						break;
+					case 25:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 30;
+						break;
+					case 30:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 35;
+						break;
+					case 35:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 40;
+						break;
+					case 40:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 45;
+						break;
+					default:
+						this->map->titles[cart.x + cart.y * this->map->mapSize.x]->partNumber = 5;
+						break;
+					}
+				}
+				break;
+			//Uwaga potem usun¹æ. Od tej chwili zaczyna siê edytor mapy
+
+
+
 			default:
 				break;
 		}
