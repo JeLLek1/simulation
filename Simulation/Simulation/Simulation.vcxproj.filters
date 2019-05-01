@@ -31,6 +31,12 @@
     <Filter Include="Pliki źródłowe\textures">
       <UniqueIdentifier>{07a6cbd9-72ef-4524-9ad3-690e95e1bea2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\edytor">
+      <UniqueIdentifier>{eee97c50-e3ef-4114-a133-48b3c11795ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\edytor">
+      <UniqueIdentifier>{7737256b-0ff3-4320-9cb7-d558916f6d6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -45,25 +51,16 @@
     <ClInclude Include="SimulationStateStart.h">
       <Filter>Pliki nagłówkowe\menu</Filter>
     </ClInclude>
-    <ClInclude Include="SimulationStateEditor.h">
-      <Filter>Pliki nagłówkowe\simulation</Filter>
-    </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Pliki nagłówkowe\textures</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteDividedMenager.h">
       <Filter>Pliki nagłówkowe\textures</Filter>
     </ClInclude>
     <ClInclude Include="SimWindow.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="SimView.h">
@@ -74,6 +71,21 @@
     </ClInclude>
     <ClInclude Include="StaticObjectResouces.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateMain.h">
+      <Filter>Pliki nagłówkowe\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationStateEditor.h">
+      <Filter>Pliki nagłówkowe\edytor</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Pliki nagłówkowe\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryFileMenager.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,9 +104,6 @@
     <ClCompile Include="SimulationStateStart.cpp">
       <Filter>Pliki źródłowe\menu</Filter>
     </ClCompile>
-    <ClCompile Include="SimulationStateEditor.cpp">
-      <Filter>Pliki źródłowe\simulation</Filter>
-    </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
@@ -107,12 +116,6 @@
     <ClCompile Include="SpriteDividedMenager.cpp">
       <Filter>Pliki źródłowe\textures</Filter>
     </ClCompile>
-    <ClCompile Include="SimWindow.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="SimView.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
@@ -121,6 +124,21 @@
     </ClCompile>
     <ClCompile Include="staticObjectResouces.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateMain.cpp">
+      <Filter>Pliki źródłowe\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="SimWindow.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationStateEditor.cpp">
+      <Filter>Pliki źródłowe\edytor</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Pliki źródłowe\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryFileMenager.cpp">
+      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

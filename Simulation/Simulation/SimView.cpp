@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "SimView.h"
-#include "SimulationStateEditor.h"
+#include "SimulationStateMain.h"
 #include <iostream>
 
 //Przy ka¿dym odœwierzeniu metoda sprawdza czy pozycja myszy nie wskazuje na mo¿liwoœæ przesuniêcia mapy
@@ -36,7 +36,7 @@ void SimView::update(const float dt, sf::Vector2i mousePos, sf::Vector2i WindowS
 	if (temp.x != 0 || temp.y != 0) {
 
 		this->move(temp * (dt * SimView::SPEED));
-		this->camPos = sf::Vector2f(SimulationStateEditor::isoToCart(this->getCenter(), map_width));
+		this->camPos = sf::Vector2f(SimulationStateMain::isoToCart(this->getCenter(), map_width));
 
 	}
 }

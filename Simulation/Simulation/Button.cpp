@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Button.h"
-#include <iostream>
 #include"Simulation.h"
 
 
@@ -8,23 +7,21 @@
 
 bool Button::coverage(sf::Vector2i mousePosition)
 {
+
 	if (mousePosition.y <= (this->text.getPosition().y + this->text.getCharacterSize()) && mousePosition.y >= this->text.getPosition().y &&
 		mousePosition.x <= (this->text.getPosition().x + this->text.getLocalBounds().width ) && mousePosition.x >= this->text.getPosition().x )
 	{
-		this->text.setFillColor(sf::Color::Black);
 		return true;
 	}
-	else
-	{
-		this->text.setFillColor(sf::Color::White);
-		return false;
-	}
+
+	return false;
 }
 
 void Button::update(const float dt, Simulation* simulation)
 {
 	if(this->coverage(sf::Mouse::getPosition(*simulation->window)))
 	{
+		this->text.setFillColor(sf::Color::Black);
 		if (this->currentSize < Button::MAX_SIZE)
 		{
 			this->currentSize += dt * Button::SPEED;
@@ -35,6 +32,7 @@ void Button::update(const float dt, Simulation* simulation)
 	}
 	else
 	{
+		this->text.setFillColor(sf::Color::White);
 		if (this->currentSize > this->choosenSize)
 		{
 			this->currentSize -= dt * Button::SPEED;
@@ -51,8 +49,14 @@ void Button::draw(sf::RenderWindow* window)
 	window->draw(this->text);
 }
 
-Button::Button(const std::string& name, sf::Font* font, unsigned int fontSize)
+ButtonEvents Button::getEvent()
 {
+	return this->buttonEvent;
+}
+
+Button::Button(const std::string& name, sf::Font* font, ButtonEvents buttonEvent, unsigned int fontSize)
+{
+	this->buttonEvent = buttonEvent;
 	this->currentSize = this->choosenSize = fontSize;
 
 	text.setCharacterSize(fontSize);
@@ -73,8 +77,9 @@ Button::Button(const std::string& name, sf::Font* font, unsigned int fontSize)
 
 }
 
-Button::Button(const std::string& name, sf::Font* font, Button* button, unsigned int fontSize)
+Button::Button(const std::string& name, sf::Font* font, Button* button, ButtonEvents buttonEvent, unsigned int fontSize)
 {
+	this->buttonEvent = buttonEvent;
 	this->currentSize = this->choosenSize = fontSize;
 
 	text.setCharacterSize(fontSize);

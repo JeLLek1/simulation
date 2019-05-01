@@ -157,12 +157,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryFileMenager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationState.h" />
     <ClInclude Include="SimulationStateEditor.h" />
+    <ClInclude Include="SimulationStateMain.h" />
     <ClInclude Include="SimulationStateStart.h" />
     <ClInclude Include="SimView.h" />
     <ClInclude Include="SimWindow.h" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryFileMenager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -185,6 +188,7 @@
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="SimulationState.cpp" />
     <ClCompile Include="SimulationStateEditor.cpp" />
+    <ClCompile Include="SimulationStateMain.cpp" />
     <ClCompile Include="SimulationStateStart.cpp" />
     <ClCompile Include="SimView.cpp" />
     <ClCompile Include="SimWindow.cpp" />

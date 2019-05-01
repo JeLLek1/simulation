@@ -7,7 +7,7 @@
 #include "SimulationState.h"
 #include "Button.h"
 
-class SimulationStateStart : public SimulationState
+class SimulationStateStart : public virtual SimulationState
 {
 private:
 	
@@ -15,6 +15,7 @@ private:
 	std::list<Button*> buttons;
 
 	void loadSimulation();
+	void loadEditor();
 
 public:
 	
@@ -24,7 +25,7 @@ public:
 
 
 	SimulationStateStart(Simulation* simulation);
-	~SimulationStateStart();
+	virtual ~SimulationStateStart();
 };
 
 #endif //SIMULATION_STATE_START_HPP

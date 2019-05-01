@@ -99,5 +99,7 @@ Simulation::Simulation()
 
 Simulation::~Simulation()
 {
-	while (!this->states.empty()) popState();
+	while (!this->states.empty()) {
+		this->popState();
+	}
 }

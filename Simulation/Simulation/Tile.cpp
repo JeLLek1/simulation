@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Tile.h"
-#include "SimulationStateEditor.h"
+#include "SimulationStateMain.h"
 
 Tile::Tile()
 {
@@ -20,6 +20,6 @@ void Tile::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x,
 	//Ustawienie odpowiedniej kratki spritu
 	sprite->setTextureRect(sf::IntRect((this->partNumber % 5) * sprite->partSize.x, static_cast<int>(this->partNumber / 5) * sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));
 	//Ustawienei odpowiedniej pozycji na ekranie
-	sprite->setPosition(SimulationStateEditor::cartToIso(sf::Vector2f(x, y), mapWidth));
+	sprite->setPosition(SimulationStateMain::cartToIso(sf::Vector2f(x, y), mapWidth));
 	window->draw(*sprite);
 }

@@ -4,10 +4,16 @@
 #include "pch.h"
 #include "SimulationState.h"
 #include "SimulationStateStart.h"
+#include "SimulationStateMain.h"
 #include "SimulationStateEditor.h"
 
 void SimulationStateStart::loadSimulation()
 {
+	this->simulation->pushState(new SimulationStateMain(this->simulation));
+
+	return;
+}
+void SimulationStateStart::loadEditor() {
 	this->simulation->pushState(new SimulationStateEditor(this->simulation));
 
 	return;
@@ -60,11 +66,27 @@ void SimulationStateStart::handleInput()
 			}
 			case sf::Event::MouseButtonPressed:
 			{
-				if ((event.mouseButton.button==sf::Mouse::Left) && buttons.back()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
-					this->simulation->window->close();
-				if ((event.mouseButton.button == sf::Mouse::Left) && buttons.front()->coverage(sf::Mouse::getPosition(*this->simulation->window)))
-					this->loadSimulation();
-				break;
+				if (event.mouseButton.button == sf::Mouse::Left){
+					ButtonEvents buttonEvent=ButtonEvents::DO_NOTHING;
+					for (auto const& button : buttons) {
+						if (button->coverage(sf::Mouse::getPosition(*this->simulation->window))) {
+							buttonEvent = button->getEvent();
+						}
+					}
+					switch (buttonEvent) {
+					case ButtonEvents::SIMULATION_START:
+						this->loadSimulation();
+						break;
+					case ButtonEvents::MAP_EDITOR:
+						this->loadEditor();
+						break;
+					case ButtonEvents::WINDOW_CLOSE:
+						this->simulation->window->close();
+						break;
+					default:
+						break;
+					}
+				}
 			}
 			default: 
 				break;
@@ -82,11 +104,14 @@ SimulationStateStart::SimulationStateStart(Simulation* simulation)
 	pos *= 0.5f;
 	this->view.setCenter(pos);
 
-	buttons.push_back(new Button("START", simulation->font, 40));
-	buttons.push_back(new Button("EXIT", simulation->font, buttons.back(), 40));
+	buttons.push_back(new Button("START", simulation->font, ButtonEvents::SIMULATION_START , 40));
+	buttons.push_back(new Button("EDITOR", simulation->font, buttons.back(), ButtonEvents::MAP_EDITOR, 40));
+	buttons.push_back(new Button("EXIT", simulation->font, buttons.back(), ButtonEvents::WINDOW_CLOSE, 40));
 }
 
 
 SimulationStateStart::~SimulationStateStart()
 {
+	//Usuwanie wszystkich elementów listy z wywo³aniem ich destruktorów
+	buttons.remove_if([](Button * theElement) {delete theElement; return true; });
 }
