@@ -4,10 +4,19 @@
 #include "SimView.h"
 #include "Map.h"
 #include "Simulation.h"
-class SimulationStateEditor : public SimulationStateMain
+class SimulationStateEditor : public SimulationState
 {
 private:
+	static const unsigned int
+		MAP_WIDTH = 50,
+		MAP_HEIGHT = 50;
 	unsigned int typeOfBlock;
+
+	SimView gameView;
+	sf::View guiView;
+
+	Map* map;
+
 public:
 	virtual void draw(const float dt);
 	virtual void update(const float dt);
@@ -15,6 +24,6 @@ public:
 
 	SimulationStateEditor(Simulation* simulation);
 
-	virtual ~SimulationStateEditor();
+	~SimulationStateEditor();
 };
 

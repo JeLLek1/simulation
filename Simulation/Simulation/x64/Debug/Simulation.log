@@ -1,13 +1,3 @@
 ﻿  BinaryFileMenager.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\BinaryFileMenager.cpp(36): warning C4311: "typ rzutowania": obcięcie wskaźnika z "char *" do "unsigned int"
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\BinaryFileMenager.cpp(36): warning C4302: "typ rzutowania": obcięcie z "char *" do "unsigned int"
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\BinaryFileMenager.cpp(38): warning C4311: "typ rzutowania": obcięcie wskaźnika z "char *" do "unsigned int"
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\BinaryFileMenager.cpp(38): warning C4302: "typ rzutowania": obcięcie z "char *" do "unsigned int"
-  Tile.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Tile.cpp(23): warning C4244: "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-  Generowanie kodu...
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\BinaryFileMenager.cpp(33): warning C4244: "inicjowanie": konwersja z "std::streamoff" do "int", możliwa utrata danych
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe

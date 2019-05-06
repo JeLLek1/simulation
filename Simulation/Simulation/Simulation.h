@@ -16,7 +16,9 @@ private:
 
 	void loadTextures();
 
-
+	static const int
+		TILE_SIZE_X = 52,
+		TILE_SIZE_Y = 26;
 public:
 
 	std::stack<SimulationState*> states;
@@ -34,6 +36,9 @@ public:
 	SimulationState* peekState();
 
 	void simulationLoop();
+
+	static sf::Vector2f cartToIso(sf::Vector2f cart, int map_size_x);
+	static sf::Vector2f isoToCart(sf::Vector2f iso, int map_size_x);
 
 
 	Simulation();

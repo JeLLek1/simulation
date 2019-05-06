@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "BinaryFileMenager.h"
+#include "Tile.h"
 
 //£adowanie pliku
 BinaryFileMenager::BinaryFileMenager(std::string name, int mode)
@@ -21,39 +22,38 @@ BinaryFileMenager::BinaryFileMenager(std::string name, int mode)
 }
 
 //Czytanie pliku binarnego
-int BinaryFileMenager::binary_p_read(std::vector<Tile*>& titles, sf::Vector2u& mapSize)
+int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize)
 {
 	//Sprawdzanie czy tryb odczytu jest odpowiedni
 	if (fmode == 2) {
 		//Jeœli uda³o siê otworzyæ plik
 		if (this->file.good())
 		{
+			this->file.seekg(0, this->file.end);
+			int length = this->file.tellg();
+			this->file.seekg(0, this->file.beg);
 			//--Zczytywanie wielkoœci mapy--
 			//WskaŸnik na zmienn¹ wielkoœci unsigned int
-			char* temp = new char[sizeof(unsigned int)];
+			char* temp = new char[sizeof(sf::Vector2u)];
 			//Zczytywanie z pliku odpowiedniej iloœci bajtów dla unsigned int
-			this->file.read(temp, sizeof(Tile));
-			mapSize.x = (unsigned int)(temp);
-			this->file.read(temp, sizeof(Tile));
-			mapSize.y = (unsigned int)(temp);
-			delete temp;
+			this->file.read(temp, sizeof(sf::Vector2u));
+			mapSize = (sf::Vector2u*)(temp);
 			//--Koniec zczytywania wielkoœci mapy--
 
 			//--Zczytywanie kolejnych kafelków mapy--
-			//WskaŸnik na zmienn¹ wielkoœci klasy tile
-			temp = new char[sizeof(Tile)];
 			//Dopuki jest jakiœ element w pliku dodaj go do vektora przechowuj¹cego kafelki
-			while (!this->file.eof()) {
+			while (length > this->file.tellg()) {
+				temp = new char[sizeof(Tile)];
+				//WskaŸnik na zmienn¹ wielkoœci klasy tile
 				this->file.read(temp, sizeof(Tile));
 
 				Tile* tile = (Tile*)(temp);
-				titles.push_back(tile);
+				tiles.push_back(tile);
 			}
-			delete temp;
 			//--Koniec zczytywania kolejnych kafelków mapy--
-
+			mapSize = new sf::Vector2u(50, 50);
 			//Sprawdzenie, czy wielkoœæ mapy siê zgadza
-			if (titles.size() != mapSize.x * mapSize.y) {
+			if (tiles.size() != mapSize->x * mapSize->y) {
 				return 3;
 			}
 			return 0;
@@ -65,18 +65,18 @@ int BinaryFileMenager::binary_p_read(std::vector<Tile*>& titles, sf::Vector2u& m
 	return 1;
 }
 
-int BinaryFileMenager::binary_write(std::vector<Tile*>& titles, sf::Vector2u& mapSize)
+int BinaryFileMenager::binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize)
 {
 	//Sprawdzanie odpowiedniego trybu odczytu
 	if (fmode == 1) {
 		//Jeœli uda³o siê otworzyæ plik
 		if (this->file.good()) {
 			//zapisanie wielkoœci mapy
-			this->file.write((char*)(&(mapSize.x)), sizeof(unsigned int));
-			this->file.write((char*)(&(mapSize.y)), sizeof(unsigned int));
+			this->file.write((char*)(&(*mapSize)), sizeof(sf::Vector2u));
 			//Zapisanie kolejnych kafelków mapy
-			for (int i = 0; i < titles.size(); i++) {
-				this->file.write((char*)(&(titles[i])), sizeof(Tile));
+			for (int i = 0; i < tiles.size(); i++) {
+				this->file.write((char*)(&(*tiles[i])), sizeof(Tile));
+
 			}
 			return 0;
 		}

@@ -17,20 +17,12 @@ protected:
 
 	Map* map;
 
-	static const int
-		TILE_SIZE_X = 52,
-		TILE_SIZE_Y = 26;
-
 public:
 
 	virtual void draw(const float dt);
 	virtual void update(const float dt);
 	virtual void handleInput();
 
-	static sf::Vector2f cartToIso(sf::Vector2f cart, int map_size_x);
-	static sf::Vector2f isoToCart(sf::Vector2f iso, int map_size_x);
-
-	SimulationStateMain();
 	SimulationStateMain(Simulation* simulation);
 	~SimulationStateMain();
 };

@@ -25,7 +25,7 @@ public:
 
 
 	SimulationStateStart(Simulation* simulation);
-	virtual ~SimulationStateStart();
+	~SimulationStateStart();
 };
 
 #endif //SIMULATION_STATE_START_HPP

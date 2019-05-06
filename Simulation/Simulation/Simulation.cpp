@@ -96,6 +96,21 @@ Simulation::Simulation()
 	this->background.setTexture(*this->texmgr.getRef(TextureNames::BACKGROUND));
 }
 
+sf::Vector2f Simulation::cartToIso(sf::Vector2f cart, int map_size_x)
+{
+	return sf::Vector2f(
+		(cart.x - cart.y) * Simulation::TILE_SIZE_Y + map_size_x * Simulation::TILE_SIZE_Y,
+		(cart.x + cart.y) * Simulation::TILE_SIZE_Y * 0.5
+	);
+}
+
+sf::Vector2f Simulation::isoToCart(sf::Vector2f iso, int map_size_x)
+{
+	return sf::Vector2f(
+		iso.y / Simulation::TILE_SIZE_Y + iso.x / (2 * Simulation::TILE_SIZE_Y) - map_size_x * 0.5f + 0.5f,
+		iso.y / Simulation::TILE_SIZE_Y - iso.x / (2 * Simulation::TILE_SIZE_Y) + map_size_x * 0.5f + 0.5f
+	);
+}
 
 Simulation::~Simulation()
 {

@@ -8,11 +8,17 @@
 #include "TextureManager.h"
 class Map
 {
-public:
-	std::vector<Tile*> titles;
+private:
+	std::vector<Tile*> tiles;
 	sf::Vector2u mapSize;
+public:
+	std::vector<Tile*>& getTileReference();
+	Tile* returnTile(size_t x, size_t y);
+	unsigned int mapWidth();
+	unsigned int mapHeight();
 	void load();
+	void load(std::vector<Tile*>& tiles);
 	void draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::Vector2f camSize, SpriteDividedMenager& spriteMgr);
-	Map();
-	Map(unsigned int sizex, unsigned int sizey);
+	Map(sf::Vector2u* mapsize);
+	Map(sf::Vector2u* mapsize, std::vector<Tile*>& tiles);
 };

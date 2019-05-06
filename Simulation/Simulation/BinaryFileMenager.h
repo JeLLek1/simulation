@@ -14,9 +14,9 @@ private:
 	std::string fname;
 public:
 	//Odczytywanie pliku
-	int binary_p_read(std::vector<Tile*>& titles, sf::Vector2u& mapSize);
+	int binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize);
 	//Nadpisywanie pliku
-	int binary_write(std::vector<Tile*>& titles, sf::Vector2u& mapSize);
+	int binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize);
 	BinaryFileMenager(std::string name, int mode);
 	~BinaryFileMenager();
 };
