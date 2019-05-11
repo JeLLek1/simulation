@@ -159,6 +159,9 @@
   <ItemGroup>
     <ClInclude Include="BinaryFileMenager.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Man.h" />
+    <ClInclude Include="ManAi.h" />
+    <ClInclude Include="ManManager.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Simulation.h" />
@@ -178,6 +181,9 @@
     <ClCompile Include="BinaryFileMenager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Man.cpp" />
+    <ClCompile Include="ManAi.cpp" />
+    <ClCompile Include="ManManager.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

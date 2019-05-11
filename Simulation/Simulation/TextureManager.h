@@ -9,6 +9,7 @@ enum class TextureNames : char
 {
 	BACKGROUND = 0,
 	GROUND = 1,
+	MAN = 2,
 };
 
 class TextureManager

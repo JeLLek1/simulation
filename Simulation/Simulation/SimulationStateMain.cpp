@@ -8,7 +8,6 @@
 
 void SimulationStateMain::draw(const float dt)
 {
-
 	this->simulation->window->clear(sf::Color::Color(123, 152, 181));
 	this->simulation->window->setView(this->gameView);
 	this->map->draw(
@@ -18,12 +17,16 @@ void SimulationStateMain::draw(const float dt)
 		this->simulation->sprDivMgr
 	);
 
+	this->population.front()->draw(&(this->gameView), this->simulation->window, this->map, this->simulation->sprDivMgr.getRef(TextureNames::MAN), dt, this->map->mapWidth());
+
 	return;
 }
 
 void SimulationStateMain::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()), this->map->mapWidth());
+
+
 	return;
 }
 
@@ -59,9 +62,11 @@ void SimulationStateMain::handleInput()
 
 SimulationStateMain::SimulationStateMain(Simulation* simulation)
 {
+	Man* man = new Man(sf::Vector2f(1, 1));
+	this->population.push_front(man);
+
 	this->simulation = simulation;
-
-
+	
 	std::vector<Tile*> tiles;
 	BinaryFileMenager* fileMenager = new BinaryFileMenager("resouces/map.bin", 2);
 	sf::Vector2u* mapSize = 0;
