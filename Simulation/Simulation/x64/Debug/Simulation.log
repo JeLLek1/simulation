@@ -1,53 +1,7 @@
 ﻿  Man.cpp
-C:\Project\Simulation\Simulation\Man.h(13): error C2011: "Man'': "class" wpisz ponownie definicję
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(6): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(9): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(10): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(10): error C2660: "ManManager::isCorrect": funkcja nie przyjmuje 2 argumentów
-  C:\Project\Simulation\Simulation\ManManager.h(14): note: zobacz deklarację „ManManager::isCorrect”
-C:\Project\Simulation\Simulation\Man.cpp(12): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(12): error C2660: "ManManager::direction": funkcja nie przyjmuje 1 argumentów
-  C:\Project\Simulation\Simulation\ManManager.h(15): note: zobacz deklarację „ManManager::direction”
-C:\Project\Simulation\Simulation\Man.cpp(12): error C2440: "<function-style-cast>": nie można konwertować z "initializer list" na "sf::IntRect"
-  C:\Project\Simulation\Simulation\Man.cpp(13): note: Żaden konstruktor nie mógł przyjąć typu źródłowego lub rozpoznanie przeciążenia konstruktora było niejednoznaczne
-C:\Project\Simulation\Simulation\Man.cpp(14): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(19): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(21): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(22): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(25): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(29): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(30): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
-C:\Project\Simulation\Simulation\Man.cpp(31): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(33): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(34): warning C4508: "{ctor}": funkcja powinna zwrócić wartość; założono typ zwracany "void"
-C:\Project\Simulation\Simulation\Man.cpp(35): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(36): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
-C:\Project\Simulation\Simulation\Man.cpp(38): error C2355: „this”: Można tworzyć odwołania wyłącznie wewnątrz niestatycznych funkcji składowych lub niestatycznych inicjatorów składowych danych
-C:\Project\Simulation\Simulation\Man.cpp(39): warning C4508: "{ctor}": funkcja powinna zwrócić wartość; założono typ zwracany "void"
-C:\Project\Simulation\Simulation\Man.cpp(41): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\SimulationStateMain.h(15): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\Man.cpp(42): error C4430: brak specyfikatora typu - założono, że int. Uwaga: C++ nie obsługuje domyślnie typu int
-C:\Project\Simulation\Simulation\Man.cpp(43): warning C4508: "{dtor}": funkcja powinna zwrócić wartość; założono typ zwracany "void"
-  ManManager.cpp
-C:\Project\Simulation\Simulation\SimulationStateMain.h(16): error C2011: "Man'': "class" wpisz ponownie definicję
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
   SimulationStateEditor.cpp
-C:\Project\Simulation\Simulation\SimulationStateMain.h(16): error C2011: "Man'': "class" wpisz ponownie definicję
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
 C:\Project\Simulation\Simulation\SimulationStateEditor.cpp(61): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   SimulationStateMain.cpp
-C:\Project\Simulation\Simulation\SimulationStateMain.h(16): error C2011: "Man'': "class" wpisz ponownie definicję
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\SimulationStateMain.cpp(20): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
-C:\Project\Simulation\Simulation\SimulationStateMain.cpp(65): error C2027: wykorzystanie niezdefiniowanego przez użytkownika typu "Man"
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
   SimulationStateStart.cpp
-C:\Project\Simulation\Simulation\SimulationStateMain.h(16): error C2011: "Man'': "class" wpisz ponownie definicję
-  C:\Project\Simulation\Simulation\Man.h(12): note: zobacz deklarację „Man”
   Generowanie kodu...
+  Simulation.vcxproj -> C:\Project\Simulation\x64\Debug\Simulation.exe

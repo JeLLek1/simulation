@@ -18,11 +18,8 @@ void Simulation::loadTextures()
 	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
 	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50);
 
-	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
-	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50);
-
 	texmgr.loadTexture(TextureNames::MAN, "resouces/man.png");
-	sprDivMgr.loadSprite(TextureNames::MAN, texmgr.getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24);
+	sprDivMgr.loadSprite(TextureNames::MAN, texmgr.getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, 1);
 
 	font->loadFromFile("resouces/font.ttf");
 }

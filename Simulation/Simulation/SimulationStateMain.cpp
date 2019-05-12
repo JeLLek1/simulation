@@ -17,7 +17,7 @@ void SimulationStateMain::draw(const float dt)
 		this->simulation->sprDivMgr
 	);
 
-	this->population.front()->draw(&(this->gameView), this->simulation->window, this->map, this->simulation->sprDivMgr.getRef(TextureNames::MAN), dt, this->map->mapWidth());
+	this->population.front()->draw(&(this->gameView), this->simulation->window, this->map, this->simulation->sprDivMgr.getRef(TextureNames::MAN), dt);
 
 	return;
 }
@@ -62,7 +62,7 @@ void SimulationStateMain::handleInput()
 
 SimulationStateMain::SimulationStateMain(Simulation* simulation)
 {
-	Man* man = new Man(sf::Vector2f(1, 1));
+	Man* man = new Man(sf::Vector2f(10, 10));
 	this->population.push_front(man);
 
 	this->simulation = simulation;
