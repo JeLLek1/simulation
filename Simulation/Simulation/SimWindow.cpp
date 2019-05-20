@@ -3,8 +3,8 @@
 
 SimWindow::SimWindow()
 {
-	this->windowSize.x = 1920;
-	this->windowSize.y = 1080;
+	this->windowSize.x = 1080;
+	this->windowSize.y = 720;
 
 	this->create(sf::VideoMode(this->windowSize.x, this->windowSize.y), "Simple Simulation"/*, sf::Style::Fullscreen*/);
 }

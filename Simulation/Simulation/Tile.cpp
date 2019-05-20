@@ -12,7 +12,8 @@ Tile::Tile(unsigned char partNumber, TextureNames texname, bool collision)
 	this->collision = collision;
 	this->texname = texname;
 	this->partNumber = partNumber;
-
+	this->objectType = ObjectType::NONE;
+	this->objectListPosition = 0;
 }
 
 void Tile::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x, unsigned int y, unsigned int mapWidth, float dt)

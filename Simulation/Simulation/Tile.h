@@ -3,15 +3,19 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "SpriteDividedMenager.h"
+#include "StaticObject.h"
 #include <iostream>
 
 
 class Tile
 {
+private:
+	ObjectType objectType;
+	size_t objectListPosition;
+	bool collision;
 public:
 	unsigned char partNumber;
 	TextureNames texname;
-	bool collision;
 
 	Tile();
 	Tile(unsigned char partNumber, TextureNames texname, bool collision = false);

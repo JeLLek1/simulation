@@ -1,1 +1,6 @@
-﻿  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe
+﻿  SimulationStateEditor.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimulationStateEditor.cpp(61): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  SimulationStateMain.cpp
+  SimulationStateStart.cpp
+  Generowanie kodu...
+  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe

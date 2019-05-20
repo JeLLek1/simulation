@@ -1,12 +1,25 @@
 #pragma once
+
+#include <SFML/Graphics.hpp>
 #include "SpriteDividedMenager.h"
+enum class ObjectType : char {
+	NONE,
+	WOOD,
+	STONE,
+	STRAWBERRY,
+	FIREPLACE,
+	WARECHOUSE
+};
+
 class StaticObject
 {
-public:
+private:
+	sf::Vector2u posiotion;
 	unsigned char partNumber;
-	TextureNames texname;
 
-	virtual void draw(const float dt) = 0;
+public:
+
+	virtual void draw(const float dt);
 	virtual void update(const float dt) = 0;
 };
 

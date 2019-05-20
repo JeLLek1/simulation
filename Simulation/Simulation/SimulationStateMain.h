@@ -16,7 +16,7 @@ class SimulationStateMain : public virtual SimulationState
 protected:
 
 	std::list<Man*> population;
-
+	std::list<StaticObject*> staticObjects;
 	SimView gameView;
 	sf::View guiView;
 

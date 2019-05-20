@@ -37,12 +37,21 @@
     <Filter Include="Pliki nagłówkowe\edytor">
       <UniqueIdentifier>{7737256b-0ff3-4320-9cb7-d558916f6d6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\simulation\people">
+      <UniqueIdentifier>{630ec688-10a1-415f-8c05-f7b8733c0cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\simulation\people">
+      <UniqueIdentifier>{f80c76fe-587d-4c1c-b2d5-801b6c9e6476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\simulation\staticObject">
+      <UniqueIdentifier>{b96d110e-745b-4da1-a265-b20220993502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\simulation\staticObject">
+      <UniqueIdentifier>{337b37bd-5313-493f-83d8-f9c112a2387a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="SimulationState.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Simulation.h">
@@ -66,9 +75,6 @@
     <ClInclude Include="SimView.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
-    <ClInclude Include="StaticObject.h">
-      <Filter>Pliki nagłówkowe\simulation</Filter>
-    </ClInclude>
     <ClInclude Include="StaticObjectResouces.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
@@ -88,10 +94,19 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Man.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\simulation\people</Filter>
     </ClInclude>
     <ClInclude Include="ManAi.h">
+      <Filter>Pliki nagłówkowe\simulation\people</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationState.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObject.h">
+      <Filter>Pliki nagłówkowe\simulation\staticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PeopleMenager.h">
+      <Filter>Pliki nagłówkowe\simulation\people</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +140,6 @@
     <ClCompile Include="SimView.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
-    <ClCompile Include="StaticObject.cpp">
-      <Filter>Pliki źródłowe\simulation</Filter>
-    </ClCompile>
     <ClCompile Include="staticObjectResouces.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
@@ -147,10 +159,16 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="Man.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\simulation\people</Filter>
     </ClCompile>
     <ClCompile Include="ManAi.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\simulation\people</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticObject.cpp">
+      <Filter>Pliki źródłowe\simulation\staticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="PeopleMenager.cpp">
+      <Filter>Pliki źródłowe\simulation\people</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

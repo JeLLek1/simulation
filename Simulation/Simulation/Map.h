@@ -6,6 +6,7 @@
 #include "Tile.h"
 #include "SpriteDividedMenager.h"
 #include "TextureManager.h"
+
 class Map
 {
 private:
