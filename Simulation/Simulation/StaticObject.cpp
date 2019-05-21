@@ -1,7 +1,17 @@
+#pragma once
+
 #include "pch.h"
 #include "StaticObject.h"
 
-void StaticObject::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int mapWidth, float dt)
+StaticObject::StaticObject(ObjectType objectType, Map* map)
 {
-
+	this->objectType = objectType;
+	
+	sf::Vector2<size_t> round;
+	do {
+		round.x = rand() % map->mapWidth();
+		round.y = rand() % map->mapHeight();
+	} while (map->returnTile(round.x, round.y)->returnCollision());
+	this->posiotion = sf::Vector2u(round);
+	map->returnTile(round.x, round.y)->setCollision(true);
 }

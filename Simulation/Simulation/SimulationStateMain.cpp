@@ -1,9 +1,13 @@
 #include<SFML/Graphics.hpp>
 
 #include "pch.h"
+#include <time.h>
+#include <cstdlib>
 #include "SimulationStateMain.h"
 #include "SimulationState.h"
 #include "BinaryFileMenager.h"
+#include "StaticObjectResouces.h"
+#include "StaticObjectFireplace.h"
 #include <iostream>
 
 void SimulationStateMain::draw(const float dt)
@@ -18,6 +22,11 @@ void SimulationStateMain::draw(const float dt)
 	);
 
 	this->population.front()->draw(&(this->gameView), this->simulation->window, this->map, this->simulation->sprDivMgr.getRef(TextureNames::MAN), dt);
+
+	for (auto const& i : staticObjects)
+	{
+		i->draw(this->simulation->window, this->simulation->sprDivMgr.getRef(TextureNames::SOURCES), this->map->mapWidth(), this->simulation->sprDivMgr.returnAnimationStep());
+	}
 
 	return;
 }
@@ -91,6 +100,22 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 	}
 	delete mapSize;
 	delete fileMenager;
+
+
+
+
+	for (int i = 0; i < 10; i++) {
+		StaticObject* object = new StaticObjectResouces(ObjectType::WOOD, this->map);
+		this->staticObjects.push_front(object);
+	}
+	for (int i = 0; i < 10; i++) {
+		StaticObject* object = new StaticObjectResouces(ObjectType::STONE, this->map);
+		this->staticObjects.push_front(object);
+	}
+	for (int i = 0; i < 10; i++) {
+		StaticObject* object = new StaticObjectFireplace(ObjectType::FIREPLACE, this->map);
+		this->staticObjects.push_front(object);
+	}
 }
 
 

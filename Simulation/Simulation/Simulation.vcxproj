@@ -165,8 +165,10 @@
     </ClInclude>
     <ClInclude Include="ManAi.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="ObjectType.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PeopleMenager.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="SimulationState.h" />
     <ClInclude Include="SimulationStateEditor.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="SimWindow.h" />
     <ClInclude Include="SpriteDividedMenager.h" />
     <ClInclude Include="StaticObject.h" />
+    <ClInclude Include="StaticObjectFireplace.h" />
     <ClInclude Include="StaticObjectResouces.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
@@ -204,9 +207,13 @@
     <ClCompile Include="SimWindow.cpp" />
     <ClCompile Include="SpriteDividedMenager.cpp" />
     <ClCompile Include="StaticObject.cpp" />
+    <ClCompile Include="StaticObjectFireplace.cpp" />
     <ClCompile Include="staticObjectResouces.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Simulation.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

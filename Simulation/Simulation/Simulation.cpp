@@ -1,5 +1,6 @@
 #include<stack>
-
+#include<time.h>
+#include<stdlib.h>
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
 
@@ -9,6 +10,7 @@
 #include "TextureManager.h"
 
 
+
 /* Pobieranie tekstury t³a */
 
 void Simulation::loadTextures()
@@ -16,13 +18,13 @@ void Simulation::loadTextures()
 	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
 
 	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
-	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50);
+	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50, false);
 
 	texmgr.loadTexture(TextureNames::MAN, "resouces/man.png");
-	sprDivMgr.loadSprite(TextureNames::MAN, texmgr.getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, 1);
+	sprDivMgr.loadSprite(TextureNames::MAN, texmgr.getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, false);
 
 	texmgr.loadTexture(TextureNames::SOURCES, "resouces/sources.png");
-	sprDivMgr.loadSprite(TextureNames::SOURCES, texmgr.getRef(TextureNames::SOURCES), sf::Vector2u(52, 103), 20, 1);
+	sprDivMgr.loadSprite(TextureNames::SOURCES, texmgr.getRef(TextureNames::SOURCES), sf::Vector2u(52, 103), 20, false);
 
 	font->loadFromFile("resouces/font.ttf");
 }
@@ -89,6 +91,7 @@ void Simulation::simulationLoop()
 
 Simulation::Simulation()
 {
+	srand(time(0));
 	this->font = new sf::Font();
 
 	this->loadTextures();

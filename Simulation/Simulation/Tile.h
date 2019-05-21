@@ -3,7 +3,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "SpriteDividedMenager.h"
-#include "StaticObject.h"
+#include "ObjectType.h"
 #include <iostream>
 
 
@@ -21,5 +21,7 @@ public:
 	Tile(unsigned char partNumber, TextureNames texname, bool collision = false);
 	void draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x, unsigned int y, unsigned int mapWidth, unsigned int animationStep);
 	void setPart(unsigned char partNumber);
+	bool returnCollision();
+	void setCollision(bool collision);
 };
 

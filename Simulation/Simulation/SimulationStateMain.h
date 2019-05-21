@@ -8,6 +8,7 @@
 #include "Map.h"
 #include "SimView.h"
 #include "Man.h"
+#include "StaticObject.h"
 
 
 

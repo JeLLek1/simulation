@@ -10,7 +10,7 @@ sf::Vector2i ManAi::getNextStep()
 		this->destination.pop_front();
 		return temp;
 	}
-	else return sf::Vector2i(1, 1);
+	else return sf::Vector2i(0, 0);
 }
 
 ManAi::ManAi()
@@ -24,7 +24,7 @@ ManAi::ManAi()
 	this->destination.push_front(sf::Vector2i(30, 48));
 	this->destination.push_front(sf::Vector2i(50, 18));
 	this->destination.push_front(sf::Vector2i(20, 48));
-	this->destination.push_front(sf::Vector2i(50, 8));
+	this->destination.push_front(sf::Vector2i(49, 8));
 }
 
 

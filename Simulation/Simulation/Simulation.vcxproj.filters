@@ -75,9 +75,6 @@
     <ClInclude Include="SimView.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
-    <ClInclude Include="StaticObjectResouces.h">
-      <Filter>Pliki nagłówkowe\simulation</Filter>
-    </ClInclude>
     <ClInclude Include="SimulationStateMain.h">
       <Filter>Pliki nagłówkowe\simulation</Filter>
     </ClInclude>
@@ -111,6 +108,18 @@
     <ClInclude Include="AnimationHandler.h">
       <Filter>Pliki nagłówkowe\textures</Filter>
     </ClInclude>
+    <ClInclude Include="StaticObjectFireplace.h">
+      <Filter>Pliki nagłówkowe\simulation\staticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticObjectResouces.h">
+      <Filter>Pliki nagłówkowe\simulation\staticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectType.h">
+      <Filter>Pliki nagłówkowe\simulation\staticObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -143,9 +152,6 @@
     <ClCompile Include="SimView.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
-    <ClCompile Include="staticObjectResouces.cpp">
-      <Filter>Pliki źródłowe\simulation</Filter>
-    </ClCompile>
     <ClCompile Include="SimulationStateMain.cpp">
       <Filter>Pliki źródłowe\simulation</Filter>
     </ClCompile>
@@ -176,5 +182,16 @@
     <ClCompile Include="AnimationHandler.cpp">
       <Filter>Pliki źródłowe\textures</Filter>
     </ClCompile>
+    <ClCompile Include="StaticObjectFireplace.cpp">
+      <Filter>Pliki źródłowe\simulation\staticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="staticObjectResouces.cpp">
+      <Filter>Pliki źródłowe\simulation\staticObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Simulation.rc">
+      <Filter>Pliki zasobów</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -35,3 +35,13 @@ void Tile::setPart(unsigned char partNumber)
 		this->collision = true;
 	}
 }
+
+bool Tile::returnCollision()
+{
+	return this->collision;
+}
+
+void Tile::setCollision(bool collision)
+{
+	this->collision = collision;
+}
