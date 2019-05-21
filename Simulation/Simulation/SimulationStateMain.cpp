@@ -25,6 +25,7 @@ void SimulationStateMain::draw(const float dt)
 void SimulationStateMain::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()), this->map->mapWidth());
+	simulation->sprDivMgr.update(dt);
 
 
 	return;

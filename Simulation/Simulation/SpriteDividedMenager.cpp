@@ -18,7 +18,23 @@ SpriteDivided* SpriteDividedMenager::getRef(const TextureNames & name) {
 	return this->sprites.at(name);
 }
 
+void SpriteDividedMenager::update(const float dt)
+{
+	this->animationHandler->update(dt);
+	return;
+}
+
+unsigned int SpriteDividedMenager::returnAnimationStep()
+{
+	return this->animationHandler->returnStep();
+}
+
 SpriteDividedMenager::SpriteDividedMenager()
 {
+	this->animationHandler = new AnimationHandler(0.25);
+}
 
+SpriteDividedMenager::~SpriteDividedMenager()
+{
+	delete animationHandler;
 }

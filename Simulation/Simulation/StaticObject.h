@@ -19,7 +19,7 @@ private:
 
 public:
 
-	virtual void draw(const float dt);
+	void draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int mapWidth, float dt);
 	virtual void update(const float dt) = 0;
 };
 

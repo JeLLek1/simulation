@@ -37,6 +37,7 @@ void SimulationStateStart::update(const float dt)
 	{
 		i->update(dt, simulation);
 	}
+	simulation->sprDivMgr.update(dt);
 	return;
 }
 

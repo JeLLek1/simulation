@@ -84,9 +84,6 @@
     <ClInclude Include="SimulationStateEditor.h">
       <Filter>Pliki nagłówkowe\edytor</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Pliki nagłówkowe\menu</Filter>
     </ClInclude>
@@ -107,6 +104,12 @@
     </ClInclude>
     <ClInclude Include="PeopleMenager.h">
       <Filter>Pliki nagłówkowe\simulation\people</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationHandler.h">
+      <Filter>Pliki nagłówkowe\textures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="PeopleMenager.cpp">
       <Filter>Pliki źródłowe\simulation\people</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationHandler.cpp">
+      <Filter>Pliki źródłowe\textures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

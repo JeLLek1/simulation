@@ -23,6 +23,7 @@ void SimulationStateEditor::draw(const float dt)
 void SimulationStateEditor::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()), this->map->mapHeight());
+	simulation->sprDivMgr.update(dt);
 }
 
 void SimulationStateEditor::handleInput()
@@ -60,9 +61,9 @@ void SimulationStateEditor::handleInput()
 		sf::Vector2i cart = sf::Vector2i(Simulation::isoToCart(mousePos, this->map->mapWidth()));
 		if(cart.x>=0 && cart.x<this->map->mapWidth() && cart.y>=0 && cart.y<this->map->mapHeight()){
 			if(this->typeOfBlock<5)
-				this->map->returnTile(cart.x, cart.y)->partNumber = this->typeOfBlock;
+				this->map->returnTile(cart.x, cart.y)->setPart(this->typeOfBlock);
 			else
-				this->map->returnTile(cart.x, cart.y)->partNumber = (this->typeOfBlock-4)*5;
+				this->map->returnTile(cart.x, cart.y)->setPart((this->typeOfBlock-4)*5);
 		}
 	}
 	return;

@@ -13,12 +13,13 @@ private:
 	ObjectType objectType;
 	size_t objectListPosition;
 	bool collision;
-public:
 	unsigned char partNumber;
-	TextureNames texname;
+	//StaticObject* staticObject;
+public:
 
 	Tile();
 	Tile(unsigned char partNumber, TextureNames texname, bool collision = false);
-	void draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x, unsigned int y, unsigned int mapWidth, float dt);
+	void draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x, unsigned int y, unsigned int mapWidth, unsigned int animationStep);
+	void setPart(unsigned char partNumber);
 };
 

@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationHandler.h" />
     <ClInclude Include="BinaryFileMenager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Man.h">
@@ -180,6 +181,7 @@
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationHandler.cpp" />
     <ClCompile Include="BinaryFileMenager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />

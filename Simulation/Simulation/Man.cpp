@@ -6,7 +6,7 @@
 
 void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite, float dt)
 {
-	this->update(dt);
+	this->update(dt); //to do zmiany!!!! powinno byæ w update metodzie a nie w draw
 	if (this->isCorrect(map, simView))
 	{
 		sprite->setTextureRect(sf::IntRect( 0, this->direction()*sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));

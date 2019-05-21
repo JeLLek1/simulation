@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "StaticObject.h"
 
-void StaticObject::draw(const float dt)
+void StaticObject::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int mapWidth, float dt)
 {
 
 }
