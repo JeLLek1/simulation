@@ -1,11 +1,2 @@
-﻿  ManAi.cpp
-  Simulation.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Simulation.cpp(94): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Simulation.cpp(109): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-  StaticObject.cpp
-  Generowanie kodu...
+﻿  SimulationStateMain.cpp
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe

@@ -22,13 +22,13 @@ void Man::update(float dt)
 	else
 	{ 
 		if (this->destination.x > this->currentPosition.x)
-			this->currentPosition.x+=0.5; 
+			this->currentPosition.x+=0.25; 
 		else if (this->destination.x < this->currentPosition.x)
-			this->currentPosition.x-= 0.5;
+			this->currentPosition.x-= 0.25;
 		else if (this->destination.y > this->currentPosition.y)
-			this->currentPosition.y += 0.5;
+			this->currentPosition.y += 0.25;
 		else if (this->destination.y < this->currentPosition.y)
-			this->currentPosition.y -= 0.5;
+			this->currentPosition.y -= 0.25;
 	}
 }
 

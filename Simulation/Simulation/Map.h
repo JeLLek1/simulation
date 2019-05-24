@@ -20,6 +20,7 @@ public:
 	void load();
 	void load(std::vector<Tile*>& tiles);
 	void draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::Vector2f camSize, SpriteDividedMenager& spriteMgr);
+	size_t cordToTabPos(sf::Vector2u pos);
 	Map(sf::Vector2u* mapsize);
 	Map(sf::Vector2u* mapsize, std::vector<Tile*>& tiles);
 };

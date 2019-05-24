@@ -9,7 +9,7 @@ std::vector<Tile*>& Map::getTileReference()
 
 Tile* Map::returnTile(size_t x, size_t y)
 {
-	return this->tiles[x + (y * this->mapSize.x)];
+	return this->tiles[this->cordToTabPos(sf::Vector2u(x,y))];
 }
 
 unsigned int Map::mapWidth()
@@ -59,6 +59,11 @@ void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::V
 			}
 		}
 	}
+}
+
+size_t Map::cordToTabPos(sf::Vector2u pos)
+{
+	return static_cast<size_t>(pos.x + pos.y*this->mapWidth());
 }
 
 Map::Map(sf::Vector2u* mapsize)

@@ -2,6 +2,8 @@
 #include <list>
 #include <SFML/Graphics.hpp>
 
+#include "Map.h"
+#include "ObjectType.h"
 
 class ManAi
 {
@@ -9,6 +11,8 @@ class ManAi
 
 public:
 	sf::Vector2i getNextStep();
+	bool dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start);
+	void clearDestination();
 	ManAi();
 	~ManAi();
 };

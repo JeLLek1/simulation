@@ -45,3 +45,8 @@ void Tile::setCollision(bool collision)
 {
 	this->collision = collision;
 }
+
+void Tile::setObjectType(ObjectType objectType)
+{
+	this->objectType = objectType;
+}
