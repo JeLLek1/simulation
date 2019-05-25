@@ -5,7 +5,6 @@
 int main()
 {
 	Simulation *simulation = new Simulation();
-
 	simulation->pushState(new SimulationStateStart(simulation));
 	simulation->simulationLoop();
 	std::cout << "XD";

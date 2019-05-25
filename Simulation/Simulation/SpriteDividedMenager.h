@@ -13,10 +13,13 @@ public:
 class SpriteDividedMenager
 {
 private:
-	std::map<TextureNames, SpriteDivided*> sprites;
+	
 	AnimationHandler* animationHandler;
-public:
 
+	std::map<TextureNames, SpriteDivided*> sprites;
+
+public:
+	
 	void loadSprite(const TextureNames& name, sf::Texture* texture, sf::Vector2u partSize, unsigned char partLenght, bool centerBottom = true);
 	SpriteDivided* getRef(const TextureNames& name);
 	void update(const float dt);

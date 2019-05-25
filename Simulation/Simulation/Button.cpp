@@ -19,7 +19,7 @@ bool Button::coverage(sf::Vector2i mousePosition)
 
 void Button::update(const float dt, Simulation* simulation)
 {
-	if(this->coverage(sf::Mouse::getPosition(*simulation->window)))
+	if(this->coverage(sf::Mouse::getPosition(*simulation->getWindow())))
 	{
 		this->text.setFillColor(sf::Color::Black);
 		if (this->currentSize < Button::MAX_SIZE)

@@ -10,9 +10,13 @@ private:
 
 	//Prêdkoœæ przesuniêcia
 	const int SPEED = 20;
-public:
+
 	//pozycja kamery kartezjañska
 	sf::Vector2f camPos;
+
+public:
+	
+	sf::Vector2f getCamPos();
 	//Metoda odpowiedzialna za przesuwanie widoku
 	void update(const float dt, sf::Vector2i mousePos, sf::Vector2i WindowSize, int map_width);
 	SimView();

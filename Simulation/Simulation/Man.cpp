@@ -43,10 +43,10 @@ unsigned int Man::direction()
 
 bool Man::isCorrect(Map* map, SimView* view)
 {
-	if (this->currentPosition.x >= (view->camPos.x - map->mapHeight() / 2) &&
-		this->currentPosition.x <= (view->camPos.x + map->mapHeight() / 2) &&
-		this->currentPosition.y <= (view->camPos.y + map->mapWidth() / 2) &&
-		this->currentPosition.y >= (view->camPos.y - map->mapWidth() / 2))
+	if (this->currentPosition.x >= (view->getCamPos().x - map->mapHeight() / 2) &&
+		this->currentPosition.x <= (view->getCamPos().x + map->mapHeight() / 2) &&
+		this->currentPosition.y <= (view->getCamPos().y + map->mapWidth() / 2) &&
+		this->currentPosition.y >= (view->getCamPos().y - map->mapWidth() / 2))
 		return true;
 	else return false;
 }

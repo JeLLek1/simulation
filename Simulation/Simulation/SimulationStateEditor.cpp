@@ -7,23 +7,23 @@
 
 void SimulationStateEditor::draw(const float dt)
 {
-	this->simulation->window->clear(sf::Color::Color(123, 152, 181));
-	this->simulation->window->setView(this->gameView);
+	this->simulation->getWindow()->clear(sf::Color::Color(123, 152, 181));
+	this->simulation->getWindow()->setView(this->gameView);
 	this->map->draw(
-		this->simulation->window, dt,
+		this->simulation->getWindow(), dt,
 		this->gameView.getCenter(),
 		this->gameView.getSize(),
-		this->simulation->sprDivMgr
+		this->simulation->getSprDivMgr()
 	);
-	this->simulation->window->setView(this->guiView);
+	this->simulation->getWindow()->setView(this->guiView);
 
 	return;
 }
 
 void SimulationStateEditor::update(const float dt)
 {
-	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->window), sf::Vector2i(this->simulation->window->getSize()), this->map->mapHeight());
-	simulation->sprDivMgr.update(dt);
+	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapHeight());
+	simulation->getSprDivMgr()->update(dt);
 }
 
 void SimulationStateEditor::handleInput()
@@ -31,19 +31,19 @@ void SimulationStateEditor::handleInput()
 	//Uwaga potem usun¹æ. Od tej chwili zaczyna siê edytor mapy
 	sf::Event event;
 
-	while (this->simulation->window->pollEvent(event))
+	while (this->simulation->getWindow()->pollEvent(event))
 	{
 		switch (event.type)
 		{
 		case sf::Event::Closed:
 		{
-			this->simulation->window->close();
+			this->simulation->getWindow()->close();
 			break;
 		}
 		case sf::Event::KeyPressed:
 		{
 			if (event.key.code == sf::Keyboard::Escape) {
-				this->simulation->window->close();
+				this->simulation->getWindow()->close();
 			}
 			else if (event.key.code > 25 && event.key.code < 36) {
 				this->typeOfBlock = event.key.code - 26;
@@ -57,7 +57,7 @@ void SimulationStateEditor::handleInput()
 		}
 	}
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		sf::Vector2f mousePos = this->simulation->window->mapPixelToCoords(sf::Mouse::getPosition(*this->simulation->window), this->gameView);
+		sf::Vector2f mousePos = this->simulation->getWindow()->mapPixelToCoords(sf::Mouse::getPosition(*this->simulation->getWindow()), this->gameView);
 		sf::Vector2i cart = sf::Vector2i(Simulation::isoToCart(mousePos, this->map->mapWidth()));
 		if(cart.x>=0 && cart.x<this->map->mapWidth() && cart.y>=0 && cart.y<this->map->mapHeight()){
 			if(this->typeOfBlock<5)
@@ -72,7 +72,7 @@ void SimulationStateEditor::handleInput()
 SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 {
 	this->simulation = simulation;
-	sf::Vector2f pos = sf::Vector2f(this->simulation->window->getSize());
+	sf::Vector2f pos = sf::Vector2f(this->simulation->getWindow()->getSize());
 	this->guiView.setSize(pos);
 	this->gameView.setSize(pos);
 	pos *= 0.5f;
@@ -95,7 +95,7 @@ SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 	}
 
 
-	sf::Vector2f temp = Simulation::cartToIso(this->gameView.camPos, this->map->mapWidth());
+	sf::Vector2f temp = Simulation::cartToIso(this->gameView.getCamPos(), this->map->mapWidth());
 	this->gameView.setCenter(temp);
 
 	this->typeOfBlock = 0;

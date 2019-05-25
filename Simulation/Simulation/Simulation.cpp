@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
+#include <iostream>
 
 #include "pch.h"
 #include "Simulation.h"
@@ -10,27 +11,48 @@
 #include "TextureManager.h"
 
 
-
 /* Pobieranie tekstury t³a */
 
 void Simulation::loadTextures()
 {
-	texmgr.loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
+	texmgr->loadTexture(TextureNames::BACKGROUND, "resouces/menuBackground.png");
 
-	texmgr.loadTexture(TextureNames::GROUND, "resouces/ground.png");
-	sprDivMgr.loadSprite(TextureNames::GROUND, texmgr.getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50, false);
+	texmgr->loadTexture(TextureNames::GROUND, "resouces/ground.png");
+	sprDivMgr->loadSprite(TextureNames::GROUND, texmgr->getRef(TextureNames::GROUND), sf::Vector2u(52, 26), 50, false);
 
-	texmgr.loadTexture(TextureNames::MAN, "resouces/man.png");
-	sprDivMgr.loadSprite(TextureNames::MAN, texmgr.getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, false);
+	texmgr->loadTexture(TextureNames::MAN, "resouces/man.png");
+	sprDivMgr->loadSprite(TextureNames::MAN, texmgr->getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, false);
 
-	texmgr.loadTexture(TextureNames::SOURCES, "resouces/sources.png");
-	sprDivMgr.loadSprite(TextureNames::SOURCES, texmgr.getRef(TextureNames::SOURCES), sf::Vector2u(52, 103), 20, false);
+	texmgr->loadTexture(TextureNames::SOURCES, "resouces/sources.png");
+	sprDivMgr->loadSprite(TextureNames::SOURCES, texmgr->getRef(TextureNames::SOURCES), sf::Vector2u(52, 103), 20, false);
 
 	font->loadFromFile("resouces/font.ttf");
 }
 
-/*  Pobieranie wskaŸnika do danego stanu i uk³adanie go na stosie  */
 
+
+SpriteDividedMenager* Simulation::getSprDivMgr()
+{
+	return this->sprDivMgr;
+}
+
+sf::Font* Simulation::getFont()
+{
+	return this->font;
+}
+
+sf::Sprite Simulation::getBackground()
+{
+	return this->background;
+}
+
+
+SimWindow* Simulation::getWindow()
+{
+	return this->window;
+}
+
+/*  Pobieranie wskaŸnika do danego stanu i uk³adanie go na stosie  */
 void Simulation::pushState(SimulationState* state)
 {
 	this->states.push(state);
@@ -72,6 +94,9 @@ SimulationState* Simulation::peekState()
 
 void Simulation::simulationLoop()
 {
+	
+
+
 
 	sf::Clock clock;
 
@@ -90,16 +115,19 @@ void Simulation::simulationLoop()
 }
 
 Simulation::Simulation()
-{
+{	
+	SpriteDividedMenager* spriteMgr = new SpriteDividedMenager();
+	this->sprDivMgr = spriteMgr;
+	TextureManager* textureMgr = new TextureManager;
+	this->texmgr = textureMgr;
+
 	srand(time(0));
 	this->font = new sf::Font();
-
 	this->loadTextures();
-
 	this->window = new SimWindow();
 	this->window->setFramerateLimit(60);
 
-	this->background.setTexture(*this->texmgr.getRef(TextureNames::BACKGROUND));
+	this->background.setTexture(*this->texmgr->getRef(TextureNames::BACKGROUND));
 }
 
 sf::Vector2f Simulation::cartToIso(sf::Vector2f cart, int map_size_x)

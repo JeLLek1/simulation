@@ -3,6 +3,11 @@
 #include "Simulation.h"
 #include <iostream>
 
+sf::Vector2f SimView::getCamPos()
+{
+	return camPos;
+}
+
 //Przy ka¿dym odœwierzeniu metoda sprawdza czy pozycja myszy nie wskazuje na mo¿liwoœæ przesuniêcia mapy
 void SimView::update(const float dt, sf::Vector2i mousePos, sf::Vector2i WindowSize, int map_width) {
 	//temp przechowuje informacje na temat przesuniêcia

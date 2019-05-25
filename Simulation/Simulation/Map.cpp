@@ -39,7 +39,7 @@ void Map::load(std::vector<Tile*>& tiles)
 	this->tiles = tiles;
 }
 
-void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::Vector2f camSize, SpriteDividedMenager& spriteMgr)
+void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::Vector2f camSize, SpriteDividedMenager* spriteMgr)
 {
 	sf::Vector2i begin = sf::Vector2i(Simulation::isoToCart( camPosIso - (camSize * 0.5f), this->mapSize.x));
 	sf::Vector2i end = sf::Vector2i(Simulation::isoToCart(camPosIso + (camSize * 0.5f), this->mapSize.x));
@@ -50,12 +50,12 @@ void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::V
 			int x = begin.x + i;
 			int y = begin.y + j;
 			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y ) {
-				this->returnTile(x, y)->draw(window, spriteMgr.getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr.returnAnimationStep());
+				this->returnTile(x, y)->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 			x = end.x - i;
 			y = end.y - j;
 			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y && triangleendX != i) {
-				this->returnTile(x, y)->draw(window, spriteMgr.getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr.returnAnimationStep());
+				this->returnTile(x, y)->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 		}
 	}

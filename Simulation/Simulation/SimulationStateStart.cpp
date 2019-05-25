@@ -21,12 +21,12 @@ void SimulationStateStart::loadEditor() {
 
 void SimulationStateStart::draw(const float dt)
 {
-	this->simulation->window->setView(this->view);
-	this->simulation->window->clear(sf::Color::Black);
-	this->simulation->window->draw(this->simulation->background);
+	this->simulation->getWindow()->setView(this->view);
+	this->simulation->getWindow()->clear(sf::Color::Black);
+	this->simulation->getWindow()->draw(this->simulation->getBackground());
 	for (auto const& i : buttons) 
 	{
-		i->draw(simulation->window);
+		i->draw(simulation->getWindow());
 	}
 	return;
 }
@@ -37,7 +37,8 @@ void SimulationStateStart::update(const float dt)
 	{
 		i->update(dt, simulation);
 	}
-	simulation->sprDivMgr.update(dt);
+	
+	simulation->getSprDivMgr()->update(dt);
 	return;
 }
 
@@ -47,20 +48,20 @@ void SimulationStateStart::handleInput()
 {
 	sf::Event event;
 
-	while (this->simulation->window->pollEvent(event))
+	while (this->simulation->getWindow()->pollEvent(event))
 	{
 		switch(event.type)
 		{
 			case sf::Event::Closed:
 			{
-				simulation->window->close();
+				simulation->getWindow()->close();
 				break;
 			}
 
 			case sf::Event::KeyPressed:
 			{
 				if (event.key.code == sf::Keyboard::Escape)
-					this->simulation->window->close();
+					this->simulation->getWindow()->close();
 				else if (event.key.code == sf::Keyboard::Space)
 					this->loadSimulation();
 				break;
@@ -70,7 +71,7 @@ void SimulationStateStart::handleInput()
 				if (event.mouseButton.button == sf::Mouse::Left){
 					ButtonEvents buttonEvent=ButtonEvents::DO_NOTHING;
 					for (auto const& button : buttons) {
-						if (button->coverage(sf::Mouse::getPosition(*this->simulation->window))) {
+						if (button->coverage(sf::Mouse::getPosition(*this->simulation->getWindow()))) {
 							buttonEvent = button->getEvent();
 						}
 					}
@@ -82,7 +83,7 @@ void SimulationStateStart::handleInput()
 						this->loadEditor();
 						break;
 					case ButtonEvents::WINDOW_CLOSE:
-						this->simulation->window->close();
+						this->simulation->getWindow()->close();
 						break;
 					default:
 						break;
@@ -100,14 +101,14 @@ void SimulationStateStart::handleInput()
 SimulationStateStart::SimulationStateStart(Simulation* simulation)
 {
 	this->simulation = simulation;
-	sf::Vector2f pos = sf::Vector2f(this->simulation->window->getSize());
+	sf::Vector2f pos = sf::Vector2f(this->simulation->getWindow()->getSize());
 	this->view.setSize(pos);
 	pos *= 0.5f;
 	this->view.setCenter(pos);
 
-	buttons.push_back(new Button("START", simulation->font, ButtonEvents::SIMULATION_START , 40));
-	buttons.push_back(new Button("EDITOR", simulation->font, buttons.back(), ButtonEvents::MAP_EDITOR, 40));
-	buttons.push_back(new Button("EXIT", simulation->font, buttons.back(), ButtonEvents::WINDOW_CLOSE, 40));
+	buttons.push_back(new Button("START", simulation->getFont(), ButtonEvents::SIMULATION_START , 40));
+	buttons.push_back(new Button("EDITOR", simulation->getFont(), buttons.back(), ButtonEvents::MAP_EDITOR, 40));
+	buttons.push_back(new Button("EXIT", simulation->getFont(), buttons.back(), ButtonEvents::WINDOW_CLOSE, 40));
 }
 
 

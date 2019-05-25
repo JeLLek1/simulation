@@ -6,10 +6,13 @@
 
 class SimWindow : public sf::RenderWindow
 {
-public:
-	
+private:
+
 	sf::Vector2i windowSize;
 	sf::String windowName;
+
+public:
+	
 
 	SimWindow();
 	~SimWindow();
