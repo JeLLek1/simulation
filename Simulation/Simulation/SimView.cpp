@@ -46,9 +46,9 @@ void SimView::update(const float dt, sf::Vector2i mousePos, sf::Vector2i WindowS
 	}
 }
 
-SimView::SimView()
+SimView::SimView():sf::View()
 {
-	this->camPos = sf::Vector2f(50,50);
+	this->camPos = sf::Vector2f(10,10);
 }
 
 

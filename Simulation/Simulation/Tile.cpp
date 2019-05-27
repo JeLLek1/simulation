@@ -34,6 +34,9 @@ void Tile::setPart(unsigned char partNumber)
 	if (this->partNumber > 4) {
 		this->collision = true;
 	}
+	else {
+		this->collision = false;
+	}
 }
 
 bool Tile::returnCollision()
@@ -44,6 +47,11 @@ bool Tile::returnCollision()
 void Tile::setCollision(bool collision)
 {
 	this->collision = collision;
+}
+
+ObjectType Tile::returnObjectType()
+{
+	return this->objectType;
 }
 
 void Tile::setObjectType(ObjectType objectType)

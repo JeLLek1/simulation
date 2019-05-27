@@ -23,6 +23,7 @@ public:
 	void setPart(unsigned char partNumber);
 	bool returnCollision();
 	void setCollision(bool collision);
+	ObjectType returnObjectType();
 	void setObjectType(ObjectType ObjectType);
 };
 

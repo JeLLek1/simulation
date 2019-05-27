@@ -58,12 +58,12 @@ void SimulationStateEditor::handleInput()
 	}
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 		sf::Vector2f mousePos = this->simulation->getWindow()->mapPixelToCoords(sf::Mouse::getPosition(*this->simulation->getWindow()), this->gameView);
-		sf::Vector2i cart = sf::Vector2i(Simulation::isoToCart(mousePos, this->map->mapWidth()));
+		sf::Vector2u cart = sf::Vector2u(Simulation::isoToCart(mousePos, this->map->mapWidth()));
 		if(cart.x>=0 && cart.x<this->map->mapWidth() && cart.y>=0 && cart.y<this->map->mapHeight()){
 			if(this->typeOfBlock<5)
-				this->map->returnTile(cart.x, cart.y)->setPart(this->typeOfBlock);
+				this->map->returnTile(cart)->setPart(this->typeOfBlock);
 			else
-				this->map->returnTile(cart.x, cart.y)->setPart((this->typeOfBlock-4)*5);
+				this->map->returnTile(cart)->setPart((this->typeOfBlock-4)*5);
 		}
 	}
 	return;

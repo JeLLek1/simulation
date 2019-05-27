@@ -7,9 +7,9 @@ std::vector<Tile*>& Map::getTileReference()
 	return this->tiles;
 }
 
-Tile* Map::returnTile(size_t x, size_t y)
+Tile* Map::returnTile(sf::Vector2u cords)
 {
-	return this->tiles[this->cordToTabPos(sf::Vector2u(x,y))];
+	return this->tiles[this->cordToTabPos(cords)];
 }
 
 unsigned int Map::mapWidth()
@@ -50,12 +50,12 @@ void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::V
 			int x = begin.x + i;
 			int y = begin.y + j;
 			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y ) {
-				this->returnTile(x, y)->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
+				this->returnTile(sf::Vector2u(x, y))->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 			x = end.x - i;
 			y = end.y - j;
 			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y && triangleendX != i) {
-				this->returnTile(x, y)->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
+				this->returnTile(sf::Vector2u(x, y))->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 		}
 	}

@@ -72,8 +72,6 @@ void SimulationStateMain::handleInput()
 
 SimulationStateMain::SimulationStateMain(Simulation* simulation)
 {
-	Man* man = new Man(sf::Vector2f(10, 10));
-	this->population.push_front(man);
 
 	this->simulation = simulation;
 	
@@ -93,7 +91,6 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 		this->gameView.setSize(pos);
 		pos *= 0.5f;
 		this->guiView.setCenter(pos);
-		this->gameView.setCenter(pos);
 		sf::Vector2f temp = Simulation::cartToIso(this->gameView.getCamPos(), this->map->mapWidth());
 		this->gameView.setCenter(temp);
 
@@ -116,6 +113,11 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 		StaticObject* object = new StaticObjectFireplace(ObjectType::FIREPLACE, this->map);
 		this->staticObjects.push_front(object);
 	}
+
+
+	Man* man = new Man(sf::Vector2f(10, 10));
+	man->setPath(ObjectType::WOOD, this->map);
+	this->population.push_front(man);
 }
 
 

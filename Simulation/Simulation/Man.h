@@ -23,6 +23,7 @@ private:
 public:
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite, float dt);
 	void update(float dt);
+	bool setPath(ObjectType objectType, Map* map);
 	Man(sf::Vector2f currentPosition);
 	Man();
 	~Man();

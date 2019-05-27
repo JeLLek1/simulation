@@ -14,7 +14,7 @@ private:
 	sf::Vector2u mapSize;
 public:
 	std::vector<Tile*>& getTileReference();
-	Tile* returnTile(size_t x, size_t y);
+	Tile* returnTile(sf::Vector2u cords);
 	unsigned int mapWidth();
 	unsigned int mapHeight();
 	void load();

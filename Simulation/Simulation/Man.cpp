@@ -18,7 +18,7 @@ void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivid
 void Man::update(float dt)
 {
 	if (this->currentPosition == this->destination)
-		this->destination = sf::Vector2f(this->manAi->getNextStep());
+		this->destination = sf::Vector2f(this->manAi->getNextStep(sf::Vector2i(this->currentPosition)));
 	else
 	{ 
 		if (this->destination.x > this->currentPosition.x)
@@ -30,6 +30,12 @@ void Man::update(float dt)
 		else if (this->destination.y < this->currentPosition.y)
 			this->currentPosition.y -= 0.25;
 	}
+}
+
+bool Man::setPath(ObjectType objectType, Map* map)
+{
+	this->manAi->dijkstraPath(objectType, map, sf::Vector2u(this->currentPosition));
+	return false;
 }
 
 unsigned int Man::direction()
@@ -57,7 +63,7 @@ Man::Man(sf::Vector2f currentPosition)
 	ManAi* manAi1 = new ManAi();
 	this->manAi = manAi1;
 	this->hp = 0;
-	this->destination= sf::Vector2f(this->manAi->getNextStep());
+	this->destination= sf::Vector2f(this->manAi->getNextStep(sf::Vector2i(this->currentPosition)));
 }
 Man::Man()
 {

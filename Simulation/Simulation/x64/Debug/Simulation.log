@@ -1,117 +1,38 @@
-﻿  Button.cpp
-C:\Project\Simulation\Simulation\Button.cpp(27,43): warning C4244:  "+=": konwersja z "float" do "int", możliwa utrata danych
-  Man.cpp
-  Map.cpp
-C:\Project\Simulation\Simulation\Button.cpp(38,43): warning C4244:  "-=": konwersja z "float" do "int", możliwa utrata danych
-C:\Project\Simulation\Simulation\Map.cpp(12,56): warning C4267:  "argument": konwersja z "size_t" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\Map.cpp(12,56): warning C4267:         with
-C:\Project\Simulation\Simulation\Map.cpp(12,56): warning C4267:         [
-C:\Project\Simulation\Simulation\Map.cpp(12,56): warning C4267:             T=unsigned int
-C:\Project\Simulation\Simulation\Map.cpp(12,56): warning C4267:         ]
-C:\Project\Simulation\Simulation\Map.cpp(52,30): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-C:\Project\Simulation\Simulation\Map.cpp(52,53): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-C:\Project\Simulation\Simulation\Map.cpp(57,30): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-  SimView.cpp
-C:\Project\Simulation\Simulation\Map.cpp(57,53): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:  "=": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         with
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:             T=int
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         and
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:             T=float
-C:\Project\Simulation\Simulation\SimView.cpp(19,13): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:  "=": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         with
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:             T=int
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         and
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:             T=float
-C:\Project\Simulation\Simulation\SimView.cpp(21,51): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:  "=": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         with
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:             T=int
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         and
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:             T=float
-C:\Project\Simulation\Simulation\SimView.cpp(32,13): warning C4244:         ]
-  SimWindow.cpp
-  Simulation.cpp
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:  "=": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         with
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:             T=int
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         and
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         [
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:             T=float
-C:\Project\Simulation\Simulation\SimView.cpp(34,51): warning C4244:         ]
-C:\Project\Simulation\Simulation\Simulation.cpp(124,12): warning C4244:  "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  SimulationState.cpp
-  SimulationStateEditor.cpp
-C:\Project\Simulation\Simulation\Simulation.cpp(137,47): warning C4244:  "argument": konwersja z "double" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\Simulation.cpp(137,47): warning C4244:         with
-C:\Project\Simulation\Simulation\Simulation.cpp(137,47): warning C4244:         [
-C:\Project\Simulation\Simulation\Simulation.cpp(137,47): warning C4244:             T=float
-C:\Project\Simulation\Simulation\Simulation.cpp(137,47): warning C4244:         ]
-C:\Project\Simulation\Simulation\SimulationStateEditor.cpp(62,25): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-  SimulationStateMain.cpp
-  SimulationStateStart.cpp
-  StaticObjectFireplace.cpp
-C:\Project\Simulation\Simulation\SimulationStateEditor.cpp(62,70): warning C4018:  "<": niezgodność typu ze znakiem/bez znaku
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:  "argument": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         with
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         [
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:             T=unsigned int
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         ]
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         and
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         [
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:             T=float
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,91): warning C4244:         ]
-  Tile.cpp
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:  "argument": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         with
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         [
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:             T=unsigned int
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         ]
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         and
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         [
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:             T=float
-C:\Project\Simulation\Simulation\StaticObjectFireplace.cpp(11,72): warning C4244:         ]
-C:\Project\Simulation\Simulation\Tile.cpp(24,60): warning C4244:  "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\Tile.cpp(24,60): warning C4244:         with
-C:\Project\Simulation\Simulation\Tile.cpp(24,60): warning C4244:         [
-C:\Project\Simulation\Simulation\Tile.cpp(24,60): warning C4244:             T=float
-C:\Project\Simulation\Simulation\Tile.cpp(24,60): warning C4244:         ]
-  main.cpp
-  staticObjectResouces.cpp
-C:\Project\Simulation\Simulation\Tile.cpp(24,57): warning C4244:  "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\Tile.cpp(24,57): warning C4244:         with
-C:\Project\Simulation\Simulation\Tile.cpp(24,57): warning C4244:         [
-C:\Project\Simulation\Simulation\Tile.cpp(24,57): warning C4244:             T=float
-C:\Project\Simulation\Simulation\Tile.cpp(24,57): warning C4244:         ]
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:  "argument": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         with
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         [
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:             T=unsigned int
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         ]
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         and
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         [
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:             T=float
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,91): warning C4244:         ]
-  Generowanie kodu...
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:  "argument": konwersja z "T" do "T", możliwa utrata danych
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         with
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         [
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:             T=unsigned int
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         ]
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         and
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         [
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:             T=float
-C:\Project\Simulation\Simulation\staticObjectResouces.cpp(12,72): warning C4244:         ]
-  Simulation.vcxproj -> C:\Project\Simulation\x64\Debug\Simulation.exe
+﻿  SimView.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(19): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(21): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(32): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(34): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\x64\Debug\Simulation.exe
