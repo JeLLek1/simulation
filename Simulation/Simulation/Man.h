@@ -25,13 +25,15 @@ private:
 	bool going;
 
 	const float COOLDOWN = 5.f;
+	const float SPEED = 0.125;
 	float actualWait;
 
 	unsigned int direction();
 	bool isCorrect(Map* map, SimView* view);
 	
 public:
-	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite, float dt);
+	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite);
+	sf::Vector2f getCurrentPosition();
 	void update(float dt);
 	bool setPath(ObjectType objectType, Map* map);
 	Task returnTask();

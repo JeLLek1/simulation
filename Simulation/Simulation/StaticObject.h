@@ -15,6 +15,7 @@ protected:
 	sf::Vector2u posiotion;
 public:
 
+	sf::Vector2u getPosition();
 	virtual void draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int mapWidth, unsigned int animationStep) = 0;
 	virtual void update(const float dt) = 0;
 	StaticObject(const ObjectType objectType, Map *map);

@@ -19,7 +19,7 @@ void StaticObjectResouces::update(const float dt)
 
 StaticObjectResouces::StaticObjectResouces(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
-	this->version = rand() % 2;
+	this->version = rand() % 5;
 }
 
 StaticObjectResouces::~StaticObjectResouces()

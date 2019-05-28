@@ -7,8 +7,7 @@
 #include "SimulationState.h"
 #include "Map.h"
 #include "SimView.h"
-#include "Man.h"
-#include "StaticObject.h"
+#include "PeopleMenager.h"
 
 
 
@@ -16,8 +15,8 @@ class SimulationStateMain : public virtual SimulationState
 {
 protected:
 
-	std::list<Man*> population;
-	std::list<StaticObject*> staticObjects;
+	PeopleMenager* peopleManager;
+	
 	SimView gameView;
 	sf::View guiView;
 

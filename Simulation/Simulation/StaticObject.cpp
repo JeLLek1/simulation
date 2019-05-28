@@ -3,6 +3,11 @@
 #include "pch.h"
 #include "StaticObject.h"
 
+sf::Vector2u StaticObject::getPosition()
+{
+	return this->posiotion;
+}
+
 StaticObject::StaticObject(ObjectType objectType, Map* map)
 {
 	this->objectType = objectType;

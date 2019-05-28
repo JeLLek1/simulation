@@ -20,14 +20,7 @@ void SimulationStateMain::draw(const float dt)
 		this->gameView.getSize(),
 		this->simulation->getSprDivMgr()
 	);
-
-	this->population.front()->draw(&(this->gameView), this->simulation->getWindow(), this->map, this->simulation->getSprDivMgr()->getRef(TextureNames::MAN), dt);
-
-	for (auto const& i : staticObjects)
-	{
-		i->draw(this->simulation->getWindow(), this->simulation->getSprDivMgr()->getRef(TextureNames::SOURCES), this->map->mapWidth(), this->simulation->getSprDivMgr()->returnAnimationStep());
-	}
-
+	this->peopleManager->draw(&this->gameView,this->guiView, this->simulation->getWindow(), this->map, this->simulation->getSprDivMgr());
 	return;
 }
 
@@ -35,7 +28,7 @@ void SimulationStateMain::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapWidth());
 	simulation->getSprDivMgr()->update(dt);
-
+	this->peopleManager->update(dt);
 
 	return;
 }
@@ -73,6 +66,8 @@ void SimulationStateMain::handleInput()
 SimulationStateMain::SimulationStateMain(Simulation* simulation)
 {
 
+	
+
 	this->simulation = simulation;
 	
 	std::vector<Tile*> tiles;
@@ -98,26 +93,8 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 	delete mapSize;
 	delete fileMenager;
 
+	this->peopleManager = new PeopleMenager(this->map);
 
-
-
-	for (int i = 0; i < 10; i++) {
-		StaticObject* object = new StaticObjectResouces(ObjectType::WOOD, this->map);
-		this->staticObjects.push_front(object);
-	}
-	for (int i = 0; i < 10; i++) {
-		StaticObject* object = new StaticObjectResouces(ObjectType::STONE, this->map);
-		this->staticObjects.push_front(object);
-	}
-	for (int i = 0; i < 10; i++) {
-		StaticObject* object = new StaticObjectFireplace(ObjectType::FIREPLACE, this->map);
-		this->staticObjects.push_front(object);
-	}
-
-
-	Man* man = new Man(sf::Vector2f(10, 10));
-	man->setTask(Task::GETWOOD, this->map);
-	this->population.push_front(man);
 }
 
 

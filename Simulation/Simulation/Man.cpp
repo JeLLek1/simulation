@@ -1,12 +1,13 @@
 #include "pch.h"
+#include <math.h>
 #include "Man.h"
 
 
 
 
-void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite, float dt)
+void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite)
 {
-	this->update(dt); //to do zmiany!!!! powinno byæ w update metodzie a nie w draw
+	//this->update(dt); //to do zmiany!!!! powinno byæ w update metodzie a nie w draw
 	if (this->isCorrect(map, simView))
 	{
 		sprite->setTextureRect(sf::IntRect( 0, this->direction()*sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));
@@ -28,26 +29,33 @@ void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivid
 	}
 }
 
+sf::Vector2f Man::getCurrentPosition()
+{
+	return this->currentPosition;
+}
+
 void Man::update(float dt)
 {
 	//Jeœli s¹ kolejne kroki, sprawdzaj kroki
 	if (this->going) {
-		if (this->currentPosition == this->destination) {
+		if (this->destination == this->currentPosition)
+		{
 			this->destination = sf::Vector2f(this->manAi->getNextStep(sf::Vector2u(this->currentPosition)));
-			if (this->destination == this->currentPosition) {
+			if (this->destination == this->currentPosition)
+				{
 				this->going = false;
-			}
+				}
 		}
 		else
 		{
 			if (this->destination.x > this->currentPosition.x)
-				this->currentPosition.x += 0.25;
+				this->currentPosition.x += Man::SPEED;
 			else if (this->destination.x < this->currentPosition.x)
-				this->currentPosition.x -= 0.25;
+				this->currentPosition.x -= Man::SPEED;
 			else if (this->destination.y > this->currentPosition.y)
-				this->currentPosition.y += 0.25;
+				this->currentPosition.y += Man::SPEED;
 			else if (this->destination.y < this->currentPosition.y)
-				this->currentPosition.y -= 0.25;
+				this->currentPosition.y -= Man::SPEED;
 		}
 	}
 	//Jeœli nie, sprawdŸ aktualne zadanie i wykonuj czynnoœæ z nim zwi¹zan¹
