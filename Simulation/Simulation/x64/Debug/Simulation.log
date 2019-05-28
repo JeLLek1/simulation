@@ -1,37 +1,20 @@
-﻿  SimView.cpp
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(19): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+﻿  Man.cpp
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Man.cpp(18): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
           with
           [
-              T=int
+              T=unsigned int
           ]
           and
           [
               T=float
           ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(21): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Man.cpp(20): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
           with
-          [
-              T=int
-          ]
-          and
           [
               T=float
           ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(32): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\Man.cpp(25): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
           with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\JeLLek\Desktop\programowanie\Symulacja\Simulation\Simulation\SimView.cpp(34): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
-          with
-          [
-              T=int
-          ]
-          and
           [
               T=float
           ]

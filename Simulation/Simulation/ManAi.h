@@ -7,10 +7,10 @@
 
 class ManAi
 {
-	std::list<sf::Vector2i> destination;
+	std::list<sf::Vector2u> destination;
 
 public:
-	sf::Vector2i getNextStep(sf::Vector2i currenPos);
+	sf::Vector2u getNextStep(sf::Vector2u currenPos);
 	bool dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start);
 	void clearDestination();
 	ManAi();

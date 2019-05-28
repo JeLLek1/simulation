@@ -116,7 +116,7 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 
 
 	Man* man = new Man(sf::Vector2f(10, 10));
-	man->setPath(ObjectType::WOOD, this->map);
+	man->setTask(Task::GETWOOD, this->map);
 	this->population.push_front(man);
 }
 

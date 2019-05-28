@@ -1,16 +1,15 @@
 #include "pch.h"
 #include <vector>
 #include <queue>
-#include <iostream>
 
 #include "ManAi.h"
 
 
-sf::Vector2i ManAi::getNextStep(sf::Vector2i currenPos)
+sf::Vector2u ManAi::getNextStep(sf::Vector2u currenPos)
 {
 	if (!this->destination.empty())
 	{
-		sf::Vector2i temp = this->destination.front();
+		sf::Vector2u temp = this->destination.front();
 		this->destination.pop_front();
 		return temp;
 	}
@@ -46,30 +45,18 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start)
 				//jeœli dotarliœmy do szukanego punktu
 				else if (map->returnTile(temp)->returnObjectType() == objectType) {
 					weight[map->cordToTabPos(temp)] = weight[map->cordToTabPos(tileToCheck.front())] + 1;
-					this->destination.push_front(sf::Vector2i(temp));
+					this->destination.push_front(temp);
 					//Dopuki nie wrócimy od punktu dojœcia do punktu startu
+					while (weight[map->cordToTabPos(this->destination.front())]!=1) {
 
-					std::cout << temp.x << " " << temp.y << std::endl;
-					for (unsigned int i = 0; i < map->mapWidth(); i++) {
-						for (unsigned int j = 0; j < map->mapWidth(); j++) {
-							std::cout << weight[map->cordToTabPos(sf::Vector2u(i, j))] << " ";
-						}
-						std::cout << std::endl;
-
-					}
-					while (weight[map->cordToTabPos(sf::Vector2u(this->destination.front()))]!=0) {
-
-						temp = sf::Vector2u(this->destination.front());
-						std::cout << "========================";
-						std::cout << temp.x << " " << temp.y << std::endl;
+						temp = this->destination.front();
 						int j = -1;
 						do {
 							j++;
 							std::cout << temp.x+helper[j].x << " " << temp.y + helper[j].y << std::endl;
 							
 						} while (temp.x > map->mapWidth() - 1 || temp.y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
-						this->destination.push_front(sf::Vector2i(sf::Vector2u(this->destination.front()) + helper[j]));
-						std::cout << "========================";
+						this->destination.push_front(this->destination.front() + helper[j]);
 					}
 					return true;
 				}

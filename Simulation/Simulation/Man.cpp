@@ -12,23 +12,64 @@ void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivid
 		sprite->setTextureRect(sf::IntRect( 0, this->direction()*sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));
 		sprite->setPosition(Simulation::cartToIso(this->currentPosition, map->mapWidth()));
 		window->draw(*sprite);
+		//Pasek wykonywania zadania (wielkoœæ oparta o wielkoœæ tekstury cz³owieka)
+		if (!this->going) {
+			//Czarne t³o paska
+			sf::RectangleShape rectangle(sf::Vector2f(sprite->partSize.x, 10));
+			rectangle.setFillColor(sf::Color::Black);
+			rectangle.setPosition(sf::Vector2f(sprite->getPosition().x - sprite->partSize.x * 0.5, sprite->getPosition().y - sprite->partSize.y));
+			window->draw(rectangle);
+			//Sam pasek ³adowania
+			sf::RectangleShape rectangle1(sf::Vector2f(this->actualWait / Man::COOLDOWN * (sprite->partSize.x - 4), 6));
+			rectangle1.setFillColor(sf::Color::Green);
+			rectangle1.setPosition(sf::Vector2f(sprite->getPosition().x - sprite->partSize.x * 0.5 + 2, sprite->getPosition().y - sprite->partSize.y + 2));
+			window->draw(rectangle1);
+		}
 	}
 }
 
 void Man::update(float dt)
 {
-	if (this->currentPosition == this->destination)
-		this->destination = sf::Vector2f(this->manAi->getNextStep(sf::Vector2i(this->currentPosition)));
-	else
-	{ 
-		if (this->destination.x > this->currentPosition.x)
-			this->currentPosition.x+=0.25; 
-		else if (this->destination.x < this->currentPosition.x)
-			this->currentPosition.x-= 0.25;
-		else if (this->destination.y > this->currentPosition.y)
-			this->currentPosition.y += 0.25;
-		else if (this->destination.y < this->currentPosition.y)
-			this->currentPosition.y -= 0.25;
+	//Jeœli s¹ kolejne kroki, sprawdzaj kroki
+	if (this->going) {
+		if (this->currentPosition == this->destination) {
+			this->destination = sf::Vector2f(this->manAi->getNextStep(sf::Vector2u(this->currentPosition)));
+			if (this->destination == this->currentPosition) {
+				this->going = false;
+			}
+		}
+		else
+		{
+			if (this->destination.x > this->currentPosition.x)
+				this->currentPosition.x += 0.25;
+			else if (this->destination.x < this->currentPosition.x)
+				this->currentPosition.x -= 0.25;
+			else if (this->destination.y > this->currentPosition.y)
+				this->currentPosition.y += 0.25;
+			else if (this->destination.y < this->currentPosition.y)
+				this->currentPosition.y -= 0.25;
+		}
+	}
+	//Jeœli nie, sprawdŸ aktualne zadanie i wykonuj czynnoœæ z nim zwi¹zan¹
+	else {
+		switch (this->currentTask)
+		{
+		case Task::GETWOOD:
+		case Task::GETSTONE:
+			if (this->actualWait + dt < Man::COOLDOWN) {
+				this->actualWait += dt;
+			}
+			else {
+				this->currentTask = Task::NONE;
+			}
+			break;
+		case Task::BUILDFIREPLACE:
+			break;
+		case Task::RETURNRESOURCE:
+			break;
+		default:
+			break;
+		}
 	}
 }
 
@@ -36,6 +77,32 @@ bool Man::setPath(ObjectType objectType, Map* map)
 {
 	this->manAi->dijkstraPath(objectType, map, sf::Vector2u(this->currentPosition));
 	return false;
+}
+
+Task Man::returnTask()
+{
+	return this->currentTask;
+}
+
+void Man::setTask(Task task, Map* map)
+{
+	switch (task)
+	{
+	case Task::GETWOOD:
+		this->setPath(ObjectType::WOOD, map);
+		break;
+	case Task::GETSTONE:
+		this->setPath(ObjectType::STONE, map);
+		break;
+	case Task::BUILDFIREPLACE:
+		break;
+	case Task::RETURNRESOURCE:
+		break;
+	default:
+		break;
+	}
+	this->currentTask = task;
+	this->going = true;
 }
 
 unsigned int Man::direction()
@@ -63,7 +130,10 @@ Man::Man(sf::Vector2f currentPosition)
 	ManAi* manAi1 = new ManAi();
 	this->manAi = manAi1;
 	this->hp = 0;
-	this->destination= sf::Vector2f(this->manAi->getNextStep(sf::Vector2i(this->currentPosition)));
+	this->destination= sf::Vector2f(this->manAi->getNextStep(sf::Vector2u(this->currentPosition)));
+	this->currentTask = Task::NONE;
+	this->going = false;
+	this->actualWait = 0.f;
 }
 Man::Man()
 {
@@ -71,6 +141,9 @@ Man::Man()
 	ManAi* manAi1 = new ManAi();
 	this->manAi = manAi1;
 	this->hp = 0;
+	this->currentTask = Task::NONE;
+	this->going = false;
+	this->actualWait = 0.f;
 }
 
 Man::~Man()

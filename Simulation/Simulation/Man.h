@@ -7,15 +7,25 @@
 #include "ManAi.h"
 #include "Simulation.h"
 #include <iostream>
-
+enum class Task : char {
+	NONE,
+	GETWOOD,
+	GETSTONE,
+	BUILDFIREPLACE,
+	RETURNRESOURCE
+};
 class Man
 {
 private:
 	unsigned int hp;
-	std::string currentTask;
+	Task currentTask;
 	sf::Vector2f currentPosition;
 	sf::Vector2f destination;
 	ManAi* manAi;
+	bool going;
+
+	const float COOLDOWN = 5.f;
+	float actualWait;
 
 	unsigned int direction();
 	bool isCorrect(Map* map, SimView* view);
@@ -24,6 +34,9 @@ public:
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite, float dt);
 	void update(float dt);
 	bool setPath(ObjectType objectType, Map* map);
+	Task returnTask();
+	void setTask(Task task, Map *map);
+
 	Man(sf::Vector2f currentPosition);
 	Man();
 	~Man();
