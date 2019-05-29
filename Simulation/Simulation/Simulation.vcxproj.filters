@@ -120,6 +120,9 @@
     <ClInclude Include="ObjectType.h">
       <Filter>Pliki nagłówkowe\simulation\staticObject</Filter>
     </ClInclude>
+    <ClInclude Include="ResouceType.h">
+      <Filter>Pliki nagłówkowe\simulation\people</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

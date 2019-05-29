@@ -1,6 +1,26 @@
-﻿  PeopleMenager.cpp
+﻿  Man.cpp
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:  "argument": konwersja z "T" do "T", możliwa utrata danych
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         with
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         [
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:             T=unsigned int
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         ]
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         and
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         [
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:             T=float
+C:\Project\Simulation\Simulation\Man.cpp(18,62): warning C4244:         ]
+C:\Project\Simulation\Simulation\Man.cpp(20,63): warning C4244:  "argument": konwersja z "double" do "T", możliwa utrata danych
+C:\Project\Simulation\Simulation\Man.cpp(20,63): warning C4244:         with
+C:\Project\Simulation\Simulation\Man.cpp(20,63): warning C4244:         [
+C:\Project\Simulation\Simulation\Man.cpp(20,63): warning C4244:             T=float
+C:\Project\Simulation\Simulation\Man.cpp(20,63): warning C4244:         ]
+  PeopleMenager.cpp
   SimulationStateEditor.cpp
   SimulationStateMain.cpp
   SimulationStateStart.cpp
   Generowanie kodu...
+C:\Project\Simulation\Simulation\Man.cpp(25,91): warning C4244:  "argument": konwersja z "double" do "T", możliwa utrata danych
+C:\Project\Simulation\Simulation\Man.cpp(25,91): warning C4244:         with
+C:\Project\Simulation\Simulation\Man.cpp(25,91): warning C4244:         [
+C:\Project\Simulation\Simulation\Man.cpp(25,91): warning C4244:             T=float
+C:\Project\Simulation\Simulation\Man.cpp(25,91): warning C4244:         ]
   Simulation.vcxproj -> C:\Project\Simulation\x64\Debug\Simulation.exe

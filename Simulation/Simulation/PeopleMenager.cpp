@@ -16,7 +16,23 @@ void PeopleMenager::update(float dt)
 {
 	for (auto const& i : population)
 	{
-		i->update(dt);
+		if (i->update(dt) == Task::NONE)
+		{
+			switch (i->getPocket())
+			{
+			case ResouceType::STONE:
+				this->ownedResouces.at(ResouceType::STONE)++;
+				break;
+			case ResouceType::WOOD:
+				this->ownedResouces.at(ResouceType::WOOD)++;
+				break;
+			case ResouceType::STRAWBERRY:
+				this->ownedResouces.at(ResouceType::STRAWBERRY)++;
+				break;
+			default:
+				break;
+			}
+		}
 	}
 	for (auto const& i : staticObjects)
 	{
@@ -40,13 +56,13 @@ PeopleMenager::PeopleMenager(Map* map)
 		this->staticObjects.push_front(object);
 	}
 
-	this->ownedResouces.insert(std::pair<ObjectType, int>(ObjectType::STONE, 0));
-	this->ownedResouces.insert(std::pair<ObjectType, int>(ObjectType::WOOD, 0));
-	this->ownedResouces.insert(std::pair<ObjectType, int>(ObjectType::STRAWBERRY, 0));
+	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STONE, 0));
+	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::WOOD, 0));
+	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STRAWBERRY, 0));
 	
 	for (auto const& i : staticObjects)
 	{
-		//this->objectTypePosition.insert(std::pair<StaticObject*, sf::Vector2f>(i, i->getPosition()));
+
 	}
 
 	Man* man = new Man(sf::Vector2f(5, 5));

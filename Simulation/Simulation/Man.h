@@ -6,7 +6,10 @@
 #include "Map.h"
 #include "ManAi.h"
 #include "Simulation.h"
+#include "ResouceType.h"
 #include <iostream>
+
+
 enum class Task : char {
 	NONE,
 	GETWOOD,
@@ -14,6 +17,8 @@ enum class Task : char {
 	BUILDFIREPLACE,
 	RETURNRESOURCE
 };
+
+
 class Man
 {
 private:
@@ -23,6 +28,8 @@ private:
 	sf::Vector2f destination;
 	ManAi* manAi;
 	bool going;
+	ResouceType pocket;
+
 
 	const float COOLDOWN = 5.f;
 	const float SPEED = 0.125;
@@ -32,9 +39,11 @@ private:
 	bool isCorrect(Map* map, SimView* view);
 	
 public:
+
+	ResouceType getPocket();
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite);
 	sf::Vector2f getCurrentPosition();
-	void update(float dt);
+	Task update(float dt);
 	bool setPath(ObjectType objectType, Map* map);
 	Task returnTask();
 	void setTask(Task task, Map *map);

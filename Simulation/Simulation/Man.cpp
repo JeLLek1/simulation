@@ -7,7 +7,6 @@
 
 void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite)
 {
-	//this->update(dt); //to do zmiany!!!! powinno byæ w update metodzie a nie w draw
 	if (this->isCorrect(map, simView))
 	{
 		sprite->setTextureRect(sf::IntRect( 0, this->direction()*sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));
@@ -34,7 +33,7 @@ sf::Vector2f Man::getCurrentPosition()
 	return this->currentPosition;
 }
 
-void Man::update(float dt)
+Task Man::update(float dt)
 {
 	//Jeœli s¹ kolejne kroki, sprawdzaj kroki
 	if (this->going) {
@@ -42,9 +41,9 @@ void Man::update(float dt)
 		{
 			this->destination = sf::Vector2f(this->manAi->getNextStep(sf::Vector2u(this->currentPosition)));
 			if (this->destination == this->currentPosition)
-				{
+			{
 				this->going = false;
-				}
+			}
 		}
 		else
 		{
@@ -63,12 +62,25 @@ void Man::update(float dt)
 		switch (this->currentTask)
 		{
 		case Task::GETWOOD:
-		case Task::GETSTONE:
-			if (this->actualWait + dt < Man::COOLDOWN) {
+			if (this->actualWait + dt < Man::COOLDOWN)
+			{
 				this->actualWait += dt;
 			}
-			else {
+			else
+			{
 				this->currentTask = Task::NONE;
+				this->pocket=ResouceType::WOOD;
+			}
+			break;
+		case Task::GETSTONE:
+			if (this->actualWait + dt < Man::COOLDOWN)
+			{
+				this->actualWait += dt;
+			}
+			else 
+			{
+				this->currentTask = Task::NONE;
+				this->pocket=ResouceType::STONE;
 			}
 			break;
 		case Task::BUILDFIREPLACE:
@@ -79,6 +91,7 @@ void Man::update(float dt)
 			break;
 		}
 	}
+	return this->currentTask;
 }
 
 bool Man::setPath(ObjectType objectType, Map* map)
@@ -105,12 +118,18 @@ void Man::setTask(Task task, Map* map)
 	case Task::BUILDFIREPLACE:
 		break;
 	case Task::RETURNRESOURCE:
+		this->setPath(ObjectType::FIREPLACE, map);
 		break;
 	default:
 		break;
 	}
 	this->currentTask = task;
 	this->going = true;
+}
+
+ResouceType Man::getPocket()
+{
+	return this->pocket;
 }
 
 unsigned int Man::direction()
