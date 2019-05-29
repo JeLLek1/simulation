@@ -3,6 +3,12 @@
 #include "pch.h"
 #include "StaticObject.h"
 
+void StaticObject::setPos(sf::Vector2u pos, Map* map) {
+	map->returnTile(this->posiotion)->setCollision(false);
+	this->posiotion = pos;
+	map->returnTile(this->posiotion)->setCollision(true);
+}
+
 sf::Vector2u StaticObject::getPosition()
 {
 	return this->posiotion;

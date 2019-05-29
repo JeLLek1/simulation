@@ -4,16 +4,20 @@
 #include "SimView.h"
 #include "Map.h"
 #include "Simulation.h"
+#include "StaticObjectResouces.h"
+#include "StaticObjectFireplace.h"
 class SimulationStateEditor : public SimulationState
 {
 private:
 	static const unsigned int
-		MAP_WIDTH = 50,
-		MAP_HEIGHT = 50;
+		MAP_WIDTH = 30,
+		MAP_HEIGHT = 30;
 	unsigned int typeOfBlock;
 
 	SimView gameView;
-	sf::View guiView;
+
+	StaticObjectFireplace* fireplace;
+	StaticObjectResouces* wareHouse;
 
 	Map* map;
 

@@ -77,38 +77,33 @@ void PeopleMenager::update(float dt, Map* map)
 	}
 }
 
-PeopleMenager::PeopleMenager(Map* map)
+PeopleMenager::PeopleMenager(Map* map, StaticObjectFireplace* fireplace, StaticObjectResouces* warehouse)
 {
-
-	for (int i = 0; i < 10; i++) {
+	//Do wylosowania pozycji pierwszego hopka w okó³ ogniska
+	sf::Vector2u helper[8] = { sf::Vector2u(1,0), sf::Vector2u(0,1), sf::Vector2u(-1,0), sf::Vector2u(0,-1), sf::Vector2u(1,1), sf::Vector2u(1,-1), sf::Vector2u(-1,1), sf::Vector2u(-1,-1)};
+	//Tworzenie drzew
+	for (int i = 0; i < 3; i++) {
 		StaticObject* object = new StaticObjectResouces(ObjectType::WOOD, map);
 		this->staticObjects.push_front(object);
 	}
-	for (int i = 0; i < 10; i++) {
+	//Tworzenie kamenia
+	for (int i = 0; i < 3; i++) {
 		StaticObject* object = new StaticObjectResouces(ObjectType::STONE, map);
 		this->staticObjects.push_front(object);
 	}
-	for (int i = 0; i < 10; i++) {
-		StaticObject* object = new StaticObjectFireplace(ObjectType::FIREPLACE, map);
-		this->staticObjects.push_front(object);
-	}
-	for (int i = 0; i < 1; i++) {
-		StaticObject* object = new StaticObjectResouces(ObjectType::WARECHOUSE, map);
-		this->staticObjects.push_front(object);
-	}
+	//Pozycje ogniska i warehouse pobrane z pliku binarnego
+	this->staticObjects.push_front(fireplace);
+	this->staticObjects.push_front(warehouse);
 
+	//Dodawanie listy surowców z ich wartoœciami
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STONE, 0));
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::WOOD, 0));
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STRAWBERRY, 100));
+
 	
-	for (auto const& i : staticObjects)
-	{
-
-	}
-
-	Man* man = new Man(sf::Vector2f(5, 5));
+	Man* man = new Man(sf::Vector2f(fireplace->getPosition()+helper[rand()%8]));
 	this->population.push_front(man);
-	man->setTask(Task::GETWOOD, map);
+	man->setTask(Task::NONE, map);
 	
 }
 

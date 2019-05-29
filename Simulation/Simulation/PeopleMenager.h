@@ -20,7 +20,7 @@ public:
 	void drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteDividedMenager* spriteMgr, sf::Font* font);
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDividedMenager* spriteMgr);
 	void update(float dt, Map* map);
-	PeopleMenager(Map* map);
+	PeopleMenager(Map* map, StaticObjectFireplace *fireplace, StaticObjectResouces *warehouse);
 	~PeopleMenager();
 };
 
