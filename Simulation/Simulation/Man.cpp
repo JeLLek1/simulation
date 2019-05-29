@@ -33,7 +33,7 @@ sf::Vector2f Man::getCurrentPosition()
 	return this->currentPosition;
 }
 
-Task Man::update(float dt)
+Task Man::update(float dt, Map* map)
 {
 	//Jeœli s¹ kolejne kroki, sprawdzaj kroki
 	if (this->going) {
@@ -68,8 +68,11 @@ Task Man::update(float dt)
 			}
 			else
 			{
-				this->currentTask = Task::NONE;
+				this->currentTask = Task::RETURNRESOURCE;
+				this->setPath(ObjectType::WARECHOUSE, map);
 				this->pocket=ResouceType::WOOD;
+				this->actualWait = 0;
+				this->going = true;
 			}
 			break;
 		case Task::GETSTONE:
@@ -79,13 +82,25 @@ Task Man::update(float dt)
 			}
 			else 
 			{
-				this->currentTask = Task::NONE;
+				this->currentTask = Task::RETURNRESOURCE;
+				this->setPath(ObjectType::WARECHOUSE, map);
 				this->pocket=ResouceType::STONE;
+				this->actualWait = 0;
+				this->going = true;
 			}
 			break;
 		case Task::BUILDFIREPLACE:
 			break;
 		case Task::RETURNRESOURCE:
+			if (this->actualWait + dt < Man::COOLDOWN)
+			{
+				this->actualWait += dt;
+			}
+			else
+			{
+				this->currentTask = Task::NONE;
+				this->actualWait = 0;
+			}
 			break;
 		default:
 			break;
@@ -129,7 +144,9 @@ void Man::setTask(Task task, Map* map)
 
 ResouceType Man::getPocket()
 {
-	return this->pocket;
+	ResouceType temp = this->pocket;
+	this->pocket = ResouceType::NONE;
+	return temp;
 }
 
 unsigned int Man::direction()
@@ -161,6 +178,7 @@ Man::Man(sf::Vector2f currentPosition)
 	this->currentTask = Task::NONE;
 	this->going = false;
 	this->actualWait = 0.f;
+	this->pocket = ResouceType::NONE;
 }
 Man::Man()
 {
@@ -171,6 +189,7 @@ Man::Man()
 	this->currentTask = Task::NONE;
 	this->going = false;
 	this->actualWait = 0.f;
+	this->pocket = ResouceType::NONE;
 }
 
 Man::~Man()

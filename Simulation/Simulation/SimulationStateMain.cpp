@@ -20,7 +20,9 @@ void SimulationStateMain::draw(const float dt)
 		this->gameView.getSize(),
 		this->simulation->getSprDivMgr()
 	);
-	this->peopleManager->draw(&this->gameView,this->guiView, this->simulation->getWindow(), this->map, this->simulation->getSprDivMgr());
+	this->peopleManager->draw(&this->gameView, this->simulation->getWindow(), this->map, this->simulation->getSprDivMgr());
+	this->simulation->getWindow()->setView(this->guiView);
+	this->peopleManager->drawGUI(&this->guiView, this->simulation->getWindow(), this->simulation->getSprDivMgr(), this->simulation->getFont());
 	return;
 }
 
@@ -28,7 +30,7 @@ void SimulationStateMain::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapWidth());
 	simulation->getSprDivMgr()->update(dt);
-	this->peopleManager->update(dt);
+	this->peopleManager->update(dt, this->map);
 
 	return;
 }

@@ -1,8 +1,8 @@
 #pragma once
 
 enum class ResouceType : char {
-	NONE,
-	WOOD,
-	STONE,
-	STRAWBERRY,
+	NONE=0,
+	WOOD=1,
+	STONE=2,
+	STRAWBERRY=3,
 };

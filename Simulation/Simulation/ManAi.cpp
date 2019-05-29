@@ -51,11 +51,11 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start)
 
 						temp = this->destination.front();
 						int j = -1;
-						do {
+						do 
+						{
 							j++;
-							std::cout << temp.x+helper[j].x << " " << temp.y + helper[j].y << std::endl;
-							
-						} while (temp.x > map->mapWidth() - 1 || temp.y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
+						} 
+						while (temp.x > map->mapWidth() - 1 || temp.y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
 						this->destination.push_front(this->destination.front() + helper[j]);
 					}
 					return true;

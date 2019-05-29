@@ -43,7 +43,7 @@ public:
 	ResouceType getPocket();
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite);
 	sf::Vector2f getCurrentPosition();
-	Task update(float dt);
+	Task update(float dt, Map* map);
 	bool setPath(ObjectType objectType, Map* map);
 	Task returnTask();
 	void setTask(Task task, Map *map);

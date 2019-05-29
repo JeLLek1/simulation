@@ -14,9 +14,12 @@ private:
 	//std::map<StaticObject*, sf::Vector2f> objectTypePosition;
 	std::map<Man*, sf::Vector2f> objectManPosition;
 	std::map<ResouceType, int> ownedResouces;
+	
+
 public:
-	void draw(SimView* simView, sf::View guiView, sf::RenderWindow* window, Map* map, SpriteDividedMenager* spriteMgr);
-	void update(float dt);
+	void drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteDividedMenager* spriteMgr, sf::Font* font);
+	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDividedMenager* spriteMgr);
+	void update(float dt, Map* map);
 	PeopleMenager(Map* map);
 	~PeopleMenager();
 };

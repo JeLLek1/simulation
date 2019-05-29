@@ -19,7 +19,15 @@ void StaticObjectResouces::update(const float dt)
 
 StaticObjectResouces::StaticObjectResouces(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
-	this->version = rand() % 5;
+	
+	if (objectType==ObjectType::WARECHOUSE)
+	{
+		this->version = 0;
+	}
+	else
+	{
+		this->version = rand() % 5;
+	}
 }
 
 StaticObjectResouces::~StaticObjectResouces()
