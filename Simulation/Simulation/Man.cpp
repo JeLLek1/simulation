@@ -90,6 +90,15 @@ Task Man::update(float dt, Map* map)
 			}
 			break;
 		case Task::BUILDFIREPLACE:
+			if (this->actualWait + dt < Man::COOLDOWN)
+			{
+				this->actualWait += dt;
+			}
+			else
+			{
+				this->currentTask = Task::NONE;
+				this->actualWait = 0;
+			}
 			break;
 		case Task::RETURNRESOURCE:
 			if (this->actualWait + dt < Man::COOLDOWN)
@@ -109,9 +118,13 @@ Task Man::update(float dt, Map* map)
 	return this->currentTask;
 }
 
-bool Man::setPath(ObjectType objectType, Map* map)
+bool Man::setPath(ObjectType objectType, Map* map, sf::Vector2u end)
 {
-	this->manAi->dijkstraPath(objectType, map, sf::Vector2u(this->currentPosition));
+	if(end.x==0 && end.y == 0)
+		this->manAi->dijkstraPath(objectType, map, sf::Vector2u(this->currentPosition), end, false);
+	else
+		this->manAi->dijkstraPath(objectType, map, sf::Vector2u(this->currentPosition), end, true);
+
 	return false;
 }
 
@@ -122,6 +135,8 @@ Task Man::returnTask()
 
 void Man::setTask(Task task, Map* map)
 {
+	sf::Vector2u round;
+	bool test = false;
 	switch (task)
 	{
 	case Task::GETWOOD:
@@ -131,6 +146,21 @@ void Man::setTask(Task task, Map* map)
 		this->setPath(ObjectType::STONE, map);
 		break;
 	case Task::BUILDFIREPLACE:
+		do {
+			test = false;
+			round.x = (rand() % (map->mapWidth() - 2)) + 1;
+			round.y = (rand() % (map->mapHeight() - 2)) + 1;
+			
+			sf::Vector2u helper[8] = { sf::Vector2u(1,0), sf::Vector2u(0,1), sf::Vector2u(-1,0), sf::Vector2u(0,-1), sf::Vector2u(1,1), sf::Vector2u(1,-1), sf::Vector2u(-1,1), sf::Vector2u(-1,-1) };
+			for (int i = 0; i < 8; i++) {
+				if (map->returnTile(round + helper[i])->returnCollision()) {
+					test = true;
+				}
+			}
+		} while (map->returnTile(round)->returnCollision() || test);
+
+		this->setPath(ObjectType::NONE, map, round);
+
 		break;
 	case Task::RETURNRESOURCE:
 		this->setPath(ObjectType::FIREPLACE, map);

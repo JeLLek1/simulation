@@ -9,6 +9,7 @@ public:
 	virtual void update(const float dt);
 
 	StaticObjectResouces(const ObjectType objectType, Map* map);
+	StaticObjectResouces(const ObjectType objectType, sf::Vector2u* pos);
 	~StaticObjectResouces();
 };
 

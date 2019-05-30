@@ -18,6 +18,21 @@ void StaticObjectFireplace::update(const float dt)
 
 StaticObjectFireplace::StaticObjectFireplace(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
+
+	sf::Vector2u round;
+
+	do {
+		round.x = (rand() % (map->mapWidth()-2)) + 1;
+		round.y = (rand() % (map->mapHeight()-2)) + 1;
+	} while (map->returnTile(round)->returnCollision());
+	this->posiotion = round;
+	map->returnTile(round)->setCollision(true);
+	map->returnTile(round)->setObjectType(objectType);
+}
+
+StaticObjectFireplace::StaticObjectFireplace(const ObjectType objectType, sf::Vector2u* pos) : StaticObject(objectType, pos)
+{
+
 }
 
 StaticObjectFireplace::~StaticObjectFireplace()

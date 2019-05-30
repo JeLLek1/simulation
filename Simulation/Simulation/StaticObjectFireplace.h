@@ -8,6 +8,7 @@ public:
 	virtual void update(const float dt);
 
 	StaticObjectFireplace(const ObjectType objectType, Map* map);
+	StaticObjectFireplace(const ObjectType objectType, sf::Vector2u* pos);
 	~StaticObjectFireplace();
 };
 

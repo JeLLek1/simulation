@@ -16,7 +16,7 @@ sf::Vector2u ManAi::getNextStep(sf::Vector2u currenPos)
 	else return currenPos;
 }
 
-bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start)
+bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start, sf::Vector2u end, bool seatchToEnd)
 {
 	this->clearDestination();
 	//Tablica z wag¹ przejœcia do danego punktu
@@ -36,15 +36,16 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start)
 			sf::Vector2u temp = tileToCheck.front() + helper[i];
 			//Wystarzy sprawdziæ tylko czy jest mniejsze od szerokoœci (wysokoœci mapy), bo jak mniejsze od 0 to uint siê przepe³ni
 			if (temp.x<map->mapWidth() && temp.y<map->mapHeight() && weight[map->cordToTabPos(temp)]==-1) {
-				if (!map->returnTile(temp)->returnCollision()) {
+				if (!map->returnTile(temp)->returnCollision() && (!seatchToEnd || ((temp.x != end.x || temp.y != end.y) && seatchToEnd))) {
 					//Dodajemy ten punkt na koniec kolejki
 					tileToCheck.push(temp);
 					//Ustawiamy jego wartoœæ na mapie o jeden wy¿szy ni¿ wczeœniejszego
 					weight[map->cordToTabPos(temp)] = weight[map->cordToTabPos(tileToCheck.front())] + 1;
 				}
 				//jeœli dotarliœmy do szukanego punktu
-				else if (map->returnTile(temp)->returnObjectType() == objectType) {
+				else if ((map->returnTile(temp)->returnObjectType() == objectType && !seatchToEnd) || ((temp.x == end.x && temp.y == end.y) && seatchToEnd)) {
 					weight[map->cordToTabPos(temp)] = weight[map->cordToTabPos(tileToCheck.front())] + 1;
+					
 					this->destination.push_front(temp);
 					//Dopuki nie wrócimy od punktu dojœcia do punktu startu
 					while (weight[map->cordToTabPos(this->destination.front())]!=1) {

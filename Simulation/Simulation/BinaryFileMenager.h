@@ -16,9 +16,9 @@ private:
 	std::string fname;
 public:
 	//Odczytywanie pliku
-	int binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize, StaticObjectFireplace*& fireplace, StaticObjectResouces*& warehouse);
+	int binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize, sf::Vector2u*& warehousePos, sf::Vector2u*& fireplacePos);
 	//Nadpisywanie pliku
-	int binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize, StaticObjectFireplace *fireplace, StaticObjectResouces * warehouse);
+	int binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize, sf::Vector2u* warehousePos, sf::Vector2u* fireplacePos);
 	BinaryFileMenager(std::string name, int mode);
 	~BinaryFileMenager();
 };

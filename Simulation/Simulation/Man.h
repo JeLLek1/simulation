@@ -31,8 +31,8 @@ private:
 	ResouceType pocket;
 
 
-	const float COOLDOWN = 5.f;
-	const float SPEED = 0.125;
+	const float COOLDOWN = 1.f;
+	const float SPEED = 1;
 	float actualWait;
 
 	unsigned int direction();
@@ -44,7 +44,7 @@ public:
 	void draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite);
 	sf::Vector2f getCurrentPosition();
 	Task update(float dt, Map* map);
-	bool setPath(ObjectType objectType, Map* map);
+	bool setPath(ObjectType objectType, Map* map, sf::Vector2u end = sf::Vector2u(0, 0));
 	Task returnTask();
 	void setTask(Task task, Map *map);
 

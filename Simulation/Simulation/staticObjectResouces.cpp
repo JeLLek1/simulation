@@ -19,15 +19,23 @@ void StaticObjectResouces::update(const float dt)
 
 StaticObjectResouces::StaticObjectResouces(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
-	
-	if (objectType==ObjectType::WARECHOUSE)
-	{
-		this->version = 0;
-	}
-	else
-	{
-		this->version = rand() % 5;
-	}
+
+	sf::Vector2u round;
+
+	do {
+		round.x = rand() % map->mapWidth();
+		round.y = rand() % map->mapHeight();
+	} while (map->returnTile(round)->returnCollision());
+	this->posiotion = round;
+	map->returnTile(round)->setCollision(true);
+	map->returnTile(round)->setObjectType(objectType);
+
+	this->version = rand() % 5;
+}
+
+StaticObjectResouces::StaticObjectResouces(const ObjectType objectType, sf::Vector2u* pos) : StaticObject(objectType, pos)
+{
+	this->version = 0;
 }
 
 StaticObjectResouces::~StaticObjectResouces()

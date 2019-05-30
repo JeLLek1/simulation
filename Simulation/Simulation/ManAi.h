@@ -11,7 +11,7 @@ class ManAi
 
 public:
 	sf::Vector2u getNextStep(sf::Vector2u currenPos);
-	bool dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start);
+	bool dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start, sf::Vector2u end, bool seatchToEnd);
 	void clearDestination();
 	ManAi();
 	~ManAi();

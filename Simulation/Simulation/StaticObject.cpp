@@ -5,8 +5,11 @@
 
 void StaticObject::setPos(sf::Vector2u pos, Map* map) {
 	map->returnTile(this->posiotion)->setCollision(false);
+
+	map->returnTile(this->posiotion)->setObjectType(ObjectType::NONE);
 	this->posiotion = pos;
 	map->returnTile(this->posiotion)->setCollision(true);
+	map->returnTile(this->posiotion)->setObjectType(this->objectType);
 }
 
 sf::Vector2u StaticObject::getPosition()
@@ -17,13 +20,11 @@ sf::Vector2u StaticObject::getPosition()
 StaticObject::StaticObject(ObjectType objectType, Map* map)
 {
 	this->objectType = objectType;
-	
-	sf::Vector2u round;
-	do {
-		round.x = rand() % map->mapWidth();
-		round.y = rand() % map->mapHeight();
-	} while (map->returnTile(round)->returnCollision());
-	this->posiotion = round;
-	map->returnTile(round)->setCollision(true);
-	map->returnTile(round)->setObjectType(objectType);
+}
+
+StaticObject::StaticObject(const ObjectType objectType, sf::Vector2u* pos)
+{
+	this->objectType = objectType;
+	this->posiotion.x = pos->x;
+	this->posiotion.y = pos->y;
 }

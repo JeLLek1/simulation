@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <string>
 #include "PeopleMenager.h"
+#include <iostream>
 
 
 void PeopleMenager::drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteDividedMenager* spriteMgr, sf::Font* font)
@@ -19,23 +20,33 @@ void PeopleMenager::drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteD
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::STONE)));
 	window->draw(text);
-	textPos.x += guiView->getSize().x / 3;
+	textPos.x += guiView->getSize().x / 4;
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::WOOD)));
 	window->draw(text);
-	textPos.x += guiView->getSize().x / 3;
+	textPos.x += guiView->getSize().x / 4;
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::STRAWBERRY)));
+	window->draw(text);
+	textPos.x += guiView->getSize().x / 4;
+	text.setPosition(textPos);
+	text.setString(std::to_string(this->population.size())+" / 20");
 	window->draw(text);
 }
 
 void PeopleMenager::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDividedMenager* spriteMgr)
 {
-	this->population.front()->draw((simView), window, map, spriteMgr->getRef(TextureNames::MAN));
-
-	for (auto const& i : staticObjects)
+	for (auto const& i : this->population)
+	{
+		i->draw((simView), window, map, spriteMgr->getRef(TextureNames::MAN));
+	}
+	for (auto const& i : this->staticObjects)
 	{
 		i->draw(window, spriteMgr->getRef(TextureNames::SOURCES), map->mapWidth(), spriteMgr->returnAnimationStep());
+	}
+	if (this->population.size() > 20) {
+		window->close();
+		std::cout << "Udalo sie ukonczyc symulacje";
 	}
 }
 
@@ -46,29 +57,47 @@ void PeopleMenager::update(float dt, Map* map)
 
 		if (i->update(dt, map) == Task::NONE)
 		{
-			Task temp;
-
 			ResouceType temp1 = i->getPocket();
+			if (this->ownedResouces.at(ResouceType::STONE) >= 1 && this->ownedResouces.at(ResouceType::WOOD) >= 1 && this->ownedResouces.at(ResouceType::STRAWBERRY) >= 1) {
 
-			if (temp1 != ResouceType::NONE)
-			{
-				this->ownedResouces.at(temp1)++;
+				this->ownedResouces.at(ResouceType::STONE) -= 1;
+				this->ownedResouces.at(ResouceType::WOOD) -= 1;
+				this->ownedResouces.at(ResouceType::STRAWBERRY) -= 1;
+				i->setTask(Task::BUILDFIREPLACE, map);
+			}else{
+				Task temp;
+
+				if (temp1 != ResouceType::NONE)
+				{
+					this->ownedResouces.at(temp1)++;
+				}
+				else {
+					StaticObject *fireplace = new StaticObjectFireplace(ObjectType::FIREPLACE, &sf::Vector2u(i->getCurrentPosition()));
+					this->staticObjects.push_front(fireplace);
+
+					//Do wylosowania pozycji pierwszego hopka w okó³ ogniska
+					sf::Vector2u helper[8] = { sf::Vector2u(1,0), sf::Vector2u(0,1), sf::Vector2u(-1,0), sf::Vector2u(0,-1), sf::Vector2u(1,1), sf::Vector2u(1,-1), sf::Vector2u(-1,1), sf::Vector2u(-1,-1) };
+					//Tworzenie cz³owieka
+					Man * man = new Man(sf::Vector2f(fireplace->getPosition() + helper[rand() % 8]));
+					this->population.push_front(man);
+					man->setTask(Task::GETWOOD, map);
+				}
+
+				ResouceType min = ResouceType::WOOD;
+				temp = Task::GETWOOD;
+
+				if (this->ownedResouces.at(min) > this->ownedResouces.at(ResouceType::STONE))
+				{
+					min = ResouceType::STONE;
+					temp = Task::GETSTONE;
+				}
+				if (this->ownedResouces.at(min) > this->ownedResouces.at(ResouceType::STRAWBERRY))
+				{
+					min = ResouceType::STRAWBERRY;
+				}
+
+				i->setTask(temp, map);
 			}
-
-			ResouceType min = ResouceType::WOOD;
-			temp = Task::GETWOOD;
-
-			if (this->ownedResouces.at(min) > this->ownedResouces.at(ResouceType::STONE))
-			{
-				min = ResouceType::STONE;
-				temp = Task::GETSTONE;
-			}
-			if (this->ownedResouces.at(min) > this->ownedResouces.at(ResouceType::STRAWBERRY))
-			{
-				min = ResouceType::STRAWBERRY;
-			}
-
-			i->setTask(temp, map);
 		}
 	}
 	for (auto const& i : staticObjects)
@@ -77,7 +106,7 @@ void PeopleMenager::update(float dt, Map* map)
 	}
 }
 
-PeopleMenager::PeopleMenager(Map* map, StaticObjectFireplace* fireplace, StaticObjectResouces* warehouse)
+PeopleMenager::PeopleMenager(Map* map, sf::Vector2u* warehousePos, sf::Vector2u* fireplacePos)
 {
 	//Do wylosowania pozycji pierwszego hopka w okó³ ogniska
 	sf::Vector2u helper[8] = { sf::Vector2u(1,0), sf::Vector2u(0,1), sf::Vector2u(-1,0), sf::Vector2u(0,-1), sf::Vector2u(1,1), sf::Vector2u(1,-1), sf::Vector2u(-1,1), sf::Vector2u(-1,-1)};
@@ -92,19 +121,19 @@ PeopleMenager::PeopleMenager(Map* map, StaticObjectFireplace* fireplace, StaticO
 		this->staticObjects.push_front(object);
 	}
 	//Pozycje ogniska i warehouse pobrane z pliku binarnego
+	StaticObject *fireplace = new StaticObjectFireplace(ObjectType::FIREPLACE, fireplacePos);
+	this->staticObjects.push_front(new StaticObjectResouces(ObjectType::WARECHOUSE, warehousePos));
 	this->staticObjects.push_front(fireplace);
-	this->staticObjects.push_front(warehouse);
 
 	//Dodawanie listy surowców z ich wartoœciami
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STONE, 0));
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::WOOD, 0));
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STRAWBERRY, 100));
 
-	
+	//Tworzenie cz³owieka
 	Man* man = new Man(sf::Vector2f(fireplace->getPosition()+helper[rand()%8]));
 	this->population.push_front(man);
-	man->setTask(Task::NONE, map);
-	
+	man->setTask(Task::GETWOOD, map);
 }
 
 

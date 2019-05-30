@@ -20,4 +20,5 @@ public:
 	virtual void update(const float dt) = 0;
 	void setPos(sf::Vector2u pos, Map *map);
 	StaticObject(const ObjectType objectType, Map *map);
+	StaticObject(const ObjectType objectType, sf::Vector2u* pos);
 };

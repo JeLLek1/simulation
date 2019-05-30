@@ -71,20 +71,19 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 	
 
 	this->simulation = simulation;
-	
 	std::vector<Tile*> tiles;
 	BinaryFileMenager* fileMenager = new BinaryFileMenager("resouces/map.bin", 2);
 	sf::Vector2u* mapSize = 0;
-	StaticObjectFireplace* fireplace;
-	StaticObjectResouces* warehouse;
-	int error = fileMenager->binary_p_read(tiles, mapSize, fireplace, warehouse);
-	std::cout << error;
+	sf::Vector2u* warehousePos = NULL;
+	sf::Vector2u* fireplacePos = NULL;
+	int error = fileMenager->binary_p_read(tiles, mapSize, warehousePos, fireplacePos);
 	if (error != 0) {
 		std::cout << "Brak pliku z mapa, lub plik z mapa jest uszkodzony. Skorzystaj z edytora map, aby go stworzyc";
 		mapSize = new sf::Vector2u(2,2);
 		this->map = new Map(mapSize);
 		this->simulation->getWindow()->close();
-		peopleManager = new PeopleMenager(this->map, new StaticObjectFireplace(ObjectType::NONE, this->map), new StaticObjectResouces(ObjectType::NONE, this->map));
+		warehousePos = new sf::Vector2u(0, 0);
+		fireplacePos = new sf::Vector2u(0, 0);
 	}
 	else {
 		this->map = new Map(mapSize, tiles);
@@ -97,8 +96,9 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 		this->gameView.setCenter(temp);
 
 	}
-	this->peopleManager = new PeopleMenager(this->map, fireplace, warehouse);
-
+	this->peopleManager = new PeopleMenager(this->map, warehousePos, fireplacePos);
+	delete warehousePos;
+	delete fireplacePos;
 	delete mapSize;
 	delete fileMenager;
 

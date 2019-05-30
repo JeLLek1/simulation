@@ -22,7 +22,7 @@ BinaryFileMenager::BinaryFileMenager(std::string name, int mode)
 }
 
 //Czytanie pliku binarnego
-int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize, StaticObjectFireplace*& fireplace, StaticObjectResouces*& warehouse)
+int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& mapSize, sf::Vector2u*& warehousePos, sf::Vector2u*& fireplacePos)
 {
 	//Sprawdzanie czy tryb odczytu jest odpowiedni
 	if (fmode == 2) {
@@ -33,7 +33,7 @@ int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& m
 			int length = this->file.tellg();
 			this->file.seekg(0, this->file.beg);
 			//Je¿eli plik jest wystarczaj¹co du¿y i ma odpowiedni¹ iloœæ bajtów
-			if (length > static_cast<int>(sizeof(sf::Vector2u) + sizeof(StaticObjectFireplace) + sizeof(StaticObjectResouces)) && (length - static_cast<int>(sizeof(sf::Vector2u) + sizeof(StaticObjectFireplace) + sizeof(StaticObjectResouces)))%static_cast<int>(sizeof(Tile)) == 0) {
+			if (length > static_cast<int>(3*sizeof(sf::Vector2u)) && (length - static_cast<int>(3*sizeof(sf::Vector2u)))%static_cast<int>(sizeof(Tile)) == 0) {
 				//--Zczytywanie wielkoœci mapy--
 				//WskaŸnik na zmienn¹ wielkoœci unsigned int
 				char* temp = new char[sizeof(sf::Vector2u)];
@@ -42,13 +42,13 @@ int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& m
 				mapSize = (sf::Vector2u*)(temp);
 				//--Koniec zczytywania wielkoœci mapy--
 				//--Zczytywanie fireplace i warehouse--
-				temp = new char[sizeof(StaticObjectFireplace)];
-				this->file.read(temp, sizeof(StaticObjectFireplace));
-				fireplace = (StaticObjectFireplace*)(temp);
+				temp = new char[sizeof(sf::Vector2u)];
+				this->file.read(temp, sizeof(sf::Vector2u));
+				warehousePos = (sf::Vector2u*)(temp);
 
-				temp = new char[sizeof(StaticObjectResouces)];
-				this->file.read(temp, sizeof(StaticObjectResouces));
-				warehouse = (StaticObjectResouces*)(temp);
+				temp = new char[sizeof(sf::Vector2u)];
+				this->file.read(temp, sizeof(sf::Vector2u));
+				fireplacePos = (sf::Vector2u*)(temp);
 
 				//--Koniec zczytywania fireplace i warehouse
 
@@ -78,7 +78,7 @@ int BinaryFileMenager::binary_p_read(std::vector<Tile*>& tiles, sf::Vector2u*& m
 	return 1;
 }
 
-int BinaryFileMenager::binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize, StaticObjectFireplace* fireplace, StaticObjectResouces* warehouse)
+int BinaryFileMenager::binary_write(std::vector<Tile*>& tiles, sf::Vector2u* mapSize, sf::Vector2u* warehousePos, sf::Vector2u* fireplacePos)
 {
 	//Sprawdzanie odpowiedniego trybu odczytu
 	if (fmode == 1) {
@@ -86,8 +86,8 @@ int BinaryFileMenager::binary_write(std::vector<Tile*>& tiles, sf::Vector2u* map
 		if (this->file.good()) {
 			//zapisanie wielkoœci mapy
 			this->file.write((char*)(&(*mapSize)), sizeof(sf::Vector2u));
-			this->file.write((char*)(&(*fireplace)), sizeof(StaticObjectFireplace));
-			this->file.write((char*)(&(*warehouse)), sizeof(StaticObjectResouces));
+			this->file.write((char*)(&(*warehousePos)), sizeof(sf::Vector2u));
+			this->file.write((char*)(&(*fireplacePos)), sizeof(sf::Vector2u));
 			//Zapisanie kolejnych kafelków mapy
 			for (int i = 0; i < tiles.size(); i++) {
 				this->file.write((char*)(&(*tiles[i])), sizeof(Tile));
