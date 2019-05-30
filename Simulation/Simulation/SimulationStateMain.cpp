@@ -10,9 +10,11 @@
 #include "StaticObjectFireplace.h"
 #include <iostream>
 
+//Rysowanie poszczególnych elemetnów 
 void SimulationStateMain::draw(const float dt)
 {
 	this->simulation->getWindow()->clear(sf::Color::Color(123, 152, 181));
+	//Widok mapy
 	this->simulation->getWindow()->setView(this->gameView);
 	this->map->draw(
 		this->simulation->getWindow(), dt,
@@ -21,11 +23,13 @@ void SimulationStateMain::draw(const float dt)
 		this->simulation->getSprDivMgr()
 	);
 	this->peopleManager->draw(&this->gameView, this->simulation->getWindow(), this->map, this->simulation->getSprDivMgr());
+	//Widok gui
 	this->simulation->getWindow()->setView(this->guiView);
 	this->peopleManager->drawGUI(&this->guiView, this->simulation->getWindow(), this->simulation->getSprDivMgr(), this->simulation->getFont());
 	return;
 }
 
+//Aktualizacja poszczególnych elementów w uzale¿nieniu od czasu
 void SimulationStateMain::update(const float dt)
 {
 	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapWidth());
@@ -76,6 +80,7 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 	sf::Vector2u* mapSize = 0;
 	sf::Vector2u* warehousePos = NULL;
 	sf::Vector2u* fireplacePos = NULL;
+	//Czytanie z pliku binarnego. Je¿eli jest b³¹d to ka¿e przejœæ do edytora mapy
 	int error = fileMenager->binary_p_read(tiles, mapSize, warehousePos, fireplacePos);
 	if (error != 0) {
 		std::cout << "Brak pliku z mapa, lub plik z mapa jest uszkodzony. Skorzystaj z edytora map, aby go stworzyc";

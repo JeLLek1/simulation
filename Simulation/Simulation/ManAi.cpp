@@ -49,14 +49,16 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start, sf
 					this->destination.push_front(temp);
 					//Dopuki nie wrócimy od punktu dojœcia do punktu startu
 					while (weight[map->cordToTabPos(this->destination.front())]!=1) {
-
+						//Ostatni dodany krok
 						temp = this->destination.front();
 						int j = -1;
+						//Szuka w okó³ ostatniego punktu punkt z mniejsz¹ wag¹
 						do 
 						{
 							j++;
 						} 
 						while (temp.x > map->mapWidth() - 1 || temp.y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
+						//Dodanie punktu do listy
 						this->destination.push_front(this->destination.front() + helper[j]);
 					}
 					return true;

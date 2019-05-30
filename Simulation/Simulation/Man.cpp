@@ -7,8 +7,8 @@
 
 void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivided* sprite)
 {
-	if (this->isCorrect(map, simView))
-	{
+	//if (this->isCorrect(map, simView))
+	//{
 		sprite->setTextureRect(sf::IntRect( 0, this->direction()*sprite->partSize.y, sprite->partSize.x, sprite->partSize.y));
 		sprite->setPosition(Simulation::cartToIso(this->currentPosition, map->mapWidth()));
 		window->draw(*sprite);
@@ -25,7 +25,7 @@ void Man::draw(SimView* simView, sf::RenderWindow* window, Map* map, SpriteDivid
 			rectangle1.setPosition(sf::Vector2f(sprite->getPosition().x - sprite->partSize.x * 0.5 + 2, sprite->getPosition().y - sprite->partSize.y + 2));
 			window->draw(rectangle1);
 		}
-	}
+	//}
 }
 
 sf::Vector2f Man::getCurrentPosition()

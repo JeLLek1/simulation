@@ -9,9 +9,11 @@
 class SimulationStateEditor : public SimulationState
 {
 private:
+	//Wymiary mapy gdy brakuje pliku
 	static const unsigned int
 		MAP_WIDTH = 30,
 		MAP_HEIGHT = 30;
+	//Zmienna przechowuj¹ca typ bloku
 	unsigned int typeOfBlock;
 
 	SimView gameView;

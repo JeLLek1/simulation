@@ -16,6 +16,7 @@ Tile::Tile(unsigned char partNumber, TextureNames texname, bool collision)
 	//this->staticObject = NULL;
 }
 
+//Rysowanie kafelka w odpowiednim miejscu na ekranie
 void Tile::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x, unsigned int y, unsigned int mapWidth, unsigned int animationStep)
 {
 	//Ustawienie odpowiedniej kratki spritu
@@ -28,6 +29,7 @@ void Tile::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int x,
 	}*/
 }
 
+//Ustawianie wycinka tekstury
 void Tile::setPart(unsigned char partNumber)
 {
 	this->partNumber = partNumber;
@@ -39,21 +41,25 @@ void Tile::setPart(unsigned char partNumber)
 	}
 }
 
+//Zwraca czy dany punkt jest nie do przejœcia
 bool Tile::returnCollision()
 {
 	return this->collision;
 }
 
+//Ustawia kolizje na punkcie
 void Tile::setCollision(bool collision)
 {
 	this->collision = collision;
 }
 
+//Zwraca typ obiektu znajduj¹cego siê na danym kafelku
 ObjectType Tile::returnObjectType()
 {
 	return this->objectType;
 }
 
+//Ustawia informacjê o typie obiektu typu fireplace, resouce
 void Tile::setObjectType(ObjectType objectType)
 {
 	this->objectType = objectType;

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include <string>
 #include "PeopleMenager.h"
+#include <conio.h>
 #include <iostream>
 
 
@@ -45,8 +46,9 @@ void PeopleMenager::draw(SimView* simView, sf::RenderWindow* window, Map* map, S
 		i->draw(window, spriteMgr->getRef(TextureNames::SOURCES), map->mapWidth(), spriteMgr->returnAnimationStep());
 	}
 	if (this->population.size() > 20) {
+		std::cout << "Udalo sie ukonczyc symulacje. Zebrano 20 ludzi. Wciœnij dowolny przycisk...";
+		_getch();
 		window->close();
-		std::cout << "Udalo sie ukonczyc symulacje";
 	}
 }
 

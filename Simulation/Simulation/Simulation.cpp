@@ -11,7 +11,7 @@
 #include "TextureManager.h"
 
 
-/* Pobieranie tekstury t³a */
+/* Pobieranie tekstury u¿ywanych w ca³ym programie */
 
 void Simulation::loadTextures()
 {
@@ -30,23 +30,25 @@ void Simulation::loadTextures()
 }
 
 
-
+//zwraca wskaŸnik na menager spritów
 SpriteDividedMenager* Simulation::getSprDivMgr()
 {
 	return this->sprDivMgr;
 }
 
+//Zwraca wskaŸnik na czcionkê u¿ywan¹ w programie
 sf::Font* Simulation::getFont()
 {
 	return this->font;
 }
 
+//Zwraca t³o
 sf::Sprite Simulation::getBackground()
 {
 	return this->background;
 }
 
-
+//zwraca wskaŸnik na okno
 SimWindow* Simulation::getWindow()
 {
 	return this->window;
@@ -97,7 +99,7 @@ void Simulation::simulationLoop()
 	
 
 
-
+	//G³ówna pêtla programu
 	sf::Clock clock;
 
 	while (this->window->isOpen())
@@ -115,12 +117,15 @@ void Simulation::simulationLoop()
 }
 
 Simulation::Simulation()
-{	
+{	//Tworzenie obiektów potrzebnych do dzia³ania symulacji
+	//SpriteMgr za¿¹dza spriteami
 	SpriteDividedMenager* spriteMgr = new SpriteDividedMenager();
 	this->sprDivMgr = spriteMgr;
+	//TexturMgr za¿¹dza teksturami
 	TextureManager* textureMgr = new TextureManager;
 	this->texmgr = textureMgr;
 
+	//Ziarno zmiennej losowej
 	srand(time(0));
 	this->font = new sf::Font();
 	this->loadTextures();
@@ -129,7 +134,7 @@ Simulation::Simulation()
 
 	this->background.setTexture(*this->texmgr->getRef(TextureNames::BACKGROUND));
 }
-
+//Metoda statyczna do przejœcia z uk³adu kartezjañskiego do izometrycznegp
 sf::Vector2f Simulation::cartToIso(sf::Vector2f cart, int map_size_x)
 {
 	return sf::Vector2f(
@@ -138,6 +143,7 @@ sf::Vector2f Simulation::cartToIso(sf::Vector2f cart, int map_size_x)
 	);
 }
 
+//Metoda statyczna przejœca z uk³adu izometrycznego do kartezjañskiego
 sf::Vector2f Simulation::isoToCart(sf::Vector2f iso, int map_size_x)
 {
 	return sf::Vector2f(
