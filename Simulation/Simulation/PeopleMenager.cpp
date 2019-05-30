@@ -8,30 +8,49 @@
 void PeopleMenager::drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteDividedMenager* spriteMgr, sf::Font* font)
 {
 	sf::RectangleShape rectangle1(sf::Vector2f(guiView->getSize().x, 30));
-	rectangle1.setFillColor(sf::Color::Magenta);
+	rectangle1.setFillColor(sf::Color(100, 150, 150));
 	rectangle1.setPosition(sf::Vector2f(0,guiView->getSize().y-rectangle1.getSize().y));
 	window->draw(rectangle1);
 	
 	
 	sf::Text text;
+	sf::Sprite sprite;
+	sprite = *spriteMgr->getRef(TextureNames::ICON);
 	sf::Vector2f textPos = (sf::Vector2f(50, guiView->getSize().y - (text.getCharacterSize() + (30 - text.getCharacterSize()) / 2)));
+	sf::Vector2f spritePos = sf::Vector2f(textPos.x, textPos.y+25);
+
+	sprite.setTextureRect(sf::IntRect(0, 0, 20, 20));
 	text.setFont(*font);
 	text.setFillColor(sf::Color::Black);
 	text.setCharacterSize(20);
 	text.setPosition(textPos);
+	sprite.setPosition(spritePos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::STONE)));
 	window->draw(text);
+	window->draw(sprite);
 	textPos.x += guiView->getSize().x / 4;
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::WOOD)));
+	sprite.setTextureRect(sf::IntRect(20, 0, 20, 20));
+	spritePos = sf::Vector2f(textPos.x, textPos.y + 25);
+	sprite.setPosition(spritePos);
+	window->draw(sprite);
 	window->draw(text);
 	textPos.x += guiView->getSize().x / 4;
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->ownedResouces.at(ResouceType::STRAWBERRY)));
+	sprite.setTextureRect(sf::IntRect(40, 0, 20, 20));
+	spritePos = sf::Vector2f(textPos.x, textPos.y + 25);
+	sprite.setPosition(spritePos);
+	window->draw(sprite);
 	window->draw(text);
 	textPos.x += guiView->getSize().x / 4;
 	text.setPosition(textPos);
 	text.setString(std::to_string(this->population.size())+" / 20");
+	sprite.setTextureRect(sf::IntRect(60, 0, 20, 20));
+	spritePos = sf::Vector2f(textPos.x, textPos.y + 25);
+	sprite.setPosition(spritePos);
+	window->draw(sprite);
 	window->draw(text);
 }
 

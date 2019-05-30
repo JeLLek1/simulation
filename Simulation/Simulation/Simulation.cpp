@@ -24,8 +24,11 @@ void Simulation::loadTextures()
 	sprDivMgr->loadSprite(TextureNames::MAN, texmgr->getRef(TextureNames::MAN), sf::Vector2u(52, 78), 24, false);
 
 	texmgr->loadTexture(TextureNames::SOURCES, "resouces/sources.png");
-	sprDivMgr->loadSprite(TextureNames::SOURCES, texmgr->getRef(TextureNames::SOURCES), sf::Vector2u(52, 103), 20, false);
+	sprDivMgr->loadSprite(TextureNames::SOURCES, texmgr->getRef(TextureNames::SOURCES), sf::Vector2u(52, 104), 20, false);
 
+	texmgr->loadTexture(TextureNames::ICON, "resouces/resoucesIcon.png");
+	sprDivMgr->loadSprite(TextureNames::ICON, texmgr->getRef(TextureNames::ICON), sf::Vector2u(80, 20), 4, false);
+	
 	font->loadFromFile("resouces/font.ttf");
 }
 
