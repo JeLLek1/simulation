@@ -3,9 +3,9 @@
 enum class ObjectType : char {
 	NONE,
 	WOOD,
+	STRAWBERRY,
 	STONE,
 	WARECHOUSE,
-	STRAWBERRY,
 	FIREPLACE
 	
 };

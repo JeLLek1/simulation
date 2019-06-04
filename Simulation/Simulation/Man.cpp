@@ -89,6 +89,20 @@ Task Man::update(float dt, Map* map)
 				this->going = true;
 			}
 			break;
+		case Task::GETFOOD:
+			if (this->actualWait + dt < Man::COOLDOWN)
+			{
+				this->actualWait += dt;
+			}
+			else
+			{
+				this->currentTask = Task::RETURNRESOURCE;
+				this->setPath(ObjectType::WARECHOUSE, map);
+				this->pocket = ResouceType::STRAWBERRY;
+				this->actualWait = 0;
+				this->going = true;
+			}
+			break;
 		case Task::BUILDFIREPLACE:
 			if (this->actualWait + dt < Man::COOLDOWN)
 			{
@@ -144,6 +158,9 @@ void Man::setTask(Task task, Map* map)
 		break;
 	case Task::GETSTONE:
 		this->setPath(ObjectType::STONE, map);
+		break;
+	case Task::GETFOOD:
+		this->setPath(ObjectType::STRAWBERRY, map);
 		break;
 	case Task::BUILDFIREPLACE:
 		do {

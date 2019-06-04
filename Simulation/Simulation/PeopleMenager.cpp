@@ -79,11 +79,11 @@ void PeopleMenager::update(float dt, Map* map)
 		if (i->update(dt, map) == Task::NONE)
 		{
 			ResouceType temp1 = i->getPocket();
-			if (this->ownedResouces.at(ResouceType::STONE) >= 1 && this->ownedResouces.at(ResouceType::WOOD) >= 1 && this->ownedResouces.at(ResouceType::STRAWBERRY) >= 1) {
+			if (this->ownedResouces.at(ResouceType::STONE) >= 10 && this->ownedResouces.at(ResouceType::WOOD) >= 10 && this->ownedResouces.at(ResouceType::STRAWBERRY) >= 10) {
 
-				this->ownedResouces.at(ResouceType::STONE) -= 1;
-				this->ownedResouces.at(ResouceType::WOOD) -= 1;
-				this->ownedResouces.at(ResouceType::STRAWBERRY) -= 1;
+				this->ownedResouces.at(ResouceType::STONE) -= 10;
+				this->ownedResouces.at(ResouceType::WOOD) -= 10;
+				this->ownedResouces.at(ResouceType::STRAWBERRY) -= 10;
 				i->setTask(Task::BUILDFIREPLACE, map);
 			}else{
 				Task temp;
@@ -115,6 +115,7 @@ void PeopleMenager::update(float dt, Map* map)
 				if (this->ownedResouces.at(min) > this->ownedResouces.at(ResouceType::STRAWBERRY))
 				{
 					min = ResouceType::STRAWBERRY;
+					temp = Task::GETFOOD;
 				}
 
 				i->setTask(temp, map);
@@ -136,6 +137,11 @@ PeopleMenager::PeopleMenager(Map* map, sf::Vector2u* warehousePos, sf::Vector2u*
 		StaticObject* object = new StaticObjectResouces(ObjectType::WOOD, map);
 		this->staticObjects.push_front(object);
 	}
+	//Tworzenie drzew
+	for (int i = 0; i < 3; i++) {
+		StaticObject* object = new StaticObjectResouces(ObjectType::STRAWBERRY, map);
+		this->staticObjects.push_front(object);
+	}
 	//Tworzenie kamenia
 	for (int i = 0; i < 3; i++) {
 		StaticObject* object = new StaticObjectResouces(ObjectType::STONE, map);
@@ -149,7 +155,7 @@ PeopleMenager::PeopleMenager(Map* map, sf::Vector2u* warehousePos, sf::Vector2u*
 	//Dodawanie listy surowców z ich wartoœciami
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STONE, 0));
 	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::WOOD, 0));
-	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STRAWBERRY, 100));
+	this->ownedResouces.insert(std::pair<ResouceType, int>(ResouceType::STRAWBERRY, 0));
 
 	//Tworzenie cz³owieka
 	Man* man = new Man(sf::Vector2f(fireplace->getPosition()+helper[rand()%8]));

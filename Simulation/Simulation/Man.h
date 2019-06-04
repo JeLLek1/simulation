@@ -14,6 +14,7 @@ enum class Task : char {
 	NONE,
 	GETWOOD,
 	GETSTONE,
+	GETFOOD,
 	BUILDFIREPLACE,
 	RETURNRESOURCE
 };
