@@ -1,8 +1,7 @@
 #include "pch.h"
 #include "SimulationStateStart.h"
-#include <iostream>
 
-int main()
+int WinMain()
 {
 	Simulation *simulation = new Simulation();
 	simulation->pushState(new SimulationStateStart(simulation));

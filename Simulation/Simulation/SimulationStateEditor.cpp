@@ -3,7 +3,6 @@
 #include "Simulation.h"
 #include "BinaryFileMenager.h"
 #include <cmath>
-#include <iostream>
 #include <fstream>
 
 void SimulationStateEditor::draw(const float dt)
@@ -47,7 +46,7 @@ void SimulationStateEditor::update(const float dt)
 	simulation->getSprDivMgr()->update(dt);
 }
 
-void SimulationStateEditor::handleInput()
+bool SimulationStateEditor::handleInput()
 {
 	//Uwaga potem usun¹æ. Od tej chwili zaczyna siê edytor mapy
 	sf::Event event;
@@ -64,7 +63,7 @@ void SimulationStateEditor::handleInput()
 		case sf::Event::KeyPressed:
 		{
 			if (event.key.code == sf::Keyboard::Escape) {
-				this->simulation->getWindow()->close();
+				return false;
 			}
 			else if (event.key.code > 25 && event.key.code < 36) {
 				this->typeOfBlock = event.key.code - 26;
@@ -110,7 +109,7 @@ void SimulationStateEditor::handleInput()
 				this->map->returnTile(cart)->setPart((this->typeOfBlock-4)*5);
 		}
 	}
-	return;
+	return true;
 }
 
 SimulationStateEditor::SimulationStateEditor(Simulation* simulation)

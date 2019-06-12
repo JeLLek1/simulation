@@ -1,5 +1,4 @@
-#ifndef SIMULATION_STATE_EDITOR_HPP
-#define SIMULATION_STATE_EDITOR_HPP
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <list>
@@ -28,10 +27,8 @@ public:
 
 	virtual void draw(const float dt);
 	virtual void update(const float dt);
-	virtual void handleInput();
+	virtual bool handleInput();
 
 	SimulationStateMain(Simulation* simulation);
 	~SimulationStateMain();
 };
-
-#endif //SIMULATION_STATE_EDITOR_HPP

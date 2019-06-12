@@ -44,7 +44,7 @@ void SimulationStateStart::update(const float dt)
 
 /* Pobieranie i obs³ugiwanie poleceñ */
 
-void SimulationStateStart::handleInput()
+bool SimulationStateStart::handleInput()
 {
 	sf::Event event;
 
@@ -61,7 +61,7 @@ void SimulationStateStart::handleInput()
 			case sf::Event::KeyPressed:
 			{
 				if (event.key.code == sf::Keyboard::Escape)
-					this->simulation->getWindow()->close();
+					return false;
 				else if (event.key.code == sf::Keyboard::Space)
 					this->loadSimulation();
 				break;
@@ -95,7 +95,7 @@ void SimulationStateStart::handleInput()
 		}
 	}
 
-	return;
+	return true;
 }
 
 SimulationStateStart::SimulationStateStart(Simulation* simulation)

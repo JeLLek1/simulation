@@ -8,7 +8,6 @@
 #include "BinaryFileMenager.h"
 #include "StaticObjectResouces.h"
 #include "StaticObjectFireplace.h"
-#include <iostream>
 
 //Rysowanie poszczególnych elemetnów 
 void SimulationStateMain::draw(const float dt)
@@ -59,7 +58,7 @@ void SimulationStateMain::update(const float dt)
 
 /* Pobieranie i obs³ugiwanie poleceñ */
 
-void SimulationStateMain::handleInput()
+bool SimulationStateMain::handleInput()
 {
 	sf::Event event;
 
@@ -75,7 +74,7 @@ void SimulationStateMain::handleInput()
 			case sf::Event::KeyPressed:
 			{
 				if (!this->simulationRun || event.key.code == sf::Keyboard::Escape)
-					this->simulation->getWindow()->close();
+					return false;;
 				break;
 			}
 			default:
@@ -84,7 +83,7 @@ void SimulationStateMain::handleInput()
 	}
 
 
-	return;
+	return true;
 }
 
 SimulationStateMain::SimulationStateMain(Simulation* simulation)
@@ -101,7 +100,6 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 	//Czytanie z pliku binarnego. Je¿eli jest b³¹d to ka¿e przejœæ do edytora mapy
 	int error = fileMenager->binary_p_read(tiles, mapSize, warehousePos, fireplacePos);
 	if (error != 0) {
-		std::cout << "Brak pliku z mapa, lub plik z mapa jest uszkodzony. Skorzystaj z edytora map, aby go stworzyc";
 		mapSize = new sf::Vector2u(2,2);
 		this->map = new Map(mapSize);
 		this->simulation->getWindow()->close();

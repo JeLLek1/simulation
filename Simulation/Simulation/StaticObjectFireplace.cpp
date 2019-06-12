@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "StaticObjectFireplace.h"
 #include "Simulation.h"
-#include <iostream>
 
 
 void StaticObjectFireplace::draw(sf::RenderWindow* window, SpriteDivided* sprite, unsigned int mapWidth, unsigned int animationStep)

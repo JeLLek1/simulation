@@ -3,8 +3,6 @@
 #include<stdlib.h>
 #include<SFML/Graphics.hpp>
 #include<SFML/System.hpp>
-#include <iostream>
-
 #include "pch.h"
 #include "Simulation.h"
 #include "SimulationState.h"
@@ -110,12 +108,19 @@ void Simulation::simulationLoop()
 		sf::Time elapsed = clock.restart();
 		float dt = elapsed.asSeconds();
 
-		if (peekState() == nullptr) continue;
-		peekState()->handleInput();
-		peekState()->update(dt);
-		this->window->clear(sf::Color::Black);
-		peekState()->draw(dt);
-		this->window->display();
+		if (peekState() != nullptr) {
+			bool continueState = peekState()->handleInput();
+			peekState()->update(dt);
+			this->window->clear(sf::Color::Black);
+			peekState()->draw(dt);
+			this->window->display();
+			if (!continueState) {
+				this->popState();
+			}
+		}
+		else {
+			this->window->close();
+		}
 	}
 }
 

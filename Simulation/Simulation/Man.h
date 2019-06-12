@@ -7,7 +7,6 @@
 #include "ManAi.h"
 #include "Simulation.h"
 #include "ResouceType.h"
-#include <iostream>
 
 
 enum class Task : char {

@@ -1,10 +1,8 @@
-#ifndef SIMULATION_HPP
-#define SIMULATION_HPP
+#pragma once
 
 #include<stack>
 #include<SFML/Graphics.hpp>
 #include <SFML/Graphics/Font.hpp>
-#include<iostream>
 #include "TextureManager.h"
 #include "SpriteDividedMenager.h"
 #include "SimWindow.h"
@@ -52,5 +50,3 @@ public:
 	Simulation();
 	~Simulation();
 };
-
-#endif //SIMULATION_HPP

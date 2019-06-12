@@ -1,6 +1,4 @@
-#ifndef SIMULATION_STATE_START_HPP
-#define SIMULATION_STATE_START_HPP
-
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <list>
 
@@ -21,11 +19,9 @@ public:
 	
 	virtual void draw(const float dt);
 	virtual void update(const float dt);
-	virtual void handleInput();
+	virtual bool handleInput();
 
 
 	SimulationStateStart(Simulation* simulation);
 	~SimulationStateStart();
 };
-
-#endif //SIMULATION_STATE_START_HPP

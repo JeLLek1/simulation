@@ -2,7 +2,6 @@
 #include <string>
 #include "PeopleMenager.h"
 #include <conio.h>
-#include <iostream>
 
 
 void PeopleMenager::drawGUI(sf::View* guiView, sf::RenderWindow* window, SpriteDividedMenager* spriteMgr, sf::Font* font)
@@ -118,7 +117,7 @@ bool PeopleMenager::update(float dt, Map* map)
 		}
 	}
 
-	if (this->population.size() > 0) {
+	if (this->population.size() > 19) {
 		return false;
 	}
 	return true;

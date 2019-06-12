@@ -7,7 +7,7 @@ SimWindow::SimWindow()
 	this->windowSize.x = 1080;
 	this->windowSize.y = 720;
 	//Tworzenie okna
-	this->create(sf::VideoMode(this->windowSize.x, this->windowSize.y), "Simple Simulation"/*, sf::Style::Fullscreen*/);
+	this->create(sf::VideoMode(this->windowSize.x, this->windowSize.y), "Simple Simulation", sf::Style::Titlebar | sf::Style::Close);
 }
 
 SimWindow::~SimWindow()

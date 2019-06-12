@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "SpriteDividedMenager.h"
-#include<iostream>
 
 void SpriteDividedMenager::loadSprite(const TextureNames& name, sf::Texture* texture, sf::Vector2u partSize, unsigned char partLenght, bool centerBottom) {
 	SpriteDivided* temp = new SpriteDivided;

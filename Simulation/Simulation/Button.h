@@ -1,5 +1,4 @@
-#ifndef BUTTON_HPP
-#define BUTTON_HPP
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <list>
@@ -39,4 +38,3 @@ public:
 	~Button();
 };
 
-#endif // !BUTTON_HPP

@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "SimView.h"
 #include "Simulation.h"
-#include <iostream>
 
 sf::Vector2f SimView::getCamPos()
 {

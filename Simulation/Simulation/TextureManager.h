@@ -1,6 +1,4 @@
-#ifndef TEXTURE_MANAGER_HPP
-#define TEXTURE_MANAGER_HPP
-
+#pragma once
 #include<SFML/Graphics.hpp>
 #include <string>
 #include <map>
@@ -31,5 +29,3 @@ public:
 	TextureManager();
 	~TextureManager();
 };
-
-#endif //TEXTURE_MANAGER_HPP

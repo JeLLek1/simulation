@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Map.h"
 #include "Simulation.h"
-#include <iostream>
 std::vector<Tile*>& Map::getTileReference()
 {
 	return this->tiles;

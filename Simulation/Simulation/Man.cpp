@@ -206,15 +206,6 @@ unsigned int Man::direction()
 	return this->last;
 }
 
-bool Man::isCorrect(Map* map, SimView* view)
-{
-	if (this->currentPosition.x >= (view->getCamPos().x - map->mapHeight() / 2) &&
-		this->currentPosition.x <= (view->getCamPos().x + map->mapHeight() / 2) &&
-		this->currentPosition.y <= (view->getCamPos().y + map->mapWidth() / 2) &&
-		this->currentPosition.y >= (view->getCamPos().y - map->mapWidth() / 2))
-		return true;
-	else return false;
-}
 
 Man::Man(sf::Vector2f currentPosition)
 {

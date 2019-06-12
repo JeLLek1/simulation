@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include "SpriteDividedMenager.h"
 #include "ObjectType.h"
-#include <iostream>
 
 
 class Tile
