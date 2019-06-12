@@ -12,10 +12,9 @@
 
 class SimulationStateMain : public virtual SimulationState
 {
-protected:
+private:
 
 	PeopleMenager* peopleManager;
-	
 	SimView gameView;
 	sf::View guiView;
 
