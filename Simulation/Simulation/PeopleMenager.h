@@ -11,8 +11,6 @@ class PeopleMenager
 private:
 	std::list<Man*> population;
 	std::list<StaticObject*> staticObjects;
-	//std::map<StaticObject*, sf::Vector2f> objectTypePosition;
-	std::map<Man*, sf::Vector2f> objectManPosition;
 	std::map<ResouceType, int> ownedResouces;
 	
 

@@ -212,7 +212,6 @@ Man::Man(sf::Vector2f currentPosition)
 	this->currentPosition = sf::Vector2f(currentPosition);
 	ManAi* manAi1 = new ManAi();
 	this->manAi = manAi1;
-	this->hp = 0;
 	this->destination= sf::Vector2f(this->manAi->getNextStep(sf::Vector2u(this->currentPosition)));
 	this->currentTask = Task::NONE;
 	this->going = false;
@@ -225,7 +224,6 @@ Man::Man()
 	this->currentPosition = sf::Vector2f(1,1);
 	ManAi* manAi1 = new ManAi();
 	this->manAi = manAi1;
-	this->hp = 0;
 	this->currentTask = Task::NONE;
 	this->going = false;
 	this->actualWait = 0.f;

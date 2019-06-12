@@ -1,7 +1,26 @@
-﻿  SimWindow.cpp
+﻿  Man.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(18): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(20): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(25): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
   Trwa generowanie kodu
-  2 of 1290 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  20 of 1261 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    98 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\x64\Release\Simulation.exe
