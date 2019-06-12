@@ -22,7 +22,6 @@ enum class Task : char {
 class Man
 {
 private:
-	unsigned int hp;
 	Task currentTask;
 	sf::Vector2f currentPosition;
 	sf::Vector2f destination;
@@ -37,7 +36,6 @@ private:
 	float actualWait;
 
 	unsigned int direction();
-	bool isCorrect(Map* map, SimView* view);
 	
 public:
 
