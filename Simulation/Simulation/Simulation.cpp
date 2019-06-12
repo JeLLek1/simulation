@@ -160,4 +160,8 @@ Simulation::~Simulation()
 	while (!this->states.empty()) {
 		this->popState();
 	}
+	delete this->window;
+	delete this->sprDivMgr;
+	delete this->texmgr;
+	delete this->font;
 }

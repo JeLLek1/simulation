@@ -115,5 +115,5 @@ SimulationStateStart::SimulationStateStart(Simulation* simulation)
 SimulationStateStart::~SimulationStateStart()
 {
 	//Usuwanie wszystkich elementów listy z wywo³aniem ich destruktorów
-	buttons.remove_if([](Button * theElement) {delete theElement; return true; });
+	this->buttons.remove_if([](Button * theElement) {delete theElement; return true; });
 }

@@ -14,7 +14,6 @@ private:
 	size_t objectListPosition;
 	bool collision;
 	unsigned char partNumber;
-	//StaticObject* staticObject;
 public:
 
 	Tile();

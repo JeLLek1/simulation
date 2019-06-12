@@ -30,6 +30,7 @@ private:
 	ManAi* manAi;
 	bool going;
 	ResouceType pocket;
+	unsigned int last;
 
 
 	const float COOLDOWN = 1.f;

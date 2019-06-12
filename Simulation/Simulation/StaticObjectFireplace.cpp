@@ -12,10 +12,6 @@ void StaticObjectFireplace::draw(sf::RenderWindow* window, SpriteDivided* sprite
 	window->draw(*sprite);
 }
 
-void StaticObjectFireplace::update(const float dt)
-{
-}
-
 StaticObjectFireplace::StaticObjectFireplace(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
 

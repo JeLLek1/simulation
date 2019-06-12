@@ -19,6 +19,25 @@ void SimulationStateEditor::draw(const float dt)
 	this->wareHouse->draw(this->simulation->getWindow(), this->simulation->getSprDivMgr()->getRef(TextureNames::SOURCES), this->map->mapWidth(), this->simulation->getSprDivMgr()->returnAnimationStep());
 	this->fireplace->draw(this->simulation->getWindow(), this->simulation->getSprDivMgr()->getRef(TextureNames::SOURCES), this->map->mapWidth(), this->simulation->getSprDivMgr()->returnAnimationStep());
 
+	this->simulation->getWindow()->setView(this->guiView);
+
+	sf::Text text;
+	sf::Vector2f textPos = (sf::Vector2f(20, 20));
+	text.setFont(*this->simulation->getFont());
+	text.setFillColor(sf::Color::Black);
+	text.setCharacterSize(20);
+	text.setPosition(textPos);
+	text.setString("Wersja bloku podloza:"+std::to_string(this->typeOfBlock));
+	this->simulation->getWindow()->draw(text);
+	textPos = (sf::Vector2f(20, (text.getCharacterSize() + 20)));
+	text.setPosition(textPos);
+	if(this->typeOfBlock == 1)
+		text.setString("Blok interakcji: ognisko");
+	else if(this->typeOfBlock == 2)
+		text.setString("Blok interakcji: skladowisko");
+	else
+		text.setString("Blok interakcji: Brak");
+	this->simulation->getWindow()->draw(text);
 	return;
 }
 
@@ -101,8 +120,10 @@ SimulationStateEditor::SimulationStateEditor(Simulation* simulation)
 	this->simulation = simulation;
 	sf::Vector2f pos = sf::Vector2f(this->simulation->getWindow()->getSize());
 	this->gameView.setSize(pos);
+	this->guiView.setSize(pos);
 	pos *= 0.5f;
 	this->gameView.setCenter(pos);
+	this->guiView.setCenter(pos);
 
 	std::vector<Tile*> tiles;
 	BinaryFileMenager* fileMenager = new BinaryFileMenager("resouces/map.bin", 2);
@@ -147,6 +168,6 @@ SimulationStateEditor::~SimulationStateEditor()
 	delete fireplacePos;
 	delete mapSize;
 	delete fileMenager;
-	delete fireplace;
-	delete wareHouse;
+	delete this->fireplace;
+	delete this->wareHouse;
 }

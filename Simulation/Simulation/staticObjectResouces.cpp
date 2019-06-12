@@ -13,10 +13,6 @@ void StaticObjectResouces::draw(sf::RenderWindow* window, SpriteDivided* sprite,
 	window->draw(*sprite);
 }
 
-void StaticObjectResouces::update(const float dt)
-{
-}
-
 StaticObjectResouces::StaticObjectResouces(const ObjectType objectType, Map* map) : StaticObject(objectType, map)
 {
 

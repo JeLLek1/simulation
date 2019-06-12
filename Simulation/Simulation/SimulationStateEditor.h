@@ -17,6 +17,7 @@ private:
 	unsigned int typeOfBlock;
 
 	SimView gameView;
+	sf::View guiView;
 
 	StaticObjectFireplace* fireplace;
 	StaticObjectResouces* wareHouse;

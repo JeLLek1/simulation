@@ -23,4 +23,5 @@ public:
 	size_t cordToTabPos(sf::Vector2u pos);
 	Map(sf::Vector2u* mapsize);
 	Map(sf::Vector2u* mapsize, std::vector<Tile*>& tiles);
+	~Map();
 };

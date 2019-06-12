@@ -49,12 +49,12 @@ void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::V
 		for (int j = -i-2; j < i+3; j++) {
 			int x = begin.x + i;
 			int y = begin.y + j;
-			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y ) {
+			if (x >= 0 && y >= 0 && x < static_cast<int>(this->mapSize.x) && y < static_cast<int>(this->mapSize.y) ) {
 				this->returnTile(sf::Vector2u(x, y))->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 			x = end.x - i;
 			y = end.y - j;
-			if (x >= 0 && y >= 0 && x < this->mapSize.x && y < this->mapSize.y && triangleendX != i) {
+			if (x >= 0 && y >= 0 && x < static_cast<int>(this->mapSize.x) && y < static_cast<int>(this->mapSize.y) && triangleendX != i) {
 				this->returnTile(sf::Vector2u(x, y))->draw(window, spriteMgr->getRef(TextureNames::GROUND), x, y, this->mapSize.x, spriteMgr->returnAnimationStep());
 			}
 		}
@@ -63,7 +63,7 @@ void Map::draw(sf::RenderWindow* window, float dt, sf::Vector2f camPosIso, sf::V
 
 size_t Map::cordToTabPos(sf::Vector2u pos)
 {
-	return static_cast<size_t>(pos.x + pos.y*this->mapWidth());
+	return static_cast<size_t>(pos.x) + static_cast<size_t>(pos.y)* static_cast<size_t>(this->mapWidth());
 }
 
 Map::Map(sf::Vector2u* mapsize)
@@ -76,4 +76,12 @@ Map::Map(sf::Vector2u* mapsize, std::vector<Tile*>& tiles)
 {
 	this->mapSize = sf::Vector2u(*mapsize);
 	this->load(tiles);
+}
+
+Map::~Map() {
+	for (auto p : this->tiles)
+	{
+		delete p;
+	}
+	this->tiles.clear();
 }

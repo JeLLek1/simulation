@@ -22,7 +22,7 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start, sf
 	//Tablica z wag¹ przejœcia do danego punktu
 	std::vector<int> weight;
 	//-1 to punkty, które nie zosta³y na razie odwiedzone
-	weight.resize(map->mapWidth() * map->mapHeight(), -1);
+	weight.resize(static_cast<size_t>(map->mapWidth()) * static_cast<size_t>(map->mapHeight()), -1);
 	//kolejka punktów, które nale¿y sprawdziæ w danej kolejnoœci
 	std::queue<sf::Vector2u> tileToCheck;
 	//Sprawdzamy od punktu startowego, którego waga dojœcia samego do siebie jest równa 0
@@ -57,7 +57,7 @@ bool ManAi::dijkstraPath(ObjectType objectType, Map* map, sf::Vector2u start, sf
 						{
 							j++;
 						} 
-						while (temp.x > map->mapWidth() - 1 || temp.y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
+						while (temp.x+helper[j].x > map->mapWidth() - 1 || temp.y + helper[j].y > map->mapHeight()-1 || weight[map->cordToTabPos(temp + helper[j])] != weight[map->cordToTabPos(temp)]-1);
 						//Dodanie punktu do listy
 						this->destination.push_front(this->destination.front() + helper[j]);
 					}

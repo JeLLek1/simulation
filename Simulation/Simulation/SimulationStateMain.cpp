@@ -26,15 +26,33 @@ void SimulationStateMain::draw(const float dt)
 	//Widok gui
 	this->simulation->getWindow()->setView(this->guiView);
 	this->peopleManager->drawGUI(&this->guiView, this->simulation->getWindow(), this->simulation->getSprDivMgr(), this->simulation->getFont());
+	if (!this->simulationRun) {
+		sf::RectangleShape rectangle1(sf::Vector2f(static_cast<float>(this->guiView.getSize().x-50), 50));
+		rectangle1.setFillColor(sf::Color(100, 150, 150));
+		rectangle1.setPosition(sf::Vector2f(20, this->guiView.getSize().y/2 - rectangle1.getSize().y/2));
+		this->simulation->getWindow()->draw(rectangle1);
+		sf::Text text;
+		sf::Vector2f textPos = (sf::Vector2f(50, this->guiView.getSize().y/2 - (text.getCharacterSize() + (30 - text.getCharacterSize())) / 2));
+		text.setFont(*this->simulation->getFont());
+		text.setFillColor(sf::Color::Green);
+		text.setCharacterSize(20);
+		text.setPosition(textPos);
+		text.setString("Symulacja zakonczona sukcesem. Nacisnij dowolny przycisk klawiatury aby wrocic do menu...");
+		this->simulation->getWindow()->draw(text);
+	}
 	return;
 }
 
 //Aktualizacja poszczególnych elementów w uzale¿nieniu od czasu
 void SimulationStateMain::update(const float dt)
 {
-	gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapWidth());
-	simulation->getSprDivMgr()->update(dt);
-	this->peopleManager->update(dt, this->map);
+	if (this->simulationRun) {
+		gameView.update(dt, sf::Mouse::getPosition(*this->simulation->getWindow()), sf::Vector2i(this->simulation->getWindow()->getSize()), this->map->mapWidth());
+		simulation->getSprDivMgr()->update(dt);
+		if (!this->peopleManager->update(dt, this->map)) {
+			this->simulationRun = false;
+		}
+	}
 
 	return;
 }
@@ -56,7 +74,7 @@ void SimulationStateMain::handleInput()
 			}
 			case sf::Event::KeyPressed:
 			{
-				if (event.key.code == sf::Keyboard::Escape)
+				if (!this->simulationRun || event.key.code == sf::Keyboard::Escape)
 					this->simulation->getWindow()->close();
 				break;
 			}
@@ -102,6 +120,7 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 
 	}
 	this->peopleManager = new PeopleMenager(this->map, warehousePos, fireplacePos);
+	this->simulationRun = true;
 	delete warehousePos;
 	delete fireplacePos;
 	delete mapSize;
@@ -112,4 +131,6 @@ SimulationStateMain::SimulationStateMain(Simulation* simulation)
 
 SimulationStateMain::~SimulationStateMain()
 {
+	delete this->map;
+	delete this->peopleManager;
 }

@@ -64,14 +64,9 @@ void PeopleMenager::draw(SimView* simView, sf::RenderWindow* window, Map* map, S
 	{
 		i->draw(window, spriteMgr->getRef(TextureNames::SOURCES), map->mapWidth(), spriteMgr->returnAnimationStep());
 	}
-	if (this->population.size() > 20) {
-		std::cout << "Udalo sie ukonczyc symulacje. Zebrano 20 ludzi. Wciœnij dowolny przycisk...";
-		_getch();
-		window->close();
-	}
 }
 
-void PeopleMenager::update(float dt, Map* map)
+bool PeopleMenager::update(float dt, Map* map)
 {
 	for (auto const& i : population)
 	{
@@ -79,11 +74,11 @@ void PeopleMenager::update(float dt, Map* map)
 		if (i->update(dt, map) == Task::NONE)
 		{
 			ResouceType temp1 = i->getPocket();
-			if (this->ownedResouces.at(ResouceType::STONE) >= 10 && this->ownedResouces.at(ResouceType::WOOD) >= 10 && this->ownedResouces.at(ResouceType::STRAWBERRY) >= 10) {
+			if (this->ownedResouces.at(ResouceType::STONE) >= 2 && this->ownedResouces.at(ResouceType::WOOD) >= 2 && this->ownedResouces.at(ResouceType::STRAWBERRY) >= 2) {
 
-				this->ownedResouces.at(ResouceType::STONE) -= 10;
-				this->ownedResouces.at(ResouceType::WOOD) -= 10;
-				this->ownedResouces.at(ResouceType::STRAWBERRY) -= 10;
+				this->ownedResouces.at(ResouceType::STONE) -= 2;
+				this->ownedResouces.at(ResouceType::WOOD) -= 2;
+				this->ownedResouces.at(ResouceType::STRAWBERRY) -= 2;
 				i->setTask(Task::BUILDFIREPLACE, map);
 			}else{
 				Task temp;
@@ -122,10 +117,11 @@ void PeopleMenager::update(float dt, Map* map)
 			}
 		}
 	}
-	for (auto const& i : staticObjects)
-	{
-		i->update(dt);
+
+	if (this->population.size() > 0) {
+		return false;
 	}
+	return true;
 }
 
 PeopleMenager::PeopleMenager(Map* map, sf::Vector2u* warehousePos, sf::Vector2u* fireplacePos)
@@ -166,4 +162,6 @@ PeopleMenager::PeopleMenager(Map* map, sf::Vector2u* warehousePos, sf::Vector2u*
 
 PeopleMenager::~PeopleMenager()
 {
+
+	this->population.remove_if([](Man * theElement) {delete theElement; return true; });
 }

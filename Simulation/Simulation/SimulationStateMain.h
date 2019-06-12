@@ -22,6 +22,8 @@ protected:
 
 	Map* map;
 
+	bool simulationRun;
+
 public:
 
 	virtual void draw(const float dt);

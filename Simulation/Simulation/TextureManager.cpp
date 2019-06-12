@@ -27,4 +27,9 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
+	for (std::map<TextureNames, sf::Texture*>::iterator itr = this->textures.begin(); itr != this->textures.end(); itr++)
+	{
+		delete (itr->second);
+	}
+	this->textures.clear();
 }

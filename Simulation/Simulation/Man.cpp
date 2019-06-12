@@ -198,11 +198,12 @@ ResouceType Man::getPocket()
 
 unsigned int Man::direction()
 {
-	if (this->currentPosition.x <= this->destination.x && this->currentPosition.y <= this->destination.y) return 0; //prawy dol
-	else if (this->currentPosition.x <= this->destination.x && this->currentPosition.y >= this->destination.y) return 1; //prawa gora
-	else if (this->currentPosition.x >= this->destination.x && this->currentPosition.y >= this->destination.y) return 2; //lewa gora
-	else if (this->currentPosition.x >= this->destination.x && this->currentPosition.y <= this->destination.y) return 3; //lewy dol
-	else return 0;
+	if (this->currentPosition.x < this->destination.x && this->currentPosition.y <= this->destination.y) this->last  = 0; //prawy dol
+	else if (this->currentPosition.x == this->destination.x && this->currentPosition.y >= this->destination.y) this->last = 1; //prawa gora
+	else if (this->currentPosition.x > this->destination.x && this->currentPosition.y >= this->destination.y) this->last = 2; //lewa gora
+	else if (this->currentPosition.x == this->destination.x && this->currentPosition.y <= this->destination.y) this->last = 3; //lewy dol
+	
+	return this->last;
 }
 
 bool Man::isCorrect(Map* map, SimView* view)
@@ -226,6 +227,7 @@ Man::Man(sf::Vector2f currentPosition)
 	this->going = false;
 	this->actualWait = 0.f;
 	this->pocket = ResouceType::NONE;
+	this->last = 0;
 }
 Man::Man()
 {
@@ -237,8 +239,10 @@ Man::Man()
 	this->going = false;
 	this->actualWait = 0.f;
 	this->pocket = ResouceType::NONE;
+	this->last = 0;
 }
 
 Man::~Man()
 {
+	delete this->manAi;
 }
