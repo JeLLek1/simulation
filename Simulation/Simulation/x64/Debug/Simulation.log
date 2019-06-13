@@ -1,2 +1,118 @@
-﻿  main.cpp
+﻿  Button.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Button.cpp(27): warning C4244: "+=": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Button.cpp(38): warning C4244: "-=": konwersja z "float" do "int", możliwa utrata danych
+  Man.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(18): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(20): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Man.cpp(25): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Map.cpp
+  PeopleMenager.cpp
+  SimView.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimView.cpp(18): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimView.cpp(20): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimView.cpp(31): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimView.cpp(33): warning C4244: "=": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  SimWindow.cpp
+  Simulation.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Simulation.cpp(137): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Simulation.cpp(150): warning C4244: "argument": konwersja z "double" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  SimulationState.cpp
+  SimulationStateEditor.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimulationStateEditor.cpp(31): warning C4244: "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimulationStateEditor.cpp(78): warning C4244: "argument": konwersja z "float" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\SimulationStateEditor.cpp(103): warning C4244: "argument": konwersja z "float" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+  SimulationStateMain.cpp
+  SimulationStateStart.cpp
+  StaticObjectFireplace.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\StaticObjectFireplace.cpp(10): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Tile.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\Tile.cpp(25): warning C4244: "argument": konwersja z "unsigned int" do "T", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  main.cpp
+  staticObjectResouces.cpp
+C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\Simulation\staticObjectResouces.cpp(12): warning C4244: "argument": konwersja z "T" do "T", możliwa utrata danych
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Generowanie kodu...
   Simulation.vcxproj -> C:\Users\JeLLek\Desktop\programowanie\symulacja\Simulation\x64\Debug\Simulation.exe
